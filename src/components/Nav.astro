@@ -1,0 +1,284 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+
+const navLinks = [
+  { href: "#pelote-basque", label: "Pelote Basque" },
+  { href: "#projets", label: "Projets" },
+];
+---
+
+<header class="nav" id="nav" role="banner">
+  <div class="container nav__inner">
+    <a href="/" class="nav__logo" aria-label="Pilotariak — Accueil">
+      <svg
+        class="nav__logo-icon"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        aria-hidden="true"
+      >
+        <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"
+        ></circle>
+        <path
+          d="M16 4C16 4 10 10 10 16C10 22 16 28 16 28C16 28 22 22 22 16C22 10 16 4 16 4Z"
+          fill="currentColor"
+          opacity="0.15"></path>
+        <circle cx="16" cy="16" r="5" fill="currentColor"></circle>
+      </svg>
+      <span class="nav__logo-text">Pilotariak</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Navigation principale">
+      {
+        navLinks.map(({ href, label }) => (
+          <a href={href} class="nav__link">
+            {label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a href="https://github.com/Pilotariak" class="nav__github" aria-label="GitHub Pilotariak">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+      </svg>
+    </a>
+
+    <button class="nav__hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
+    <nav class="nav__mobile-links">
+      {
+        navLinks.map(({ href, label }) => (
+          <a href={href} class="nav__mobile-link">
+            {label}
+          </a>
+        ))
+      }
+      <a href="https://github.com/Pilotariak" class="nav__mobile-link">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition:
+      background-color 250ms ease,
+      border-color 250ms ease,
+      box-shadow 250ms ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  .nav.is-scrolled {
+    background-color: var(--white);
+    border-color: var(--line);
+    box-shadow: 0 1px 0 var(--line);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    gap: var(--space-xl);
+  }
+
+  /* Logo */
+  .nav__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.3px;
+    transition: color 250ms ease;
+    flex-shrink: 0;
+  }
+
+  .nav.is-scrolled .nav__logo {
+    color: var(--ink);
+  }
+
+  .nav__logo-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Links */
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    flex: 1;
+  }
+
+  .nav__link {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.82);
+    transition: color 150ms ease;
+    white-space: nowrap;
+  }
+
+  .nav__link:hover {
+    color: var(--white);
+  }
+
+  .nav.is-scrolled .nav__link {
+    color: var(--text);
+  }
+
+  .nav.is-scrolled .nav__link:hover {
+    color: var(--red);
+  }
+
+  /* CTA */
+  /* GitHub link */
+  .nav__github {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.75);
+    transition: color 150ms ease;
+  }
+
+  .nav__github:hover {
+    color: var(--white);
+  }
+
+  .nav.is-scrolled .nav__github {
+    color: var(--muted);
+  }
+
+  .nav.is-scrolled .nav__github:hover {
+    color: var(--ink);
+  }
+
+  /* Hamburger */
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+    margin-left: auto;
+    border-radius: var(--radius-sm);
+  }
+
+  .nav__hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--white);
+    border-radius: 2px;
+    transition:
+      background-color 250ms ease,
+      transform 250ms ease,
+      opacity 250ms ease;
+  }
+
+  .nav.is-scrolled .nav__hamburger span {
+    background-color: var(--ink);
+  }
+
+  .nav__hamburger.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav__hamburger.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav__hamburger.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile menu */
+  .nav__mobile {
+    display: none;
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+    background-color: var(--white);
+    border-top: 1px solid var(--line);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 300ms ease;
+  }
+
+  .nav__mobile.is-open {
+    max-height: 400px;
+  }
+
+  .nav__mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .nav__mobile-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    transition: color 150ms ease;
+  }
+
+  .nav__mobile-link:hover {
+    color: var(--red);
+  }
+
+  @media (max-width: 768px) {
+    .nav__links,
+    .nav__actions {
+      display: none;
+    }
+
+    .nav__hamburger {
+      display: flex;
+    }
+
+    .nav__mobile {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  // Scroll behaviour: transparent → white
+  const nav = document.getElementById("nav");
+  const hamburger = nav?.querySelector(".nav__hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  function onScroll() {
+    if (!nav) return;
+    if (window.scrollY > 20) {
+      nav.classList.add("is-scrolled");
+    } else {
+      nav.classList.remove("is-scrolled");
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Hamburger toggle
+  hamburger?.addEventListener("click", () => {
+    const isOpen = hamburger.classList.toggle("is-open");
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+    mobileMenu?.classList.toggle("is-open", isOpen);
+    mobileMenu?.setAttribute("aria-hidden", String(!isOpen));
+    // Force nav to white when menu is open
+    if (isOpen) nav?.classList.add("is-scrolled");
+  });
+</script>

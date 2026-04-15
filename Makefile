@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 # SPDX-License-Identifier: Apache-2.0
 
-BANNER = P I L O T A R I A K  W E B S I T E
+BANNER = P I L O T A R I A K  /  W E B S I T E
 
 SHELL = /bin/bash -o pipefail
 
@@ -49,36 +49,36 @@ check-%:
 .PHONY: dev
 dev: ## Start development server
 	@echo -e "$(INFO)$(INFO_COLOR)[Dev] Starting Astro development server$(NO_COLOR)"
-	npm run dev
+	bun run dev
 
 .PHONY: build
 build: ## Build the website
 	@echo -e "$(INFO)$(INFO_COLOR)[Build] Building Astro website$(NO_COLOR)"
-	npm run build
+	bun run build
 
 .PHONY: preview
 preview: ## Preview the built website
 	@echo -e "$(INFO)$(INFO_COLOR)[Preview] Starting preview server$(NO_COLOR)"
-	npm run preview
+	bun run preview
 
 ##@ Dependencies
 
 .PHONY: install
 install: ## Install dependencies
 	@echo -e "$(INFO)$(INFO_COLOR)[Install] Installing dependencies$(NO_COLOR)"
-	npm install
+	bun install
 
 ##@ Quality
 
 .PHONY: lint
 lint: ## Run linters
 	@echo -e "$(INFO)$(INFO_COLOR)[Lint] Running linters$(NO_COLOR)"
-	npm run lint
+	bun run lint
 
 .PHONY: check
 check: ## Run Astro check
 	@echo -e "$(INFO)$(INFO_COLOR)[Check] Running Astro type check$(NO_COLOR)"
-	npm run astro check
+	bun run astro check
 
 ##@ Maintenance
 

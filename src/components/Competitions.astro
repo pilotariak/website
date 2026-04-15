@@ -1,0 +1,280 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+
+const competitions = [
+  {
+    badge: "En cours",
+    badgeVariant: "green",
+    specialty: "Cesta Punta",
+    name: "Championnat de France Professionnel",
+    location: "Fronton de Paris — Île-de-France",
+    date: "15 avr. – 20 juin 2025",
+    players: 32,
+    matches: 18,
+    nextMatch: "Demain 18h30",
+  },
+  {
+    badge: "Inscriptions ouvertes",
+    badgeVariant: "amber",
+    specialty: "Grand Chistera",
+    name: "Tournoi du Printemps Bayonnais",
+    location: "Fronton Mazon — Bayonne",
+    date: "3 – 5 mai 2025",
+    players: 48,
+    matches: 24,
+    nextMatch: "3 mai 14h00",
+  },
+  {
+    badge: "À venir",
+    badgeVariant: "soft",
+    specialty: "Paleta Goma",
+    name: "Coupe des Pyrénées",
+    location: "Fronton municipal — Mauléon",
+    date: "10 – 12 mai 2025",
+    players: 64,
+    matches: 31,
+    nextMatch: "10 mai 09h00",
+  },
+];
+
+const specialtyColors: Record<string, string> = {
+  "Cesta Punta": "#c8102e",
+  "Grand Chistera": "#1f7a5a",
+  "Paleta Goma": "#c8900a",
+};
+---
+
+<section class="section section--alt competitions" id="competitions" aria-labelledby="competitions-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">Compétitions</p>
+      <h2 class="section-header__title" id="competitions-title">
+        Suivez les championnats en direct
+      </h2>
+      <p class="section-header__subtitle">
+        Des tournois locaux aux championnats professionnels — toutes les compétitions
+        de pelote basque réunies sur une seule plateforme.
+      </p>
+    </div>
+
+    <ul class="competitions__list" role="list">
+      {
+        competitions.map((c, i) => (
+          <li class={`comp-card reveal reveal--delay-${i + 1}`} role="listitem">
+            <div class="comp-card__head">
+              <span class={`badge badge--${c.badgeVariant} comp-card__badge`}>
+                {c.badge}
+              </span>
+              <span
+                class="comp-card__specialty"
+                style={`--specialty-color: ${specialtyColors[c.specialty] ?? "var(--muted)"}`}
+              >
+                {c.specialty}
+              </span>
+            </div>
+
+            <h3 class="comp-card__title">{c.name}</h3>
+
+            <div class="comp-card__meta">
+              <div class="comp-card__meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                {c.location}
+              </div>
+              <div class="comp-card__meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                {c.date}
+              </div>
+            </div>
+
+            <div class="comp-card__stats">
+              <div class="comp-card__stat">
+                <span class="comp-card__stat-value">{c.players}</span>
+                <span class="comp-card__stat-label">Joueurs</span>
+              </div>
+              <div class="comp-card__stat-divider" aria-hidden="true" />
+              <div class="comp-card__stat">
+                <span class="comp-card__stat-value">{c.matches}</span>
+                <span class="comp-card__stat-label">Matchs</span>
+              </div>
+              <div class="comp-card__stat-divider" aria-hidden="true" />
+              <div class="comp-card__stat">
+                <span class="comp-card__stat-value next">{c.nextMatch}</span>
+                <span class="comp-card__stat-label">Prochain match</span>
+              </div>
+            </div>
+
+            <a href="#" class="comp-card__cta">
+              Voir les résultats
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="competitions__footer reveal">
+      <a href="#" class="btn btn--secondary">Voir toutes les compétitions</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .competitions__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .comp-card {
+    background-color: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    transition:
+      border-color 150ms ease,
+      box-shadow 150ms ease,
+      transform 200ms ease;
+  }
+
+  .comp-card:hover {
+    border-color: var(--red-border);
+    box-shadow: var(--shadow) 0 4px 20px;
+    transform: translateY(-2px);
+  }
+
+  /* Head row */
+  .comp-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xs);
+  }
+
+  .comp-card__specialty {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--specialty-color, var(--muted));
+  }
+
+  /* Title */
+  .comp-card__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+  }
+
+  /* Meta info */
+  .comp-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .comp-card__meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .comp-card__meta-item svg {
+    flex-shrink: 0;
+    color: var(--subtle);
+  }
+
+  /* Stats row */
+  .comp-card__stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background-color: var(--cream);
+    border-radius: var(--radius-md);
+    margin-top: auto;
+  }
+
+  .comp-card__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+  }
+
+  .comp-card__stat-value {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .comp-card__stat-value.next {
+    font-size: 13px;
+  }
+
+  .comp-card__stat-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .comp-card__stat-divider {
+    width: 1px;
+    height: 28px;
+    background-color: var(--line);
+    flex-shrink: 0;
+  }
+
+  /* CTA link */
+  .comp-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    transition: gap 150ms ease;
+  }
+
+  .comp-card__cta:hover {
+    gap: 10px;
+  }
+
+  /* Footer */
+  .competitions__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 1024px) {
+    .competitions__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .competitions__list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

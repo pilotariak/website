@@ -1,0 +1,39 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Pilotariak — Open Source pour la pelote basque"
+  description="Une suite d'outils open source pour la communauté de la pelote basque : Frontis la passerelle GraphQL et Kancha l'application mobile iOS & Android."
+>
+  <Nav />
+  <main id="main" tabindex="-1">
+    <Hero />
+    <Projects />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Scroll-triggered reveal animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>

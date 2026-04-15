@@ -1,0 +1,153 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+---
+
+<section class="cta-section" aria-labelledby="cta-title">
+  <div class="cta-section__gradient" aria-hidden="true">
+    <div class="cta-section__circle cta-section__circle--1"></div>
+    <div class="cta-section__circle cta-section__circle--2"></div>
+  </div>
+
+  <div class="container cta-section__content">
+    <div class="cta-section__inner reveal">
+      <p class="eyebrow eyebrow--light">Rejoignez la communauté</p>
+      <h2 class="cta-section__title" id="cta-title">
+        La pelote basque,<br />comme vous ne l'avez jamais suivie
+      </h2>
+      <p class="cta-section__subtitle">
+        Créez votre compte gratuitement et accédez à tous les résultats,
+        profils de joueurs et calendriers de la saison.
+      </p>
+      <div class="cta-section__actions">
+        <a href="#connexion" class="btn btn--white">
+          Créer un compte gratuit
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#competitions" class="btn btn--ghost-white">
+          Voir les compétitions
+        </a>
+      </div>
+
+      <p class="cta-section__note">
+        Gratuit · Aucune carte bancaire requise · Données mises à jour en temps réel
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    position: relative;
+    padding-block: var(--space-hero);
+    overflow: hidden;
+  }
+
+  /* Gradient background mirroring the hero */
+  .cta-section__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      var(--red-dark) 0%,
+      var(--red) 60%,
+      #e8203f 100%
+    );
+    z-index: 0;
+  }
+
+  .cta-section__circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.06);
+    pointer-events: none;
+  }
+
+  .cta-section__circle--1 {
+    width: 500px;
+    height: 500px;
+    bottom: -180px;
+    right: -100px;
+  }
+
+  .cta-section__circle--2 {
+    width: 280px;
+    height: 280px;
+    top: -80px;
+    left: 5%;
+  }
+
+  /* Content */
+  .cta-section__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-section__inner {
+    max-width: 680px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .cta-section__inner .eyebrow {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section__title {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .cta-section__subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.7;
+    margin-bottom: var(--space-2xl);
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  .cta-section__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* White filled button — only used here */
+  .btn--white {
+    background-color: var(--white);
+    color: var(--red);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn--white:hover {
+    background-color: var(--cream);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-section__note {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.2px;
+  }
+
+  @media (max-width: 480px) {
+    .cta-section__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .cta-section__actions .btn {
+      justify-content: center;
+    }
+  }
+</style>

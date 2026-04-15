@@ -1,0 +1,148 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+---
+
+<section class="hero" aria-label="Présentation de Pilotariak">
+  <div class="hero__gradient" aria-hidden="true">
+    <div class="hero__circle hero__circle--1"></div>
+    <div class="hero__circle hero__circle--2"></div>
+  </div>
+
+  <div class="container hero__content">
+    <p class="eyebrow eyebrow--light hero__eyebrow">Open Source · Pelote Basque</p>
+    <h1 class="hero__title">Pilotariak</h1>
+    <p class="hero__subtitle">
+      Une suite d'outils open source pour la communauté de la pelote basque —
+      données, API et applications mobiles réunis sous un même toit.
+    </p>
+    <div class="hero__actions">
+      <a href="#projets" class="btn btn--white">
+        Découvrir les projets
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="https://github.com/Pilotariak" class="btn btn--ghost-white">
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    overflow: hidden;
+  }
+
+  .hero__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      var(--red) 0%,
+      var(--red-dark) 55%,
+      var(--cream) 100%
+    );
+    z-index: 0;
+  }
+
+  .hero__circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+  }
+
+  .hero__circle--1 {
+    width: 420px;
+    height: 420px;
+    top: -80px;
+    right: -100px;
+  }
+
+  .hero__circle--2 {
+    width: 260px;
+    height: 260px;
+    top: 160px;
+    left: -70px;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: var(--space-md);
+  }
+
+  .hero__title {
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero__subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  /* White filled button */
+  .btn--white {
+    background-color: var(--white);
+    color: var(--red);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn--white:hover {
+    background-color: var(--cream);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 380px;
+      padding-top: 100px;
+      padding-bottom: 56px;
+    }
+
+    .hero__title {
+      letter-spacing: -1px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero__actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero__actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

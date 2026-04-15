@@ -1,0 +1,311 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+---
+
+<section class="section projects" id="projets" aria-labelledby="projects-title">
+  <div class="container">
+
+    <!-- Pelote Basque intro -->
+    <div class="pelote" id="pelote-basque">
+      <div class="pelote__text reveal">
+        <p class="eyebrow">Le sport</p>
+        <h2 class="pelote__title">La pelote basque</h2>
+        <p class="pelote__body">
+          Né au cœur du Pays Basque, ce sport ancestral se décline en une dizaine
+          de spécialités — de la Cesta Punta au Grand Chistera, en passant par la
+          Paleta et le Xare. Pratiquée des deux côtés des Pyrénées, la pelote basque
+          rassemble des milliers de joueurs et de passionnés autour d'une culture
+          sportive unique.
+        </p>
+        <p class="pelote__body">
+          Pilotariak est né de cette passion. Notre mission&nbsp;: rendre les données,
+          les résultats et la communauté accessibles à tous, via des outils ouverts
+          et modernes.
+        </p>
+      </div>
+
+      <div class="pelote__visual reveal reveal--delay-1" aria-hidden="true">
+        <div class="pelote__ball">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="58" stroke="var(--red)" stroke-width="2" opacity="0.2"/>
+            <circle cx="60" cy="60" r="44" stroke="var(--red)" stroke-width="1.5" opacity="0.15"/>
+            <circle cx="60" cy="60" r="30" fill="var(--red)" opacity="0.08"/>
+            <path
+              d="M60 12C60 12 40 32 40 60C40 88 60 108 60 108C60 108 80 88 80 60C80 32 60 12 60 12Z"
+              fill="var(--red)"
+              opacity="0.3"
+            />
+            <circle cx="60" cy="60" r="10" fill="var(--red)" opacity="0.6"/>
+            <circle cx="60" cy="60" r="4" fill="var(--red)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider projects__divider" />
+
+    <!-- Projects grid -->
+    <div class="projects__header reveal">
+      <p class="eyebrow">Les projets</p>
+      <h2 class="section-header__title" id="projects-title">
+        Des outils open source
+      </h2>
+    </div>
+
+    <div class="projects__grid">
+
+      <!-- Frontis -->
+      <article class="project-card reveal reveal--delay-1" aria-labelledby="frontis-title">
+        <div class="project-card__icon project-card__icon--frontis" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="project-card__tag">GraphQL Gateway</div>
+        <h3 class="project-card__title" id="frontis-title">Frontis</h3>
+        <p class="project-card__body">
+          La passerelle GraphQL centralisée pour toutes les données de la pelote basque.
+          Frontis expose une API unifiée pour accéder aux compétitions, résultats,
+          joueurs et frontons — conçue pour les développeurs et les intégrateurs.
+        </p>
+
+        <ul class="project-card__pills" role="list" aria-label="Technologies">
+          <li class="pill">GraphQL</li>
+          <li class="pill">API</li>
+          <li class="pill">Open Source</li>
+        </ul>
+
+        <a href="https://github.com/Pilotariak/frontis" class="project-card__link">
+          Voir le projet
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </article>
+
+      <!-- Kancha -->
+      <article class="project-card reveal reveal--delay-2" aria-labelledby="kancha-title">
+        <div class="project-card__icon project-card__icon--kancha" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <rect x="5" y="2" width="14" height="20" rx="3" stroke="currentColor" stroke-width="1.75"/>
+            <path d="M9 18h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            <circle cx="12" cy="6" r="1" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <div class="project-card__tag">Mobile · iOS &amp; Android</div>
+        <h3 class="project-card__title" id="kancha-title">Kancha</h3>
+        <p class="project-card__body">
+          L'application mobile de la communauté pelote basque. Kancha regroupe
+          résultats en direct, calendrier des compétitions, profils de joueurs et
+          carte des frontons — disponible sur iPhone et Android.
+        </p>
+
+        <ul class="project-card__pills" role="list" aria-label="Plateformes">
+          <li class="pill">iOS</li>
+          <li class="pill">Android</li>
+          <li class="pill">React Native</li>
+        </ul>
+
+        <a href="https://github.com/Pilotariak/kancha" class="project-card__link">
+          Voir le projet
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Pelote intro ───────────────────────────────────────── */
+  .pelote {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-3xl);
+    align-items: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .pelote__title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-block: var(--space-xs) var(--space-lg);
+  }
+
+  .pelote__body {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  .pelote__body + .pelote__body {
+    margin-top: var(--space-md);
+  }
+
+  .pelote__visual {
+    flex-shrink: 0;
+  }
+
+  .pelote__ball {
+    width: 160px;
+    height: 160px;
+    opacity: 0.85;
+  }
+
+  .pelote__ball svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── Divider ────────────────────────────────────────────── */
+  .projects__divider {
+    margin-bottom: var(--space-3xl);
+  }
+
+  /* ── Section header ─────────────────────────────────────── */
+  .projects__header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .projects__header .eyebrow {
+    margin-bottom: var(--space-xs);
+  }
+
+  /* ── Project cards grid ─────────────────────────────────── */
+  .projects__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .project-card {
+    background-color: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    transition:
+      border-color 200ms ease,
+      box-shadow 200ms ease,
+      transform 200ms ease;
+  }
+
+  .project-card:hover {
+    border-color: var(--red-border);
+    box-shadow: var(--shadow) 0 8px 32px;
+    transform: translateY(-3px);
+  }
+
+  /* Icon bubble */
+  .project-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-xs);
+    flex-shrink: 0;
+  }
+
+  .project-card__icon--frontis {
+    background-color: var(--red-soft);
+    color: var(--red);
+  }
+
+  .project-card__icon--kancha {
+    background-color: #e6f4ee;
+    color: var(--green);
+  }
+
+  /* Tag */
+  .project-card__tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--subtle);
+  }
+
+  /* Title */
+  .project-card__title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  /* Body */
+  .project-card__body {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  /* Pills */
+  .project-card__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    background-color: var(--surface-alt);
+    color: var(--text);
+    letter-spacing: 0.2px;
+  }
+
+  /* CTA link */
+  .project-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    margin-top: var(--space-xs);
+    transition: gap 150ms ease;
+  }
+
+  .project-card__link:hover {
+    gap: 10px;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .pelote {
+      grid-template-columns: 1fr;
+    }
+
+    .pelote__visual {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .projects__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
