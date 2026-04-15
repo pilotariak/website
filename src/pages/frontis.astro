@@ -1,0 +1,835 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Frontis — Passerelle GraphQL fédérée | Pilotariak"
+  description="Frontis est la passerelle GraphQL fédérée de Pilotariak. Elle unifie cinq sous-graphes en une seule API, déployée sur Cloudflare Workers avec des bases D1."
+>
+  <Nav />
+  <main id="main" tabindex="-1">
+
+    <!-- ── Hero ───────────────────────────────────────────────── -->
+    <section class="hero" aria-label="Frontis — Passerelle GraphQL fédérée">
+      <div class="hero__gradient" aria-hidden="true">
+        <div class="hero__circle hero__circle--1"></div>
+        <div class="hero__circle hero__circle--2"></div>
+      </div>
+      <div class="container hero__content">
+        <a href="/" class="hero__back">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3L6 8l4 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Pilotariak
+        </a>
+        <p class="eyebrow eyebrow--light hero__eyebrow">GraphQL · Federation · Cloudflare Workers</p>
+        <h1 class="hero__title">Frontis</h1>
+        <p class="hero__subtitle">
+          La passerelle GraphQL fédérée de Pilotariak — cinq sous-graphes,
+          une seule API, zéro serveur à gérer. Déployée à l'edge sur Cloudflare Workers.
+        </p>
+        <div class="hero__actions">
+          <a href="https://github.com/Pilotariak/frontis" class="btn btn--white">
+            Voir sur GitHub
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#architecture" class="btn btn--ghost-white">
+            Architecture
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Vue d'ensemble ──────────────────────────────────────── -->
+    <section class="section" id="overview" aria-labelledby="overview-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Vue d'ensemble</p>
+          <h2 class="section-header__title" id="overview-title">
+            Une API unifiée pour toutes les données
+          </h2>
+          <p class="section-header__subtitle">
+            Frontis utilise <strong>Hive Gateway</strong> pour fédérer cinq sous-graphes
+            indépendants en un seul point d'entrée GraphQL. Chaque domaine dispose de son
+            propre schéma, de son propre cycle de déploiement et de sa propre base de données.
+          </p>
+        </div>
+
+        <div class="subgraphs">
+          <article class="subgraph-card reveal reveal--delay-1">
+            <div class="subgraph-card__icon subgraph-card__icon--echo" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="subgraph-card__name">echo</h3>
+            <p class="subgraph-card__desc">Healthcheck et version de l'API. Sans base de données.</p>
+          </article>
+
+          <article class="subgraph-card reveal reveal--delay-1">
+            <div class="subgraph-card__icon subgraph-card__icon--clubs" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.75"/>
+              </svg>
+            </div>
+            <h3 class="subgraph-card__name">clubs</h3>
+            <p class="subgraph-card__desc">Clubs de pelote basque — propriétaire de l'entité <code>Club</code>.</p>
+          </article>
+
+          <article class="subgraph-card reveal reveal--delay-2">
+            <div class="subgraph-card__icon subgraph-card__icon--competitions" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M8 21h8M12 17v4M7 4h10l1 8H6L7 4z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                <circle cx="12" cy="13" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="subgraph-card__name">competitions</h3>
+            <p class="subgraph-card__desc">Championnats et tournois — propriétaire de l'entité <code>Competition</code>.</p>
+          </article>
+
+          <article class="subgraph-card reveal reveal--delay-2">
+            <div class="subgraph-card__icon subgraph-card__icon--results" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.75"/>
+              </svg>
+            </div>
+            <h3 class="subgraph-card__name">results</h3>
+            <p class="subgraph-card__desc">Résultats de matchs — propriétaire de l'entité <code>Result</code>.</p>
+          </article>
+
+          <article class="subgraph-card reveal reveal--delay-3">
+            <div class="subgraph-card__icon subgraph-card__icon--specialties" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="subgraph-card__name">specialties</h3>
+            <p class="subgraph-card__desc">Spécialités de pelote — propriétaire de l'entité <code>Specialty</code>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Architecture ────────────────────────────────────────── -->
+    <section class="section section--alt" id="architecture" aria-labelledby="architecture-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Architecture</p>
+          <h2 class="section-header__title" id="architecture-title">
+            Cloudflare Workers à l'edge
+          </h2>
+          <p class="section-header__subtitle">
+            Chaque sous-graphe est un Worker Cloudflare indépendant, joignable uniquement
+            via des <strong>service bindings</strong> — sans endpoint public, sans latence réseau.
+          </p>
+        </div>
+
+        <div class="arch-grid">
+          <div class="arch-card reveal reveal--delay-1">
+            <div class="arch-card__num">01</div>
+            <h3 class="arch-card__title">Service bindings</h3>
+            <p class="arch-card__body">
+              En production, la passerelle appelle les sous-graphes via des service bindings
+              (<code>CLUBS</code>, <code>COMPETITIONS</code>, <code>RESULTS</code>, <code>SPECIALTIES</code>).
+              Les sous-graphes sont inaccessibles depuis l'extérieur — surface d'attaque réduite.
+            </p>
+          </div>
+
+          <div class="arch-card reveal reveal--delay-2">
+            <div class="arch-card__num">02</div>
+            <h3 class="arch-card__title">D1 — SQLite à l'edge</h3>
+            <p class="arch-card__body">
+              Chaque sous-graphe avec données possède sa propre base D1, exécutée localement
+              dans le Worker. Les requêtes SQL ne quittent pas le datacenter — latence minimale garantie.
+            </p>
+          </div>
+
+          <div class="arch-card reveal reveal--delay-3">
+            <div class="arch-card__num">03</div>
+            <h3 class="arch-card__title">Routage multi-ligue</h3>
+            <p class="arch-card__body">
+              Le header <code>X-Pilotariak-League</code> sélectionne la base D1 active
+              (<code>lcapb</code>, <code>lidfpb</code>…). Un seul Worker gère toutes les ligues
+              — pas de déploiement par ligue.
+            </p>
+          </div>
+
+          <div class="arch-card reveal reveal--delay-4">
+            <div class="arch-card__num">04</div>
+            <h3 class="arch-card__title">Limites de requêtes</h3>
+            <p class="arch-card__body">
+              La passerelle applique des limites sur toutes les requêtes entrantes :
+              profondeur maximale (<code>depth 7</code>), nombre de tokens (<code>1000</code>)
+              et de directives (<code>10</code>) — configurables par environnement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Fédération GraphQL ───────────────────────────────────── -->
+    <section class="section" id="federation" aria-labelledby="federation-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Fédération GraphQL</p>
+          <h2 class="section-header__title" id="federation-title">
+            Entités, <code class="heading-code">@key</code> et Hive Registry
+          </h2>
+          <p class="section-header__subtitle">
+            Apollo Federation v2 permet à chaque sous-graphe de déclarer les types qu'il
+            possède. La passerelle résout automatiquement les champs cross-sous-graphe.
+          </p>
+        </div>
+
+        <div class="federation-layout reveal reveal--delay-1">
+          <div class="entities-table-wrap">
+            <p class="eyebrow" style="margin-bottom: var(--space-md)">Entités fédérées</p>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Entité</th>
+                  <th>Propriétaire</th>
+                  <th>Clé</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>Club</code></td>
+                  <td>clubs</td>
+                  <td><code>id</code></td>
+                </tr>
+                <tr>
+                  <td><code>Competition</code></td>
+                  <td>competitions</td>
+                  <td><code>id</code></td>
+                </tr>
+                <tr>
+                  <td><code>Result</code></td>
+                  <td>results</td>
+                  <td><code>id</code></td>
+                </tr>
+                <tr>
+                  <td><code>Specialty</code></td>
+                  <td>specialties</td>
+                  <td><code>id</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="code-block">
+            <p class="code-block__label">Résolution cross-sous-graphe</p>
+            <pre class="code-block__pre"><code># Requête client :
+{"{"} results {"{"} clubA {"{"} name {"}"} {"}"} {"}"}
+
+# La passerelle :
+# 1. Récupère les Result avec clubA {"{"} id {"}"}
+#    → sous-graphe results
+# 2. Envoie _entities([{"{"} __typename:"Club", id {"}"}])
+#    → sous-graphe clubs
+# 3. Fusionne {"{"} name {"}"} dans la réponse</code></pre>
+          </div>
+        </div>
+
+        <div class="hive-card reveal reveal--delay-2">
+          <div class="hive-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l9 5v10l-9 5-9-5V7l9-5z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+              <path d="M12 7l6 3.5v7L12 21l-6-3.5v-7L12 7z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" opacity="0.45"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="hive-card__title">Hive Registry &amp; CDN</h3>
+            <p class="hive-card__body">
+              Les schémas sont publiés dans le <strong>Hive Registry</strong>. Hive compose
+              le supergraph SDL, détecte les breaking changes et le met à disposition via son CDN —
+              sans redéployer la passerelle. Trois environnements :
+              <code>development</code>, <code>staging</code>, <code>production</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Flux de données ─────────────────────────────────────── -->
+    <section class="section section--flow" id="dataflow" aria-labelledby="flow-title">
+      <div class="container">
+        <div class="flow__header reveal">
+          <p class="eyebrow flow__eyebrow">Flux de données</p>
+          <h2 class="flow__title" id="flow-title">De la requête à la réponse</h2>
+        </div>
+        <pre class="flow__diagram reveal reveal--delay-1">Client (navigateur / application mobile)
+  │
+  │  HTTP POST /graphql
+  │  X-Pilotariak-League: lcapb
+  ▼
+Gateway Worker (Hive Gateway)
+  │  supergraph SDL — cache KV (ou Hive CDN)
+  │  limites : depth 7 · tokens 1000 · directives 10
+  │
+  ├── Service binding: ECHO          → echo Worker
+  │                                     (sans D1)
+  │
+  ├── Service binding: CLUBS         → clubs Worker
+  │                                     DB_LEAGUE_LCAPB (D1)
+  │
+  ├── Service binding: COMPETITIONS  → competitions Worker
+  │                                     DB_LEAGUE_LCAPB (D1)
+  │
+  ├── Service binding: RESULTS       → results Worker
+  │                                     DB_LEAGUE_LCAPB (D1)
+  │
+  └── Service binding: SPECIALTIES   → specialties Worker
+                                        DB_LEAGUE_LCAPB (D1)</pre>
+      </div>
+    </section>
+
+    <!-- ── CTA ────────────────────────────────────────────────── -->
+    <section class="section" aria-label="Contribuer à Frontis">
+      <div class="container cta-section">
+        <div class="cta-section__content reveal">
+          <p class="eyebrow">Open Source · Apache 2.0</p>
+          <h2 class="cta-section__title">Contribuer à Frontis</h2>
+          <p class="cta-section__body">
+            Le code source est ouvert sur GitHub. Issues, pull requests et questions
+            sont les bienvenus.
+          </p>
+          <div class="cta-section__actions">
+            <a href="https://github.com/Pilotariak/frontis" class="btn btn--primary">
+              Voir sur GitHub
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="/" class="btn btn--secondary">
+              ← Retour à l'accueil
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>
+
+<style>
+  /* ── Hero ───────────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    overflow: hidden;
+  }
+
+  .hero__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      var(--red) 0%,
+      var(--red-dark) 55%,
+      var(--cream) 100%
+    );
+    z-index: 0;
+  }
+
+  .hero__circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+  }
+
+  .hero__circle--1 {
+    width: 420px;
+    height: 420px;
+    top: -80px;
+    right: -100px;
+  }
+
+  .hero__circle--2 {
+    width: 260px;
+    height: 260px;
+    top: 160px;
+    left: -70px;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+  }
+
+  .hero__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: var(--space-xl);
+    transition: color 150ms ease;
+  }
+
+  .hero__back:hover {
+    color: var(--white);
+  }
+
+  .hero__eyebrow {
+    margin-bottom: var(--space-md);
+  }
+
+  .hero__title {
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero__subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .btn--white {
+    background-color: var(--white);
+    color: var(--red);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn--white:hover {
+    background-color: var(--cream);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ── Subgraph cards ─────────────────────────────────────────── */
+  .subgraphs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-md);
+  }
+
+  .subgraph-card {
+    background-color: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    transition:
+      border-color 200ms ease,
+      box-shadow 200ms ease,
+      transform 200ms ease;
+  }
+
+  .subgraph-card:hover {
+    border-color: var(--red-border);
+    box-shadow: var(--shadow) 0 6px 24px;
+    transform: translateY(-2px);
+  }
+
+  .subgraph-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-xs);
+    flex-shrink: 0;
+  }
+
+  .subgraph-card__icon--echo { background-color: var(--surface-alt); color: var(--muted); }
+  .subgraph-card__icon--clubs { background-color: var(--red-soft); color: var(--red); }
+  .subgraph-card__icon--competitions { background-color: var(--amber-soft); color: var(--amber); }
+  .subgraph-card__icon--results { background-color: var(--green-soft); color: var(--green); }
+  .subgraph-card__icon--specialties { background-color: #ede8ff; color: #6b3fd4; }
+
+  .subgraph-card__name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+  }
+
+  .subgraph-card__desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .subgraph-card__desc code {
+    font-size: 12px;
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    background-color: var(--surface-alt);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: var(--text);
+  }
+
+  /* ── Architecture grid ──────────────────────────────────────── */
+  .arch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .arch-card {
+    background-color: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    transition:
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .arch-card:hover {
+    border-color: var(--red-border);
+    box-shadow: var(--shadow) 0 4px 16px;
+  }
+
+  .arch-card__num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: var(--space-sm);
+  }
+
+  .arch-card__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .arch-card__body {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .arch-card__body code {
+    font-size: 13px;
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    background-color: var(--line);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: var(--text);
+  }
+
+  /* ── Federation ─────────────────────────────────────────────── */
+  .heading-code {
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    letter-spacing: 0;
+  }
+
+  .federation-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  /* Data table */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+
+  .data-table thead tr {
+    background-color: var(--surface-alt);
+    border-bottom: 2px solid var(--line);
+  }
+
+  .data-table th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--ink);
+    padding: 12px 16px;
+  }
+
+  .data-table td {
+    font-size: 14px;
+    color: var(--text);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .data-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .data-table tbody tr:hover td {
+    background-color: var(--card);
+  }
+
+  .data-table code {
+    font-size: 13px;
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    background-color: var(--surface-alt);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  /* Code block */
+  .code-block {
+    background-color: var(--ink);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+
+  .code-block__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    padding: var(--space-md) var(--space-xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .code-block__pre {
+    padding: var(--space-xl);
+    overflow-x: auto;
+  }
+
+  .code-block__pre code {
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.82);
+    white-space: pre;
+  }
+
+  /* Hive card */
+  .hive-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xl);
+    background-color: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+  }
+
+  .hive-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background-color: var(--amber-soft);
+    color: var(--amber);
+    flex-shrink: 0;
+  }
+
+  .hive-card__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hive-card__body {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .hive-card__body code {
+    font-size: 13px;
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    background-color: var(--surface-alt);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: var(--text);
+  }
+
+  /* ── Data flow section ──────────────────────────────────────── */
+  .section--flow {
+    background-color: var(--ink);
+    padding-block: var(--space-hero);
+  }
+
+  .flow__header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .flow__eyebrow {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: var(--space-xs);
+  }
+
+  .flow__title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+
+  .flow__diagram {
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.72);
+    background-color: var(--panel);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  /* ── CTA ────────────────────────────────────────────────────── */
+  .cta-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta-section__content {
+    max-width: 560px;
+    text-align: center;
+  }
+
+  .cta-section__content .eyebrow {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section__title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section__body {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+  }
+
+  .cta-section__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 1100px) {
+    .subgraphs {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .subgraphs {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .arch-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .federation-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .subgraphs {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      min-height: 380px;
+      padding-top: 100px;
+      padding-bottom: 56px;
+    }
+
+    .hero__title {
+      letter-spacing: -1px;
+    }
+
+    .hero__actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero__actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .hive-card {
+      flex-direction: column;
+    }
+
+    .flow__diagram {
+      font-size: 11px;
+      padding: var(--space-lg);
+    }
+  }
+</style>

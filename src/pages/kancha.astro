@@ -1,0 +1,899 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Kancha — Application mobile pelote basque | Pilotariak"
+  description="Kancha est l'application mobile iOS et Android de Pilotariak. Résultats en direct, compétitions, spécialités et phases de tournoi — disponible sur iPhone et Android."
+>
+  <Nav />
+  <main id="main" tabindex="-1">
+
+    <!-- ── Hero ───────────────────────────────────────────────── -->
+    <section class="hero" aria-label="Kancha — Application mobile pelote basque">
+      <div class="hero__gradient" aria-hidden="true">
+        <div class="hero__circle hero__circle--1"></div>
+        <div class="hero__circle hero__circle--2"></div>
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <a href="/" class="hero__back">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M10 3L6 8l4 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Pilotariak
+          </a>
+          <p class="eyebrow eyebrow--light hero__eyebrow">Application mobile · iOS &amp; Android</p>
+          <h1 class="hero__title">Kancha</h1>
+          <p class="hero__subtitle">
+            Les résultats de vos compétitions de pelote basque — par spécialité,
+            par catégorie, organisés phase par phase. Sur iPhone et Android.
+          </p>
+          <div class="hero__actions">
+            <a href="https://github.com/Pilotariak/kancha" class="btn btn--white">
+              Voir sur GitHub
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#comment-ca-marche" class="btn btn--ghost-white">
+              Comment ça marche
+            </a>
+          </div>
+        </div>
+
+        <!-- Phone mockups -->
+        <div class="hero__mockups" aria-hidden="true">
+          <!-- Screen 1: competition list -->
+          <div class="phone phone--back">
+            <div class="phone__header">
+              <div class="phone__eyebrow">Compétitions</div>
+              <div class="phone__title">Toutes les ligues</div>
+            </div>
+            <div class="phone__body">
+              <div class="phone__featured">
+                <div class="phone__feat-label">À la une</div>
+                <div class="phone__feat-title">Txapelketa 2026</div>
+                <div class="phone__feat-cta">Voir les détails →</div>
+              </div>
+              <div class="phone__card">
+                <div class="phone__card-name">Pilotariak Open</div>
+                <div class="phone__card-meta">Femmes · 2026</div>
+              </div>
+              <div class="phone__card">
+                <div class="phone__card-name">Winter Cup 2025</div>
+                <div class="phone__card-meta">Vétérans · 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Screen 2: match results by phase -->
+          <div class="phone phone--front">
+            <div class="phone__header">
+              <div class="phone__eyebrow">Tournoi · Résultats</div>
+              <div class="phone__title">Txapelketa 2026</div>
+            </div>
+            <div class="phone__body">
+              <div class="phone__divider">
+                <div class="phone__divider-line"></div>
+                <div class="phone__divider-pill">Poules</div>
+                <div class="phone__divider-line"></div>
+              </div>
+              <div class="phone__match">
+                <div class="phone__match-inner">
+                  <div class="phone__team-row">
+                    <span class="phone__team">Etxeberria / Urruti.</span>
+                    <span class="phone__score">40</span>
+                  </div>
+                  <div class="phone__team-row">
+                    <span class="phone__team">Larralde / Bidart</span>
+                    <span class="phone__score">27</span>
+                  </div>
+                </div>
+                <div class="phone__match-foot">
+                  <span class="phone__pill phone__pill--muted">28/09/2025</span>
+                  <span class="phone__phase">P 1</span>
+                </div>
+              </div>
+              <div class="phone__divider">
+                <div class="phone__divider-line"></div>
+                <div class="phone__divider-pill phone__divider-pill--amber">Finale</div>
+                <div class="phone__divider-line"></div>
+              </div>
+              <div class="phone__match phone__match--final">
+                <div class="phone__match-inner">
+                  <div class="phone__team-row">
+                    <span class="phone__team">M. Etxeberria</span>
+                    <span class="phone__score phone__score--big">40</span>
+                  </div>
+                  <div class="phone__team-row">
+                    <span class="phone__team">I. Larralde</span>
+                    <span class="phone__score phone__score--big">32</span>
+                  </div>
+                </div>
+                <div class="phone__match-foot">
+                  <span class="phone__pill phone__pill--green">23/11/2025</span>
+                  <span class="phone__phase">F 1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Comment ça marche ───────────────────────────────────── -->
+    <section class="section" id="comment-ca-marche" aria-labelledby="flow-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Comment ça marche</p>
+          <h2 class="section-header__title" id="flow-title">
+            Trois taps pour trouver vos résultats
+          </h2>
+          <p class="section-header__subtitle">
+            Kancha vous guide du choix de la compétition jusqu'au tableau complet,
+            sans friction.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal reveal--delay-1">
+            <div class="step__num">1</div>
+            <div class="step__content">
+              <h3 class="step__title">Choisissez une compétition</h3>
+              <p class="step__desc">
+                La compétition principale est mise en avant. Les autres sont listées en dessous,
+                filtrables par ligue et par année.
+              </p>
+            </div>
+          </div>
+
+          <div class="step reveal reveal--delay-2">
+            <div class="step__num">2</div>
+            <div class="step__content">
+              <h3 class="step__title">Sélectionnez une spécialité</h3>
+              <p class="step__desc">
+                Main nue, pala, chistera, rebot — chaque discipline a ses propres résultats
+                et son propre tableau.
+              </p>
+            </div>
+          </div>
+
+          <div class="step reveal reveal--delay-3">
+            <div class="step__num">3</div>
+            <div class="step__content">
+              <h3 class="step__title">Filtrez par catégorie</h3>
+              <p class="step__desc">
+                Seniors, juniors, femmes, vétérans — affinez pour afficher le bon tableau
+                et les bons joueurs.
+              </p>
+            </div>
+          </div>
+
+          <div class="step step--result reveal reveal--delay-4">
+            <div class="step__num step__num--green">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="step__content">
+              <h3 class="step__title">Consultez les résultats par phase</h3>
+              <p class="step__desc">
+                Poules, huitièmes, quarts, demi-finales et finale — dans l'ordre, avec scores
+                et compositions d'équipes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Ligues ──────────────────────────────────────────────── -->
+    <section class="section section--alt" id="ligues" aria-labelledby="leagues-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Ligues &amp; comités</p>
+          <h2 class="section-header__title" id="leagues-title">
+            Comités supportés
+          </h2>
+          <p class="section-header__subtitle">
+            Kancha est actuellement connecté à un comité, avec d'autres intégrations
+            prévues au fil des développements.
+          </p>
+        </div>
+
+        <div class="leagues reveal reveal--delay-1">
+          <div class="league-card league-card--active">
+            <div class="league-card__status">
+              <span class="badge badge--green">Disponible</span>
+            </div>
+            <h3 class="league-card__name">Comité Côte d'Argent Pelote Basque</h3>
+            <p class="league-card__id"><code>lcapb</code></p>
+          </div>
+
+          <div class="league-card league-card--planned">
+            <div class="league-card__status">
+              <span class="badge badge--soft">Prévu</span>
+            </div>
+            <h3 class="league-card__name">Comité du Béarn de Pelote</h3>
+          </div>
+
+          <div class="league-card league-card--planned">
+            <div class="league-card__status">
+              <span class="badge badge--soft">Prévu</span>
+            </div>
+            <h3 class="league-card__name">Comité des Landes de Pelote Basque</h3>
+          </div>
+
+          <div class="league-card league-card--planned">
+            <div class="league-card__status">
+              <span class="badge badge--soft">Prévu</span>
+            </div>
+            <h3 class="league-card__name">Comité Territorial Pays Basque</h3>
+          </div>
+
+          <div class="league-card league-card--planned">
+            <div class="league-card__status">
+              <span class="badge badge--soft">Prévu</span>
+            </div>
+            <h3 class="league-card__name">Ligue d'Île-de-France de Pelote Basque</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Technologies ────────────────────────────────────────── -->
+    <section class="section" id="tech" aria-labelledby="tech-title">
+      <div class="container">
+        <div class="tech-layout">
+          <div class="section-header reveal" style="margin-bottom: 0;">
+            <p class="eyebrow">Stack technique</p>
+            <h2 class="section-header__title" id="tech-title">
+              Construit avec des outils modernes
+            </h2>
+            <p class="section-header__subtitle">
+              React Native avec Expo permet de livrer une seule codebase pour iOS et Android,
+              sans compromis sur l'expérience native.
+            </p>
+          </div>
+
+          <div class="tech-cards reveal reveal--delay-1">
+            <div class="tech-card">
+              <div class="tech-card__icon tech-card__icon--rn" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+                  <ellipse cx="12" cy="12" rx="10" ry="4.5" stroke="currentColor" stroke-width="1.75"/>
+                  <ellipse cx="12" cy="12" rx="10" ry="4.5" stroke="currentColor" stroke-width="1.75" transform="rotate(60 12 12)"/>
+                  <ellipse cx="12" cy="12" rx="10" ry="4.5" stroke="currentColor" stroke-width="1.75" transform="rotate(120 12 12)"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="tech-card__name">React Native 0.81</h3>
+                <p class="tech-card__desc">Rendu natif iOS &amp; Android depuis une codebase unique</p>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="tech-card__icon tech-card__icon--expo" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L2 19.5h20L12 2z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                  <path d="M7 14.5h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="tech-card__name">Expo 54 &amp; Expo Router</h3>
+                <p class="tech-card__desc">Navigation file-based, SDK unifié, builds EAS</p>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="tech-card__icon tech-card__icon--query" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16M4 12h10M4 18h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                  <circle cx="19" cy="17" r="3" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M21.5 19.5l1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="tech-card__name">TanStack Query</h3>
+                <p class="tech-card__desc">Mise en cache et synchronisation des requêtes GraphQL</p>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="tech-card__icon tech-card__icon--frontis" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                  <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                  <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="tech-card__name">API Frontis</h3>
+                <p class="tech-card__desc">Données via la passerelle GraphQL fédérée — <a href="/frontis" class="tech-card__link">en savoir plus</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ────────────────────────────────────────────────── -->
+    <section class="section section--alt" aria-label="Contribuer à Kancha">
+      <div class="container cta-section">
+        <div class="cta-section__content reveal">
+          <p class="eyebrow">Open Source · Apache 2.0</p>
+          <h2 class="cta-section__title">Contribuer à Kancha</h2>
+          <p class="cta-section__body">
+            Le code source est ouvert sur GitHub. Issues, pull requests et retours
+            utilisateurs sont les bienvenus.
+          </p>
+          <div class="cta-section__actions">
+            <a href="https://github.com/Pilotariak/kancha" class="btn btn--primary">
+              Voir sur GitHub
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="/" class="btn btn--secondary">
+              ← Retour à l'accueil
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>
+
+<style>
+  /* ── Hero ───────────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
+
+  .hero__gradient {
+    position: absolute;
+    inset: 0;
+    bottom: 120px;
+    background: linear-gradient(
+      to bottom,
+      var(--red) 0%,
+      var(--red-dark) 55%,
+      var(--cream) 100%
+    );
+    z-index: 0;
+  }
+
+  .hero__circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+  }
+
+  .hero__circle--1 { width: 420px; height: 420px; top: -80px; right: -80px; }
+  .hero__circle--2 { width: 240px; height: 240px; top: 180px; left: -60px; }
+
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-3xl);
+    align-items: flex-end;
+    padding-bottom: 0;
+  }
+
+  .hero__content {
+    padding-bottom: 80px;
+  }
+
+  .hero__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: var(--space-xl);
+    transition: color 150ms ease;
+  }
+
+  .hero__back:hover { color: var(--white); }
+
+  .hero__eyebrow { margin-bottom: var(--space-md); }
+
+  .hero__title {
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero__subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .btn--white {
+    background-color: var(--white);
+    color: var(--red);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn--white:hover {
+    background-color: var(--cream);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ── Phone mockups ──────────────────────────────────────────── */
+  .hero__mockups {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    padding-bottom: 0;
+    align-self: flex-end;
+  }
+
+  .phone {
+    width: 200px;
+    border-radius: 28px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow:
+      0 24px 64px rgba(103, 18, 31, 0.18),
+      0 4px 16px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .phone--back {
+    transform: translateY(32px);
+  }
+
+  .phone__header {
+    height: 120px;
+    background: linear-gradient(180deg, var(--red) 0%, var(--red-dark) 55%, var(--cream) 100%);
+    padding: 18px 14px 0;
+  }
+
+  .phone__eyebrow {
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 4px;
+  }
+
+  .phone__title {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--white);
+  }
+
+  .phone__body {
+    padding: 6px 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  /* Featured card */
+  .phone__featured {
+    background: var(--red);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-top: -14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phone__feat-label {
+    font-size: 7px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 2px;
+  }
+
+  .phone__feat-title {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .phone__feat-cta {
+    font-size: 8px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* List card */
+  .phone__card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 8px 10px;
+  }
+
+  .phone__card-name {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .phone__card-meta {
+    font-size: 8px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* Match card */
+  .phone__match {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .phone__match--final {
+    border: 2px solid var(--red);
+    border-radius: 12px;
+  }
+
+  .phone__match-inner {
+    padding: 8px 10px;
+  }
+
+  .phone__team-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .phone__team-row:last-child { border-bottom: none; }
+
+  .phone__team {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .phone__score {
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--red);
+  }
+
+  .phone__score--big { font-size: 18px; }
+
+  .phone__match-foot {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-top: 1px solid var(--line);
+    background: rgba(0, 0, 0, 0.015);
+  }
+
+  .phone__pill {
+    border-radius: 9999px;
+    padding: 2px 6px;
+    font-size: 7px;
+    font-weight: 700;
+  }
+
+  .phone__pill--muted { background: var(--red-soft); color: var(--red-dark); }
+  .phone__pill--green { background: var(--green-soft); color: var(--green); }
+
+  .phone__phase {
+    font-size: 8px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  /* Dividers */
+  .phone__divider {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .phone__divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .phone__divider-pill {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    padding: 2px 7px;
+    font-size: 7px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--ink);
+  }
+
+  .phone__divider-pill--amber {
+    background: var(--amber-soft);
+    border-color: rgba(200, 144, 10, 0.35);
+    color: #a86e00;
+  }
+
+  /* ── Steps ──────────────────────────────────────────────────── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    max-width: 680px;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xl);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl) var(--space-2xl);
+    transition: border-color 200ms ease;
+  }
+
+  .step:hover { border-color: var(--red-border); }
+
+  .step--result { border-color: var(--red-border); }
+
+  .step__num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--red);
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .step__num--green { background: var(--green); }
+
+  .step__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .step__desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── Leagues ────────────────────────────────────────────────── */
+  .leagues {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .league-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    transition:
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .league-card--active {
+    border-color: var(--green);
+    background: var(--green-soft);
+  }
+
+  .league-card--planned { opacity: 0.65; }
+
+  .league-card:hover { border-color: var(--red-border); box-shadow: var(--shadow) 0 4px 16px; }
+  .league-card--active:hover { border-color: var(--green); }
+
+  .league-card__status { margin-bottom: var(--space-2xs); }
+
+  .league-card__name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .league-card__id code {
+    font-size: 12px;
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    background: rgba(31, 122, 90, 0.12);
+    color: var(--green);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* ── Tech cards ─────────────────────────────────────────────── */
+  .tech-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .tech-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .tech-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    transition:
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .tech-card:hover {
+    border-color: var(--red-border);
+    box-shadow: var(--shadow) 0 4px 16px;
+  }
+
+  .tech-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+  }
+
+  .tech-card__icon--rn { background: #e8f4fd; color: #0d6efd; }
+  .tech-card__icon--expo { background: var(--surface-alt); color: var(--ink); }
+  .tech-card__icon--query { background: var(--amber-soft); color: var(--amber); }
+  .tech-card__icon--frontis { background: var(--red-soft); color: var(--red); }
+
+  .tech-card__name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .tech-card__desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .tech-card__link {
+    color: var(--red);
+    font-weight: 600;
+    transition: color 150ms ease;
+  }
+
+  .tech-card__link:hover { color: var(--red-dark); }
+
+  /* ── CTA section ────────────────────────────────────────────── */
+  .cta-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta-section__content {
+    max-width: 560px;
+    text-align: center;
+  }
+
+  .cta-section__content .eyebrow { margin-bottom: var(--space-md); }
+
+  .cta-section__title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section__body {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+  }
+
+  .cta-section__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .hero__inner { grid-template-columns: 1fr; }
+    .hero__mockups { display: none; }
+    .hero__gradient { bottom: 0; }
+    .hero__content { padding-bottom: 80px; }
+
+    .tech-layout { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  }
+
+  @media (max-width: 900px) {
+    .leagues { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .hero__title { letter-spacing: -1px; }
+    .hero__actions { flex-direction: column; align-items: flex-start; }
+    .hero__actions .btn { width: 100%; justify-content: center; }
+
+    .leagues { grid-template-columns: 1fr; }
+    .tech-cards { grid-template-columns: 1fr; }
+
+    .step { padding: var(--space-lg); gap: var(--space-lg); }
+  }
+</style>
