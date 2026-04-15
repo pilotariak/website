@@ -1,43 +1,59 @@
-# Astro Starter Kit: Minimal
+# Pilotariak Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Pilotariak/website/blob/main/LICENSE)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Pilotariak/website/badge)](https://scorecard.dev/viewer/?uri=github.com/Pilotariak/website)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Website for the [Pilotariak](https://github.com/Pilotariak) organization, built with [Astro](https://astro.build).
+It serves as the landing page for Pilotariak projects including **Frontis** (GraphQL API gateway) and **Kancha** (mobile application).
 
-## 🚀 Project Structure
+## Features
 
-Inside of your Astro project, you'll see the following folders and files:
+- Organization landing page with project showcase
+- Dedicated pages for [Frontis](src/pages/frontis.astro) and [Kancha](src/pages/kancha.astro)
+- Built with Astro 6 for fast, static-first output
+
+## Project Structure
 
 ```text
 /
 ├── public/
 ├── src/
+│   ├── components/     # Reusable Astro components
 │   └── pages/
-│       └── index.astro
-└── package.json
+│       ├── index.astro     # Organization landing page
+│       ├── frontis.astro   # Frontis project page
+│       └── kancha.astro    # Kancha project page
+├── package.json
+└── Makefile
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Development
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Requirements: [Bun](https://bun.sh) >= 1.0
 
-Any static assets, like images, can be placed in the `public/` directory.
+| Command           | Action                                       |
+| :---------------- | :------------------------------------------- |
+| `make install`    | Install dependencies                         |
+| `make dev`        | Start local dev server at `localhost:4321`   |
+| `make build`      | Build production site to `./dist/`           |
+| `make preview`    | Preview production build locally             |
+| `make check`      | Run Astro type check                         |
+| `make clean`      | Remove build artifacts                       |
 
-## 🧞 Commands
+Or directly with Bun:
 
-All commands are run from the root of the project, from a terminal:
+| Command             | Action                                         |
+| :------------------ | :--------------------------------------------- |
+| `bun install`       | Install dependencies                           |
+| `bun run dev`       | Start local dev server at `localhost:4321`     |
+| `bun run build`     | Build production site to `./dist/`             |
+| `bun run preview`   | Preview production build locally               |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Contributing
 
-## 👀 Want to learn more?
+Contributions are welcome! Please feel free to submit a Pull Request.
+See [CONTRIBUTING](CONTRIBUTING.md)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## License
+
+See [LICENSE](LICENSE)
