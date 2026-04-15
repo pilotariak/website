@@ -7,14 +7,19 @@ interface Props {
   description?: string;
 }
 
+const lang = Astro.currentLocale ?? 'en';
+
 const {
-  title = "Pilotariak — Pelota Basque",
-  description = "La plateforme de référence pour la pelote basque. Résultats, compétitions, et communauté.",
+  title = 'Pilotariak — Pelota Basque',
+  description =
+    lang === 'en'
+      ? 'The open source platform for Basque pelota. Results, competitions, and community.'
+      : 'La plateforme de référence pour la pelote basque. Résultats, compétitions, et communauté.',
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,6 +28,8 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" hreflang="en" href={Astro.url.pathname.replace(/^\/fr/, '') || '/'} />
+    <link rel="alternate" hreflang="fr" href={`/fr${Astro.url.pathname.replace(/^\/fr/, '') || '/'}`} />
     <title>{title}</title>
   </head>
   <body>

@@ -2,13 +2,13 @@
 // SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
 
-import Layout from "../layouts/Layout.astro";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
-import { useTranslations, useTranslatedPath } from "../i18n/utils";
-import type { Lang } from "../i18n/utils";
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { useTranslations, useTranslatedPath } from "../../i18n/utils";
+import type { Lang } from "../../i18n/utils";
 
-const lang = (Astro.currentLocale ?? "en") as Lang;
+const lang = (Astro.currentLocale ?? "fr") as Lang;
 const t = useTranslations(lang);
 const tp = useTranslatedPath(lang);
 ---
@@ -214,7 +214,6 @@ const tp = useTranslatedPath(lang);
             <pre class="code-block__pre"><code set:text={t("frontis.federation.code")} /></pre>
           </div>
         </div>
-
       </div>
     </section>
 

@@ -1,6 +1,11 @@
 ---
 // SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
+
+import { useTranslations, type Lang } from '../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'en') as Lang;
+const t = useTranslations(lang);
 ---
 
 <section class="cta-section" aria-labelledby="cta-title">
@@ -11,28 +16,27 @@
 
   <div class="container cta-section__content">
     <div class="cta-section__inner reveal">
-      <p class="eyebrow eyebrow--light">Rejoignez la communauté</p>
+      <p class="eyebrow eyebrow--light">{t('cta.eyebrow')}</p>
       <h2 class="cta-section__title" id="cta-title">
-        La pelote basque,<br />comme vous ne l'avez jamais suivie
+        {t('cta.title')}
       </h2>
       <p class="cta-section__subtitle">
-        Créez votre compte gratuitement et accédez à tous les résultats,
-        profils de joueurs et calendriers de la saison.
+        {t('cta.subtitle')}
       </p>
       <div class="cta-section__actions">
         <a href="#connexion" class="btn btn--white">
-          Créer un compte gratuit
+          {t('cta.signup')}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
         <a href="#competitions" class="btn btn--ghost-white">
-          Voir les compétitions
+          {t('cta.viewCompetitions')}
         </a>
       </div>
 
       <p class="cta-section__note">
-        Gratuit · Aucune carte bancaire requise · Données mises à jour en temps réel
+        {t('cta.note')}
       </p>
     </div>
   </div>
@@ -102,6 +106,7 @@
     line-height: 1.1;
     letter-spacing: -1px;
     margin-bottom: var(--space-lg);
+    white-space: pre-line;
   }
 
   .cta-section__subtitle {

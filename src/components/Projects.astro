@@ -1,6 +1,12 @@
 ---
 // SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
+
+import { useTranslations, useTranslatedPath, type Lang } from '../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'en') as Lang;
+const t = useTranslations(lang);
+const tp = useTranslatedPath(lang);
 ---
 
 <section class="section projects" id="projets" aria-labelledby="projects-title">
@@ -9,20 +15,10 @@
     <!-- Pelote Basque intro -->
     <div class="pelote" id="pelote-basque">
       <div class="pelote__text reveal">
-        <p class="eyebrow">Le sport</p>
-        <h2 class="pelote__title">La pelote basque</h2>
-        <p class="pelote__body">
-          Né au cœur du Pays Basque, ce sport ancestral se décline en une dizaine
-          de spécialités — de la Cesta Punta au Grand Chistera, en passant par la
-          Paleta et le Xare. Pratiquée des deux côtés des Pyrénées, la pelote basque
-          rassemble des milliers de joueurs et de passionnés autour d'une culture
-          sportive unique.
-        </p>
-        <p class="pelote__body">
-          Pilotariak est né de cette passion. Notre mission&nbsp;: rendre les données,
-          les résultats et la communauté accessibles à tous, via des outils ouverts
-          et modernes.
-        </p>
+        <p class="eyebrow">{t('projects.sport.eyebrow')}</p>
+        <h2 class="pelote__title">{t('projects.sport.title')}</h2>
+        <p class="pelote__body">{t('projects.sport.body1')}</p>
+        <p class="pelote__body">{t('projects.sport.body2')}</p>
       </div>
 
       <div class="pelote__visual reveal reveal--delay-1" aria-hidden="true">
@@ -47,9 +43,9 @@
 
     <!-- Projects grid -->
     <div class="projects__header reveal">
-      <p class="eyebrow">Les projets</p>
+      <p class="eyebrow">{t('projects.eyebrow')}</p>
       <h2 class="section-header__title" id="projects-title">
-        Des outils open source
+        {t('projects.title')}
       </h2>
     </div>
 
@@ -67,20 +63,16 @@
 
         <div class="project-card__tag">GraphQL Gateway</div>
         <h3 class="project-card__title" id="frontis-title">Frontis</h3>
-        <p class="project-card__body">
-          La passerelle GraphQL centralisée pour toutes les données de la pelote basque.
-          Frontis expose une API unifiée pour accéder aux compétitions, résultats,
-          joueurs et frontons — conçue pour les développeurs et les intégrateurs.
-        </p>
+        <p class="project-card__body">{t('projects.frontis.body')}</p>
 
-        <ul class="project-card__pills" role="list" aria-label="Technologies">
+        <ul class="project-card__pills" role="list" aria-label={t('projects.frontis.ariaLabel')}>
           <li class="pill">GraphQL</li>
           <li class="pill">API</li>
           <li class="pill">Open Source</li>
         </ul>
 
-        <a href="/frontis" class="project-card__link">
-          En savoir plus
+        <a href={tp('/frontis')} class="project-card__link">
+          {t('projects.learnMore')}
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -99,20 +91,16 @@
 
         <div class="project-card__tag">Mobile · iOS &amp; Android</div>
         <h3 class="project-card__title" id="kancha-title">Kancha</h3>
-        <p class="project-card__body">
-          L'application mobile de la communauté pelote basque. Kancha regroupe
-          résultats en direct, calendrier des compétitions, profils de joueurs et
-          carte des frontons — disponible sur iPhone et Android.
-        </p>
+        <p class="project-card__body">{t('projects.kancha.body')}</p>
 
-        <ul class="project-card__pills" role="list" aria-label="Plateformes">
+        <ul class="project-card__pills" role="list" aria-label={t('projects.kancha.ariaLabel')}>
           <li class="pill">iOS</li>
           <li class="pill">Android</li>
           <li class="pill">React Native</li>
         </ul>
 
-        <a href="/kancha" class="project-card__link">
-          En savoir plus
+        <a href={tp('/kancha')} class="project-card__link">
+          {t('projects.learnMore')}
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
