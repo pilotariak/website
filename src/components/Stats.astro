@@ -2,51 +2,34 @@
 // SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
 
-const stats = [
-  {
-    value: "240+",
-    label: "Compétitions organisées",
-    description: "chaque année à travers le Pays Basque et la France",
-  },
-  {
-    value: "1 800",
-    label: "Joueurs inscrits",
-    description: "du débutant au professionnel, toutes spécialités confondues",
-  },
-  {
-    value: "7",
-    label: "Spécialités couvertes",
-    description: "Cesta Punta, Grand Chistera, Paleta, Xare et plus encore",
-  },
-  {
-    value: "120",
-    label: "Frontons répertoriés",
-    description: "avec informations pratiques et calendrier des événements",
-  },
-];
+import { useTranslations, type Lang } from '../i18n/utils';
+import { statsData } from '../i18n/ui';
+
+const lang = (Astro.currentLocale ?? 'en') as Lang;
+const t = useTranslations(lang);
+const stats = statsData[lang];
 ---
 
 <section class="section stats" id="stats" aria-labelledby="stats-title">
   <div class="container">
     <div class="stats__inner">
       <div class="stats__text reveal">
-        <p class="eyebrow">La pelote en chiffres</p>
+        <p class="eyebrow">{t('stats.eyebrow')}</p>
         <h2 class="stats__title" id="stats-title">
-          Un sport vivant,<br />une communauté passionnée
+          {t('stats.title')}
         </h2>
         <p class="stats__subtitle">
-          Pilotariak centralise des données qui permettent de suivre l'évolution de
-          la pelote basque dans toutes ses dimensions — du terrain aux archives.
+          {t('stats.subtitle')}
         </p>
         <a href="#features" class="btn btn--primary stats__cta">
-          Découvrir la plateforme
+          {t('stats.cta')}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
       </div>
 
-      <dl class="stats__grid" aria-label="Chiffres clés de Pilotariak">
+      <dl class="stats__grid" aria-label={t('stats.ariaLabel')}>
         {
           stats.map((s, i) => (
             <div class={`stat-block reveal reveal--delay-${i + 1}`}>

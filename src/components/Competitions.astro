@@ -2,59 +2,77 @@
 // SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
 
-const competitions = [
+import { useTranslations, type Lang } from '../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'en') as Lang;
+const t = useTranslations(lang);
+
+type BadgeVariant = 'green' | 'amber' | 'soft';
+
+const badgeLabel: Record<BadgeVariant, string> = {
+  green: t('competitions.badge.ongoing'),
+  amber: t('competitions.badge.open'),
+  soft: t('competitions.badge.upcoming'),
+};
+
+const competitions: {
+  badgeVariant: BadgeVariant;
+  specialty: string;
+  name: string;
+  location: string;
+  date: string;
+  players: number;
+  matches: number;
+  nextMatch: string;
+}[] = [
   {
-    badge: "En cours",
-    badgeVariant: "green",
-    specialty: "Cesta Punta",
-    name: "Championnat de France Professionnel",
-    location: "Fronton de Paris — Île-de-France",
-    date: "15 avr. – 20 juin 2025",
+    badgeVariant: 'green',
+    specialty: 'Cesta Punta',
+    name: 'Championnat de France Professionnel',
+    location: 'Fronton de Paris — Île-de-France',
+    date: '15 avr. – 20 juin 2025',
     players: 32,
     matches: 18,
-    nextMatch: "Demain 18h30",
+    nextMatch: 'Demain 18h30',
   },
   {
-    badge: "Inscriptions ouvertes",
-    badgeVariant: "amber",
-    specialty: "Grand Chistera",
-    name: "Tournoi du Printemps Bayonnais",
-    location: "Fronton Mazon — Bayonne",
-    date: "3 – 5 mai 2025",
+    badgeVariant: 'amber',
+    specialty: 'Grand Chistera',
+    name: 'Tournoi du Printemps Bayonnais',
+    location: 'Fronton Mazon — Bayonne',
+    date: '3 – 5 mai 2025',
     players: 48,
     matches: 24,
-    nextMatch: "3 mai 14h00",
+    nextMatch: '3 mai 14h00',
   },
   {
-    badge: "À venir",
-    badgeVariant: "soft",
-    specialty: "Paleta Goma",
-    name: "Coupe des Pyrénées",
-    location: "Fronton municipal — Mauléon",
-    date: "10 – 12 mai 2025",
+    badgeVariant: 'soft',
+    specialty: 'Paleta Goma',
+    name: 'Coupe des Pyrénées',
+    location: 'Fronton municipal — Mauléon',
+    date: '10 – 12 mai 2025',
     players: 64,
     matches: 31,
-    nextMatch: "10 mai 09h00",
+    nextMatch: '10 mai 09h00',
   },
 ];
 
 const specialtyColors: Record<string, string> = {
-  "Cesta Punta": "#c8102e",
-  "Grand Chistera": "#1f7a5a",
-  "Paleta Goma": "#c8900a",
+  'Cesta Punta': '#c8102e',
+  'Grand Chistera': '#1f7a5a',
+  'Paleta Goma': '#c8900a',
 };
 ---
 
 <section class="section section--alt competitions" id="competitions" aria-labelledby="competitions-title">
   <div class="container">
     <div class="section-header reveal">
-      <p class="eyebrow">Compétitions</p>
+      <p class="eyebrow">{t('competitions.eyebrow')}</p>
       <h2 class="section-header__title" id="competitions-title">
-        Suivez les championnats en direct
+        {t('competitions.title')}
       </h2>
       <p class="section-header__subtitle">
-        Des tournois locaux aux championnats professionnels — toutes les compétitions
-        de pelote basque réunies sur une seule plateforme.
+        {t('competitions.subtitle')}
       </p>
     </div>
 
@@ -64,11 +82,11 @@ const specialtyColors: Record<string, string> = {
           <li class={`comp-card reveal reveal--delay-${i + 1}`} role="listitem">
             <div class="comp-card__head">
               <span class={`badge badge--${c.badgeVariant} comp-card__badge`}>
-                {c.badge}
+                {badgeLabel[c.badgeVariant]}
               </span>
               <span
                 class="comp-card__specialty"
-                style={`--specialty-color: ${specialtyColors[c.specialty] ?? "var(--muted)"}`}
+                style={`--specialty-color: ${specialtyColors[c.specialty] ?? 'var(--muted)'}`}
               >
                 {c.specialty}
               </span>
@@ -96,22 +114,22 @@ const specialtyColors: Record<string, string> = {
             <div class="comp-card__stats">
               <div class="comp-card__stat">
                 <span class="comp-card__stat-value">{c.players}</span>
-                <span class="comp-card__stat-label">Joueurs</span>
+                <span class="comp-card__stat-label">{t('competitions.stat.players')}</span>
               </div>
               <div class="comp-card__stat-divider" aria-hidden="true" />
               <div class="comp-card__stat">
                 <span class="comp-card__stat-value">{c.matches}</span>
-                <span class="comp-card__stat-label">Matchs</span>
+                <span class="comp-card__stat-label">{t('competitions.stat.matches')}</span>
               </div>
               <div class="comp-card__stat-divider" aria-hidden="true" />
               <div class="comp-card__stat">
                 <span class="comp-card__stat-value next">{c.nextMatch}</span>
-                <span class="comp-card__stat-label">Prochain match</span>
+                <span class="comp-card__stat-label">{t('competitions.stat.next')}</span>
               </div>
             </div>
 
             <a href="#" class="comp-card__cta">
-              Voir les résultats
+              {t('competitions.cta')}
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -122,7 +140,7 @@ const specialtyColors: Record<string, string> = {
     </ul>
 
     <div class="competitions__footer reveal">
-      <a href="#" class="btn btn--secondary">Voir toutes les compétitions</a>
+      <a href="#" class="btn btn--secondary">{t('competitions.ctaAll')}</a>
     </div>
   </div>
 </section>

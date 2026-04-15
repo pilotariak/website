@@ -2,12 +2,17 @@
 // SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
 
+import { useTranslations, useTranslatedPath, type Lang } from '../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'en') as Lang;
+const t = useTranslations(lang);
+const tp = useTranslatedPath(lang);
 const year = new Date().getFullYear();
 ---
 
 <footer class="footer" role="contentinfo">
   <div class="container footer__inner">
-    <a href="/" class="footer__logo" aria-label="Pilotariak — Accueil">
+    <a href={tp('/')} class="footer__logo" aria-label={t('footer.ariaHome')}>
       <svg
         width="24"
         height="24"
@@ -29,10 +34,10 @@ const year = new Date().getFullYear();
       &copy; {year} Pilotariak — Open Source · Apache 2.0
     </p>
 
-    <nav class="footer__links" aria-label="Liens du pied de page">
+    <nav class="footer__links" aria-label={t('footer.ariaNav')}>
       <a href="https://github.com/Pilotariak" class="footer__link">GitHub</a>
-      <a href="/frontis" class="footer__link">Frontis</a>
-      <a href="/kancha" class="footer__link">Kancha</a>
+      <a href={tp('/frontis')} class="footer__link">Frontis</a>
+      <a href={tp('/kancha')} class="footer__link">Kancha</a>
     </nav>
   </div>
 </footer>

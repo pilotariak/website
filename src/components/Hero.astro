@@ -1,24 +1,28 @@
 ---
 // SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
+
+import { useTranslations, type Lang } from '../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'en') as Lang;
+const t = useTranslations(lang);
 ---
 
-<section class="hero" aria-label="Présentation de Pilotariak">
+<section class="hero" aria-label={t('hero.ariaLabel')}>
   <div class="hero__gradient" aria-hidden="true">
     <div class="hero__circle hero__circle--1"></div>
     <div class="hero__circle hero__circle--2"></div>
   </div>
 
   <div class="container hero__content">
-    <p class="eyebrow eyebrow--light hero__eyebrow">Open Source · Pelote Basque</p>
+    <p class="eyebrow eyebrow--light hero__eyebrow">{t('hero.eyebrow')}</p>
     <h1 class="hero__title">Pilotariak</h1>
     <p class="hero__subtitle">
-      Une suite d'outils open source pour la communauté de la pelote basque —
-      données, API et applications mobiles réunis sous un même toit.
+      {t('hero.subtitle')}
     </p>
     <div class="hero__actions">
       <a href="#projets" class="btn btn--white">
-        Découvrir les projets
+        {t('hero.cta.discover')}
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>

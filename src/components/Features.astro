@@ -2,72 +2,52 @@
 // SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
 
-const features = [
-  {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
-    label: "Résultats",
-    title: "Tous les résultats en temps réel",
-    body: "Suivez les scores de chaque match au fur et à mesure. Aucune rencontre ne vous échappe, des tournois locaux aux championnats officiels.",
-  },
-  {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
-    label: "Joueurs",
-    title: "Profils et palmarès des joueurs",
-    body: "Retrouvez la fiche de chaque pelotari : statistiques, historique de compétitions, spécialités pratiquées et classement actualisé.",
-  },
-  {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
-      <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>`,
-    label: "Calendrier",
-    title: "Calendrier officiel des compétitions",
-    body: "Consultez l'agenda complet de la saison. Filtrez par spécialité, province ou niveau de compétition pour planifier votre suivi.",
-  },
-  {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
-    label: "Palmarès",
-    title: "Titres et records historiques",
-    body: "Explorez l'histoire de la pelote basque à travers les archives de championnats, les records et les grandes dates du sport.",
-  },
-  {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
-      <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-    </svg>`,
-    label: "Frontons",
-    title: "Carte des frontons",
-    body: "Localisez les frontons de votre région, accédez aux informations pratiques et découvrez les compétitions qui s'y jouent.",
-  },
-  {
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
-    label: "Statistiques",
-    title: "Analyses et statistiques avancées",
-    body: "Plongez dans les données : performances individuelles, évolutions des classements, tendances par spécialité et analyses de saison.",
-  },
+import { useTranslations, type Lang } from '../i18n/utils';
+import { featuresData } from '../i18n/ui';
+
+const lang = (Astro.currentLocale ?? 'en') as Lang;
+const t = useTranslations(lang);
+
+const featureIcons = [
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+    <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+  </svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`,
 ];
+
+const features = featuresData[lang].map((text, i) => ({
+  icon: featureIcons[i],
+  ...text,
+}));
 ---
 
 <section class="section features" id="features" aria-labelledby="features-title">
   <div class="container">
     <div class="section-header reveal">
-      <p class="eyebrow">Fonctionnalités</p>
+      <p class="eyebrow">{t('features.eyebrow')}</p>
       <h2 class="section-header__title" id="features-title">
-        Tout ce dont vous avez besoin
+        {t('features.title')}
       </h2>
       <p class="section-header__subtitle">
-        Une plateforme pensée par des passionnés, pour les passionnés.
-        De la pelote basque dans toutes ses spécialités, couverte comme elle le mérite.
+        {t('features.subtitle')}
       </p>
     </div>
 

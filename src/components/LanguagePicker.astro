@@ -1,0 +1,84 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+
+import { languages, type Lang } from '../i18n/ui';
+
+const lang = (Astro.currentLocale ?? 'en') as Lang;
+const currentPath = Astro.url.pathname;
+
+// Strip the locale prefix to get the canonical path
+const pathWithoutLocale = (currentPath === '/fr' || currentPath.startsWith('/fr/'))
+  ? currentPath.slice(3) || '/'
+  : currentPath;
+---
+
+<div class="lang-picker" aria-label="Language selector">
+  {
+    Object.entries(languages).map(([code, label]) => {
+      const href = code === 'en' ? pathWithoutLocale : `/fr${pathWithoutLocale}`;
+      const isActive = lang === code;
+      return (
+        <a
+          href={href}
+          class={`lang-picker__btn${isActive ? ' is-active' : ''}`}
+          hreflang={code}
+          aria-current={isActive ? 'true' : undefined}
+          title={label}
+        >
+          {code.toUpperCase()}
+        </a>
+      );
+    })
+  }
+</div>
+
+<style>
+  .lang-picker {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-pill);
+    padding: 3px;
+    transition: background-color 250ms ease;
+  }
+
+  .nav.is-scrolled .lang-picker {
+    background-color: var(--surface-alt);
+  }
+
+  .lang-picker__btn {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.65);
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+    transition:
+      color 150ms ease,
+      background-color 150ms ease;
+  }
+
+  .lang-picker__btn:hover {
+    color: var(--white);
+  }
+
+  .lang-picker__btn.is-active {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: var(--white);
+  }
+
+  .nav.is-scrolled .lang-picker__btn {
+    color: var(--muted);
+  }
+
+  .nav.is-scrolled .lang-picker__btn:hover {
+    color: var(--ink);
+  }
+
+  .nav.is-scrolled .lang-picker__btn.is-active {
+    background-color: var(--red-soft);
+    color: var(--red);
+  }
+</style>
