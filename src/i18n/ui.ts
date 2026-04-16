@@ -191,22 +191,52 @@ export const ui = {
     'kancha.leagues.badge.available': 'Disponible',
     'kancha.leagues.badge.planned': 'Prévu',
 
-    'kancha.tech.eyebrow': 'Stack technique',
-    'kancha.tech.title': 'Construit avec des outils modernes',
-    'kancha.tech.subtitle':
-      "React Native avec Expo permet de livrer une seule codebase pour iOS et Android, sans compromis sur l'expérience native.",
-    'kancha.tech.rn.desc': 'Rendu natif iOS & Android depuis une codebase unique',
-    'kancha.tech.expo.desc': 'Navigation file-based, SDK unifié, builds EAS',
-    'kancha.tech.query.desc': 'Mise en cache et synchronisation des requêtes GraphQL',
-    'kancha.tech.frontis.desc': 'Données via la passerelle GraphQL fédérée',
-    'kancha.tech.frontis.link': 'en savoir plus',
+    'kancha.features.eyebrow': 'Fonctionnalités',
+    'kancha.features.title': "Ce que fait l'application",
+    'kancha.features.subtitle':
+      "Kancha est pensé pour les passionnés de pelote basque — simple, rapide, et tout ce dont vous avez besoin.",
+    'kancha.features.f1.title': 'Résultats phase par phase',
+    'kancha.features.f1.desc':
+      "Des poules à la finale — scores, compositions et phases dans une vue claire et organisée.",
+    'kancha.features.f2.title': 'Toutes les spécialités',
+    'kancha.features.f2.desc':
+      "Main nue, pala, grand chistera, cesta punta, xare — chaque discipline avec ses propres tableaux.",
+    'kancha.features.f3.title': 'Filtre par catégorie',
+    'kancha.features.f3.desc':
+      "Seniors, juniors, femmes, vétérans — affinez pour afficher exactement le bon tableau.",
+    'kancha.features.f4.title': 'Multi-ligues',
+    'kancha.features.f4.desc':
+      "Connecté à plusieurs comités régionaux. Une seule application pour toutes les compétitions.",
+    'kancha.features.f5.title': 'Calendrier des compétitions',
+    'kancha.features.f5.desc':
+      "Tournois à venir, résultats récents et compétitions en cours — consultables d'un coup d'œil.",
+    'kancha.features.f6.title': 'Données ouvertes',
+    'kancha.features.f6.desc':
+      "Propulsé par Frontis, l'API GraphQL open source de Pilotariak — toutes les données sont communautaires.",
 
-    'kancha.cta.eyebrow': 'Open Source · Apache 2.0',
-    'kancha.cta.title': 'Contribuer à Kancha',
-    'kancha.cta.body':
-      "Le code source est ouvert sur GitHub. Issues, pull requests et retours utilisateurs sont les bienvenus.",
-    'kancha.cta.github': 'Voir sur GitHub',
-    'kancha.cta.back': "← Retour à l'accueil",
+    'kancha.download.eyebrow': 'Télécharger',
+    'kancha.download.title': 'Bientôt disponible sur iOS & Android',
+    'kancha.download.subtitle':
+      "Kancha est en développement actif. Suivez le projet sur GitHub pour être notifié lors du lancement sur l'App Store et Google Play.",
+    'kancha.download.comingSoon': 'Bientôt',
+    'kancha.download.note': "En attendant, lancez-le localement avec Expo Go.",
+    'kancha.download.github': 'Suivre sur GitHub',
+
+    'kancha.contribute.eyebrow': 'Open Source · Apache 2.0',
+    'kancha.contribute.title': 'Construisez-le avec nous',
+    'kancha.contribute.subtitle':
+      "Kancha est open source et accueille toutes les contributions — rapports de bugs, nouvelles fonctionnalités ou documentation.",
+    'kancha.contribute.step1.title': 'Forker & lancer en local',
+    'kancha.contribute.step1.desc':
+      "Clonez le dépôt, installez les dépendances avec npm et lancez sur votre appareil via Expo Go.",
+    'kancha.contribute.step2.title': 'Ouvrir une issue',
+    'kancha.contribute.step2.desc':
+      "Un bug ou une idée ? Les issues GitHub sont le bon endroit pour en discuter et suivre l'avancement.",
+    'kancha.contribute.step3.title': 'Soumettre une pull request',
+    'kancha.contribute.step3.desc':
+      "Toutes les pull requests sont examinées. Consultez le guide de contribution dans le dépôt pour les conventions.",
+    'kancha.contribute.github': 'Voir sur GitHub',
+    'kancha.contribute.back': "← Retour à l'accueil",
   },
 
   en: {
@@ -383,21 +413,52 @@ export const ui = {
     'kancha.leagues.badge.available': 'Available',
     'kancha.leagues.badge.planned': 'Planned',
 
-    'kancha.tech.eyebrow': 'Tech stack',
-    'kancha.tech.title': 'Built with modern tools',
-    'kancha.tech.subtitle':
-      'React Native with Expo delivers a single codebase for iOS and Android, without compromising the native experience.',
-    'kancha.tech.rn.desc': 'Native iOS & Android rendering from a single codebase',
-    'kancha.tech.expo.desc': 'File-based navigation, unified SDK, EAS builds',
-    'kancha.tech.query.desc': 'Caching and synchronisation for GraphQL queries',
-    'kancha.tech.frontis.desc': 'Data via the federated GraphQL gateway',
-    'kancha.tech.frontis.link': 'learn more',
+    'kancha.features.eyebrow': 'Features',
+    'kancha.features.title': 'What the app does',
+    'kancha.features.subtitle':
+      "Kancha is built for Basque pelota fans — simple, fast, and everything you need.",
+    'kancha.features.f1.title': 'Phase-by-phase results',
+    'kancha.features.f1.desc':
+      "From group stages to the final — scores, teams and phases in one clear, organised view.",
+    'kancha.features.f2.title': 'All disciplines',
+    'kancha.features.f2.desc':
+      "Main nue, pala, grand chistera, cesta punta, xare — each discipline with its own brackets.",
+    'kancha.features.f3.title': 'Category filter',
+    'kancha.features.f3.desc':
+      "Seniors, juniors, women, veterans — narrow down to display exactly the right bracket.",
+    'kancha.features.f4.title': 'Multi-league',
+    'kancha.features.f4.desc':
+      "Connected to multiple regional committees. One app for all competitions.",
+    'kancha.features.f5.title': 'Competition calendar',
+    'kancha.features.f5.desc':
+      "Upcoming tournaments, recent results and ongoing competitions — all at a glance.",
+    'kancha.features.f6.title': 'Open data',
+    'kancha.features.f6.desc':
+      "Powered by Frontis, Pilotariak's open source GraphQL API — all data is community-owned.",
 
-    'kancha.cta.eyebrow': 'Open Source · Apache 2.0',
-    'kancha.cta.title': 'Contribute to Kancha',
-    'kancha.cta.body': 'The source code is open on GitHub. Issues, pull requests and user feedback are welcome.',
-    'kancha.cta.github': 'View on GitHub',
-    'kancha.cta.back': '← Back to home',
+    'kancha.download.eyebrow': 'Get the app',
+    'kancha.download.title': 'Coming soon on iOS & Android',
+    'kancha.download.subtitle':
+      "Kancha is in active development. Follow the project on GitHub to be notified when it launches on the App Store and Google Play.",
+    'kancha.download.comingSoon': 'Coming soon',
+    'kancha.download.note': "In the meantime, run it locally with Expo Go.",
+    'kancha.download.github': 'Follow on GitHub',
+
+    'kancha.contribute.eyebrow': 'Open Source · Apache 2.0',
+    'kancha.contribute.title': 'Build it with us',
+    'kancha.contribute.subtitle':
+      "Kancha is open source and welcomes contributions of all kinds — bug reports, new features or documentation.",
+    'kancha.contribute.step1.title': 'Fork & run locally',
+    'kancha.contribute.step1.desc':
+      "Clone the repo, install dependencies with npm and launch on your device via Expo Go.",
+    'kancha.contribute.step2.title': 'Open an issue',
+    'kancha.contribute.step2.desc':
+      "Found a bug or have an idea? GitHub issues are the right place to discuss and track work.",
+    'kancha.contribute.step3.title': 'Submit a pull request',
+    'kancha.contribute.step3.desc':
+      "All pull requests are reviewed. Check the contributing guide in the repository for conventions.",
+    'kancha.contribute.github': 'View on GitHub',
+    'kancha.contribute.back': '← Back to home',
   },
 } as const;
 

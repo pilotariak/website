@@ -235,9 +235,7 @@ const navLinks = [
   /* Mobile menu */
   .nav__mobile {
     display: none;
-    padding: var(--space-md) var(--space-lg) var(--space-lg);
     background-color: var(--white);
-    border-top: 1px solid var(--line);
     overflow: hidden;
     max-height: 0;
     transition: max-height 300ms ease;
@@ -251,6 +249,8 @@ const navLinks = [
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+    border-top: 1px solid var(--line);
   }
 
   .nav__mobile-link {
