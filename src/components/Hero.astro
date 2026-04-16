@@ -41,7 +41,7 @@ const t = useTranslations(lang);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-top: 120px;
+    padding-top: calc(120px + env(safe-area-inset-top));
     padding-bottom: 80px;
     overflow: hidden;
   }
@@ -129,7 +129,7 @@ const t = useTranslations(lang);
   @media (max-width: 768px) {
     .hero {
       min-height: 380px;
-      padding-top: 100px;
+      padding-top: calc(100px + env(safe-area-inset-top));
       padding-bottom: 56px;
     }
 
