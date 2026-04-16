@@ -219,7 +219,6 @@ export const ui = {
     'kancha.download.subtitle':
       "Kancha est en développement actif. Suivez le projet sur GitHub pour être notifié lors du lancement sur l'App Store et Google Play.",
     'kancha.download.comingSoon': 'Bientôt',
-    'kancha.download.note': "En attendant, lancez-le localement avec Expo Go.",
     'kancha.download.github': 'Suivre sur GitHub',
 
     'kancha.contribute.eyebrow': 'Open Source · Apache 2.0',
@@ -441,7 +440,6 @@ export const ui = {
     'kancha.download.subtitle':
       "Kancha is in active development. Follow the project on GitHub to be notified when it launches on the App Store and Google Play.",
     'kancha.download.comingSoon': 'Coming soon',
-    'kancha.download.note': "In the meantime, run it locally with Expo Go.",
     'kancha.download.github': 'Follow on GitHub',
 
     'kancha.contribute.eyebrow': 'Open Source · Apache 2.0',
