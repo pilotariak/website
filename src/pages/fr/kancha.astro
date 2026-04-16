@@ -238,100 +238,180 @@ const tp = useTranslatedPath(lang);
       </div>
     </section>
 
-    <!-- ── Tech stack ───────────────────────────────────────────── -->
-    <section class="section" id="tech" aria-labelledby="tech-title">
+    <!-- ── Features ────────────────────────────────────────────── -->
+    <section class="section section--alt" id="features" aria-labelledby="features-title">
       <div class="container">
-        <div class="tech-layout">
-          <div class="section-header reveal" style="margin-bottom: 0;">
-            <p class="eyebrow">{t("kancha.tech.eyebrow")}</p>
-            <h2 class="section-header__title" id="tech-title">
-              {t("kancha.tech.title")}
-            </h2>
-            <p class="section-header__subtitle">
-              {t("kancha.tech.subtitle")}
-            </p>
+        <div class="section-header reveal">
+          <p class="eyebrow">{t("kancha.features.eyebrow")}</p>
+          <h2 class="section-header__title" id="features-title">
+            {t("kancha.features.title")}
+          </h2>
+          <p class="section-header__subtitle">{t("kancha.features.subtitle")}</p>
+        </div>
+        <div class="feat-grid reveal reveal--delay-1">
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--red" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M6 4h2v16H6M18 4h-2v16h2M8 12h8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feat-card__title">{t("kancha.features.f1.title")}</h3>
+            <p class="feat-card__desc">{t("kancha.features.f1.desc")}</p>
           </div>
-
-          <div class="tech-cards reveal reveal--delay-1">
-            <div class="tech-card">
-              <div class="tech-card__icon tech-card__icon--rn" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
-                  <ellipse cx="12" cy="12" rx="10" ry="4.5" stroke="currentColor" stroke-width="1.75"/>
-                  <ellipse cx="12" cy="12" rx="10" ry="4.5" stroke="currentColor" stroke-width="1.75" transform="rotate(60 12 12)"/>
-                  <ellipse cx="12" cy="12" rx="10" ry="4.5" stroke="currentColor" stroke-width="1.75" transform="rotate(120 12 12)"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="tech-card__name">React Native 0.81</h3>
-                <p class="tech-card__desc">{t("kancha.tech.rn.desc")}</p>
-              </div>
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--amber" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M12 3c0 4.5-3 7.5-3 9s3 4.5 3 9M3.5 9.5h17M3.5 14.5h17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
             </div>
-
-            <div class="tech-card">
-              <div class="tech-card__icon tech-card__icon--expo" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 19.5h20L12 2z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
-                  <path d="M7 14.5h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="tech-card__name">Expo 54 &amp; Expo Router</h3>
-                <p class="tech-card__desc">{t("kancha.tech.expo.desc")}</p>
-              </div>
+            <h3 class="feat-card__title">{t("kancha.features.f2.title")}</h3>
+            <p class="feat-card__desc">{t("kancha.features.f2.desc")}</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--green" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
             </div>
-
-            <div class="tech-card">
-              <div class="tech-card__icon tech-card__icon--query" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 6h16M4 12h10M4 18h6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-                  <circle cx="19" cy="17" r="3" stroke="currentColor" stroke-width="1.5"/>
-                  <path d="M21.5 19.5l1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="tech-card__name">TanStack Query</h3>
-                <p class="tech-card__desc">{t("kancha.tech.query.desc")}</p>
-              </div>
+            <h3 class="feat-card__title">{t("kancha.features.f3.title")}</h3>
+            <p class="feat-card__desc">{t("kancha.features.f3.desc")}</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--red" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M2 8l10-5 10 5-10 5L2 8z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                <path d="M2 13l10 5 10-5M2 18l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
-
-            <div class="tech-card">
-              <div class="tech-card__icon tech-card__icon--frontis" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
-                  <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
-                  <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="tech-card__name">API Frontis</h3>
-                <p class="tech-card__desc">{t("kancha.tech.frontis.desc")} — <a href={tp("/frontis")} class="tech-card__link">{t("kancha.tech.frontis.link")}</a></p>
-              </div>
+            <h3 class="feat-card__title">{t("kancha.features.f4.title")}</h3>
+            <p class="feat-card__desc">{t("kancha.features.f4.desc")}</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--amber" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
             </div>
+            <h3 class="feat-card__title">{t("kancha.features.f5.title")}</h3>
+            <p class="feat-card__desc">{t("kancha.features.f5.desc")}</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--green" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feat-card__title">{t("kancha.features.f6.title")}</h3>
+            <p class="feat-card__desc">{t("kancha.features.f6.desc")}</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── CTA ────────────────────────────────────────────────── -->
-    <section class="section section--alt" aria-label={t("kancha.cta.title")}>
-      <div class="container cta-section">
-        <div class="cta-section__content reveal">
-          <p class="eyebrow">{t("kancha.cta.eyebrow")}</p>
-          <h2 class="cta-section__title">{t("kancha.cta.title")}</h2>
-          <p class="cta-section__body">
-            {t("kancha.cta.body")}
-          </p>
-          <div class="cta-section__actions">
-            <a href="https://github.com/Pilotariak/kancha" class="btn btn--primary">
-              {t("kancha.cta.github")}
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <a href={tp("/")} class="btn btn--secondary">
-              {t("kancha.cta.back")}
-            </a>
+    <!-- ── Download ──────────────────────────────────────────────── -->
+    <section class="section" id="download" aria-labelledby="download-title">
+      <div class="container">
+        <div class="dl-section reveal">
+          <p class="eyebrow">{t("kancha.download.eyebrow")}</p>
+          <h2 class="dl-section__title" id="download-title">{t("kancha.download.title")}</h2>
+          <p class="dl-section__subtitle">{t("kancha.download.subtitle")}</p>
+          <div class="store-badges">
+            <div class="store-badge">
+              <div class="store-badge__icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+              </div>
+              <div class="store-badge__info">
+                <span class="store-badge__name">App Store</span>
+                <span class="badge badge--soft">{t("kancha.download.comingSoon")}</span>
+              </div>
+            </div>
+            <div class="store-badge">
+              <div class="store-badge__icon store-badge__icon--android" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.523 7.869l1.107-1.92a.229.229 0 00-.4-.223l-1.12 1.94A7.16 7.16 0 0012 6.75a7.16 7.16 0 00-5.11 2.916l-1.12-1.94a.229.229 0 00-.4.223l1.107 1.92A6.937 6.937 0 004.5 14.25h15a6.937 6.937 0 00-1.977-6.381zM8.625 12a.75.75 0 110-1.5.75.75 0 010 1.5zm6.75 0a.75.75 0 110-1.5.75.75 0 010 1.5zM4.5 15.75v5.25a.75.75 0 001.5 0V21h12v-.75a.75.75 0 001.5-.75v-3.75H4.5zm-1.875-1.5h-.75A.75.75 0 001.5 15v3a.75.75 0 001.5 0v-3a.75.75 0 00-.375-.75zm18.75 0a.75.75 0 00-.375.75v3a.75.75 0 001.5 0v-3a.75.75 0 00-.75-.75h-.375z"/>
+                </svg>
+              </div>
+              <div class="store-badge__info">
+                <span class="store-badge__name">Google Play</span>
+                <span class="badge badge--soft">{t("kancha.download.comingSoon")}</span>
+              </div>
+            </div>
+          </div>
+          <p class="dl-section__note">{t("kancha.download.note")}</p>
+          <a href="https://github.com/Pilotariak/kancha" class="btn btn--primary">
+            {t("kancha.download.github")}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contribute ────────────────────────────────────────────── -->
+    <section class="section section--alt" id="contribute" aria-label={t("kancha.contribute.title")}>
+      <div class="container">
+        <div class="contrib-layout">
+          <div class="contrib-header reveal">
+            <p class="eyebrow">{t("kancha.contribute.eyebrow")}</p>
+            <h2 class="contrib-header__title">{t("kancha.contribute.title")}</h2>
+            <p class="contrib-header__subtitle">{t("kancha.contribute.subtitle")}</p>
+            <div class="contrib-header__actions">
+              <a href="https://github.com/Pilotariak/kancha" class="btn btn--primary">
+                {t("kancha.contribute.github")}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a href={tp("/")} class="btn btn--secondary">
+                {t("kancha.contribute.back")}
+              </a>
+            </div>
+          </div>
+          <div class="contrib-steps reveal reveal--delay-1">
+            <div class="contrib-step">
+              <div class="contrib-step__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                  <path d="M6 9l4 3-4 3M13 15h5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="contrib-step__title">{t("kancha.contribute.step1.title")}</h3>
+                <p class="contrib-step__desc">{t("kancha.contribute.step1.desc")}</p>
+              </div>
+            </div>
+            <div class="contrib-step">
+              <div class="contrib-step__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/>
+                  <path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="contrib-step__title">{t("kancha.contribute.step2.title")}</h3>
+                <p class="contrib-step__desc">{t("kancha.contribute.step2.desc")}</p>
+              </div>
+            </div>
+            <div class="contrib-step">
+              <div class="contrib-step__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <circle cx="6" cy="6" r="3" stroke="currentColor" stroke-width="1.75"/>
+                  <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.75"/>
+                  <circle cx="18" cy="9" r="3" stroke="currentColor" stroke-width="1.75"/>
+                  <path d="M6 9v6M9 7.5l6-1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="contrib-step__title">{t("kancha.contribute.step3.title")}</h3>
+                <p class="contrib-step__desc">{t("kancha.contribute.step3.desc")}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -757,88 +837,68 @@ const tp = useTranslatedPath(lang);
     border-radius: 4px;
   }
 
-  /* ── Tech cards ─────────────────────────────────────────────── */
-  .tech-layout {
+  /* ── Features ──────────────────────────────────────────────── */
+  .feat-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3xl);
-    align-items: start;
-  }
-
-  .tech-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-md);
   }
 
-  .tech-card {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-md);
+  .feat-card {
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: var(--radius-xl);
     padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
     transition:
       border-color 200ms ease,
       box-shadow 200ms ease;
   }
 
-  .tech-card:hover {
+  .feat-card:hover {
     border-color: var(--red-border);
     box-shadow: var(--shadow) 0 4px 16px;
   }
 
-  .tech-card__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .feat-card__icon {
     width: 44px;
     height: 44px;
     border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    margin-bottom: var(--space-xs);
   }
 
-  .tech-card__icon--rn { background: #e8f4fd; color: #0d6efd; }
-  .tech-card__icon--expo { background: var(--surface-alt); color: var(--ink); }
-  .tech-card__icon--query { background: var(--amber-soft); color: var(--amber); }
-  .tech-card__icon--frontis { background: var(--red-soft); color: var(--red); }
+  .feat-card__icon--red   { background: var(--red-soft);   color: var(--red); }
+  .feat-card__icon--amber { background: var(--amber-soft); color: var(--amber); }
+  .feat-card__icon--green { background: var(--green-soft); color: var(--green); }
 
-  .tech-card__name {
-    font-size: 14px;
+  .feat-card__title {
+    font-size: 15px;
     font-weight: 700;
     color: var(--ink);
-    margin-bottom: var(--space-2xs);
   }
 
-  .tech-card__desc {
-    font-size: 13px;
+  .feat-card__desc {
+    font-size: 14px;
     color: var(--muted);
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
-  .tech-card__link {
-    color: var(--red);
-    font-weight: 600;
-    transition: color 150ms ease;
-  }
-
-  .tech-card__link:hover { color: var(--red-dark); }
-
-  /* ── CTA section ────────────────────────────────────────────── */
-  .cta-section {
-    display: flex;
-    justify-content: center;
-  }
-
-  .cta-section__content {
-    max-width: 560px;
+  /* ── Download ───────────────────────────────────────────────── */
+  .dl-section {
+    max-width: 600px;
+    margin-inline: auto;
     text-align: center;
   }
 
-  .cta-section__content .eyebrow { margin-bottom: var(--space-md); }
+  .dl-section .eyebrow { margin-bottom: var(--space-md); }
 
-  .cta-section__title {
+  .dl-section__title {
     font-size: clamp(28px, 4vw, 40px);
     font-weight: 800;
     color: var(--ink);
@@ -847,18 +907,126 @@ const tp = useTranslatedPath(lang);
     margin-bottom: var(--space-md);
   }
 
-  .cta-section__body {
+  .dl-section__subtitle {
     font-size: 17px;
     color: var(--muted);
     line-height: 1.7;
     margin-bottom: var(--space-xl);
   }
 
-  .cta-section__actions {
+  .store-badges {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xl);
+  }
+
+  .store-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md) var(--space-xl);
+    opacity: 0.72;
+    min-width: 190px;
+  }
+
+  .store-badge__icon { color: var(--ink); flex-shrink: 0; }
+  .store-badge__icon--android { color: #3ddc84; }
+
+  .store-badge__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .store-badge__name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .dl-section__note {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: var(--space-xl);
+  }
+
+  /* ── Contribute ─────────────────────────────────────────────── */
+  .contrib-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .contrib-header .eyebrow { margin-bottom: var(--space-md); }
+
+  .contrib-header__title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: var(--space-md);
+  }
+
+  .contrib-header__subtitle {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+  }
+
+  .contrib-header__actions {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-md);
+  }
+
+  .contrib-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .contrib-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  .contrib-step__icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: var(--red-soft);
+    color: var(--red);
+    display: flex;
+    align-items: center;
     justify-content: center;
+  }
+
+  .contrib-step__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .contrib-step__desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
   }
 
   /* ── Responsive ─────────────────────────────────────────────── */
@@ -868,11 +1036,12 @@ const tp = useTranslatedPath(lang);
     .hero__gradient { bottom: 0; }
     .hero__content { padding-bottom: 80px; }
 
-    .tech-layout { grid-template-columns: 1fr; gap: var(--space-2xl); }
+    .contrib-layout { grid-template-columns: 1fr; gap: var(--space-2xl); }
   }
 
   @media (max-width: 900px) {
     .leagues { grid-template-columns: repeat(2, 1fr); }
+    .feat-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 640px) {
@@ -881,7 +1050,8 @@ const tp = useTranslatedPath(lang);
     .hero__actions .btn { width: 100%; justify-content: center; }
 
     .leagues { grid-template-columns: 1fr; }
-    .tech-cards { grid-template-columns: 1fr; }
+    .feat-grid { grid-template-columns: 1fr; }
+    .store-badges { flex-direction: column; align-items: center; }
 
     .step { padding: var(--space-lg); gap: var(--space-lg); }
   }
