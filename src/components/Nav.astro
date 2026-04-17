@@ -59,6 +59,10 @@ const navLinks = [
       </a>
     </div>
 
+    <div class="nav__mobile-header-actions">
+      <LanguagePicker />
+    </div>
+
     <button
       class="nav__hamburger"
       aria-label={t('nav.openMenu')}
@@ -81,9 +85,6 @@ const navLinks = [
         ))
       }
       <a href="https://github.com/Pilotariak" class="nav__mobile-link">GitHub</a>
-      <div class="nav__mobile-lang">
-        <LanguagePicker />
-      </div>
     </nav>
   </div>
 </header>
@@ -266,8 +267,9 @@ const navLinks = [
     color: var(--red);
   }
 
-  .nav__mobile-lang {
-    padding-top: var(--space-md);
+  /* Mobile-only lang picker (shown next to hamburger) */
+  .nav__mobile-header-actions {
+    display: none;
   }
 
   @media (max-width: 768px) {
@@ -282,6 +284,11 @@ const navLinks = [
 
     .nav__mobile {
       display: block;
+    }
+
+    .nav__mobile-header-actions {
+      display: flex;
+      align-items: center;
     }
   }
 </style>

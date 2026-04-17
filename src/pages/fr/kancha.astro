@@ -1030,10 +1030,20 @@ const tp = useTranslatedPath(lang);
 
   /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 1024px) {
-    .hero__inner { grid-template-columns: 1fr; }
-    .hero__mockups { display: none; }
+    .hero__inner {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
     .hero__gradient { bottom: 0; }
-    .hero__content { padding-bottom: 80px; }
+    .hero__content { padding-bottom: var(--space-2xl); width: 100%; }
+
+    .hero__mockups {
+      justify-content: center;
+      padding-bottom: var(--space-2xl);
+      width: 100%;
+    }
+
+    .phone { width: 172px; }
 
     .contrib-layout { grid-template-columns: 1fr; gap: var(--space-2xl); }
   }
