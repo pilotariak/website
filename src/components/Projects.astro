@@ -107,6 +107,33 @@ const tp = useTranslatedPath(lang);
         </a>
       </article>
 
+      <!-- Xilo -->
+      <article class="project-card reveal reveal--delay-3" aria-labelledby="xilo-title">
+        <div class="project-card__icon project-card__icon--xilo" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+            <path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="project-card__tag">Slack Bot · Open Source</div>
+        <h3 class="project-card__title" id="xilo-title">Xilo</h3>
+        <p class="project-card__body">{t('projects.xilo.body')}</p>
+
+        <ul class="project-card__pills" role="list" aria-label={t('projects.xilo.ariaLabel')}>
+          <li class="pill">Slack</li>
+          <li class="pill">TypeScript</li>
+          <li class="pill">Open Source</li>
+        </ul>
+
+        <a href={tp('/xilo')} class="project-card__link">
+          {t('projects.learnMore')}
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </article>
+
     </div>
   </div>
 </section>
@@ -173,7 +200,7 @@ const tp = useTranslatedPath(lang);
   /* ── Project cards grid ─────────────────────────────────── */
   .projects__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-xl);
   }
 
@@ -217,6 +244,11 @@ const tp = useTranslatedPath(lang);
   .project-card__icon--kancha {
     background-color: #e6f4ee;
     color: var(--green);
+  }
+
+  .project-card__icon--xilo {
+    background-color: var(--amber-soft);
+    color: var(--amber);
   }
 
   /* Tag */
@@ -288,6 +320,12 @@ const tp = useTranslatedPath(lang);
 
     .pelote__visual {
       display: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .projects__grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 

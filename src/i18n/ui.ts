@@ -44,6 +44,9 @@ export const ui = {
     'projects.kancha.body':
       "L'application mobile de la communauté pelote basque. Kancha regroupe résultats en direct, calendrier des compétitions, profils de joueurs et carte des frontons — disponible sur iPhone et Android.",
     'projects.kancha.ariaLabel': 'Plateformes',
+    'projects.xilo.body':
+      "Le bot Slack de la communauté Pilotariak. Xilo s'intègre dans vos espaces de travail Slack pour apporter les données et commandes de la pelote basque directement dans vos canaux.",
+    'projects.xilo.ariaLabel': 'Technologies',
     'projects.learnMore': 'En savoir plus',
 
     // ── Features ─────────────────────────────────────────────────
@@ -93,6 +96,9 @@ export const ui = {
     'kancha.meta.title': 'Kancha — Application mobile pelote basque | Pilotariak',
     'kancha.meta.description':
       "Kancha est l'application mobile iOS et Android de Pilotariak. Résultats en direct, compétitions, spécialités et phases de tournoi — disponible sur iPhone et Android.",
+    'xilo.meta.title': 'Xilo — Bot Slack Pilotariak | Pilotariak',
+    'xilo.meta.description':
+      "Xilo est le bot Slack de Pilotariak. Commandes slash, événements et données de la pelote basque — directement dans votre espace de travail Slack.",
 
     // ── Frontis page ─────────────────────────────────────────────
     'frontis.hero.ariaLabel': 'Frontis — API GraphQL pour la pelote basque',
@@ -236,6 +242,76 @@ export const ui = {
       "Toutes les pull requests sont examinées. Consultez le guide de contribution dans le dépôt pour les conventions.",
     'kancha.contribute.github': 'Voir sur GitHub',
     'kancha.contribute.back': "← Retour à l'accueil",
+
+    // ── Xilo page ────────────────────────────────────────────────
+    'xilo.hero.ariaLabel': 'Xilo — Bot Slack Pilotariak',
+    'xilo.hero.back': 'Pilotariak',
+    'xilo.hero.eyebrow': 'Slack Bot · Open Source',
+    'xilo.hero.subtitle':
+      "Le bot Slack de la communauté Pilotariak — commandes slash et événements directement dans vos canaux.",
+    'xilo.hero.github': 'Voir sur GitHub',
+    'xilo.hero.howItWorks': 'Comment ça marche',
+
+    'xilo.setup.eyebrow': 'Comment ça marche',
+    'xilo.setup.title': 'Opérationnel en trois étapes',
+    'xilo.setup.subtitle':
+      "Xilo s'intègre à votre espace Slack en quelques minutes.",
+    'xilo.step1.title': "Créez votre application Slack",
+    'xilo.step1.desc':
+      "Rendez-vous sur api.slack.com, créez une nouvelle application et configurez les permissions de bot et les événements nécessaires.",
+    'xilo.step2.title': "Invitez Xilo dans un canal",
+    'xilo.step2.desc':
+      "Installez l'application dans votre espace Slack et invitez @Xilo dans les canaux de votre communauté pelote basque.",
+    'xilo.step3.title': 'Utilisez les commandes slash',
+    'xilo.step3.desc':
+      "Tapez <code>/xilo help</code> pour découvrir toutes les commandes disponibles. Le bot répond instantanément dans le canal.",
+
+    'xilo.commands.eyebrow': 'Commandes disponibles',
+    'xilo.commands.title': 'Contrôlez Xilo depuis Slack',
+    'xilo.commands.subtitle':
+      "Toutes les commandes sont disponibles via le préfixe <code>/xilo</code> dans n'importe quel canal où le bot est invité.",
+    'xilo.commands.cmd.help.desc': "Affiche la liste des commandes disponibles et leur utilisation.",
+    'xilo.commands.cmd.ping.desc': "Vérifie que le bot est opérationnel — poste une réponse dans le canal.",
+    'xilo.commands.cmd.hello.desc': "Salue le canal avec un message personnalisé facultatif.",
+
+    'xilo.features.eyebrow': 'Fonctionnalités',
+    'xilo.features.title': 'Ce que fait Xilo',
+    'xilo.features.subtitle':
+      "Un bot léger, sécurisé et déployé à la périphérie du réseau pour une latence minimale.",
+    'xilo.features.f1.title': 'Commandes slash',
+    'xilo.features.f1.desc':
+      "Déclenchez des actions directement depuis Slack avec des commandes <code>/xilo</code> intuitives.",
+    'xilo.features.f2.title': 'Événements en temps réel',
+    'xilo.features.f2.desc':
+      "Répond aux mentions et aux messages — réactions automatiques dans vos canaux.",
+    'xilo.features.f3.title': 'Sécurité HMAC-SHA256',
+    'xilo.features.f3.desc':
+      "Chaque requête Slack est vérifiée cryptographiquement. Protection contre les rejeux (fenêtre 5 min).",
+    'xilo.features.f4.title': 'Toujours disponible',
+    'xilo.features.f4.desc':
+      "Hébergé sur une infrastructure serverless distribuée — zéro maintenance, disponible en permanence pour votre communauté.",
+    'xilo.features.f5.title': 'Traitement asynchrone',
+    'xilo.features.f5.desc':
+      "Accusé de réception immédiat à Slack, traitement en arrière-plan pour les opérations longues.",
+    'xilo.features.f6.title': 'Open Source',
+    'xilo.features.f6.desc':
+      "Code source Apache 2.0 sur GitHub — forker, adapter, contribuer.",
+
+    'xilo.contribute.eyebrow': 'Open Source · Apache 2.0',
+    'xilo.contribute.title': 'Construisez-le avec nous',
+    'xilo.contribute.subtitle':
+      "Xilo est open source et accueille toutes les contributions — nouvelles commandes, intégrations de données ou corrections de bugs.",
+    'xilo.contribute.step1.title': 'Forker & installer',
+    'xilo.contribute.step1.desc':
+      "Clonez le dépôt et installez les dépendances. Configurez vos secrets Slack pour lancer le bot localement.",
+    'xilo.contribute.step2.title': 'Ouvrir une issue',
+    'xilo.contribute.step2.desc':
+      "Une idée de commande ou un bug ? Les issues GitHub sont le bon endroit pour en discuter.",
+    'xilo.contribute.step3.title': 'Soumettre une pull request',
+    'xilo.contribute.step3.desc':
+      "Toutes les contributions sont examinées. Consultez le guide de contribution dans le dépôt pour les conventions.",
+    'xilo.contribute.github': 'Voir sur GitHub',
+    'xilo.contribute.back': "← Retour à l'accueil",
   },
 
   en: {
@@ -272,6 +348,9 @@ export const ui = {
     'projects.kancha.body':
       'The mobile app for the Basque pelota community. Kancha brings together live results, competition calendars, player profiles and a fronton map — available on iPhone and Android.',
     'projects.kancha.ariaLabel': 'Platforms',
+    'projects.xilo.body':
+      "The Slack bot for the Pilotariak community. Xilo integrates into your Slack workspaces to bring Basque pelota data and commands directly into your channels.",
+    'projects.xilo.ariaLabel': 'Technologies',
     'projects.learnMore': 'Learn more',
 
     // ── Features ─────────────────────────────────────────────────
@@ -321,6 +400,9 @@ export const ui = {
     'kancha.meta.title': 'Kancha — Basque Pelota Mobile App | Pilotariak',
     'kancha.meta.description':
       'Kancha is the iOS and Android mobile app from Pilotariak. Live results, competitions, disciplines and tournament brackets — available on iPhone and Android.',
+    'xilo.meta.title': 'Xilo — Pilotariak Slack Bot | Pilotariak',
+    'xilo.meta.description':
+      'Xilo is the Pilotariak Slack bot. Slash commands, events and Basque pelota data — directly in your Slack workspace.',
 
     // ── Frontis page ─────────────────────────────────────────────
     'frontis.hero.ariaLabel': 'Frontis — GraphQL API for Basque pelota',
@@ -457,6 +539,76 @@ export const ui = {
       "All pull requests are reviewed. Check the contributing guide in the repository for conventions.",
     'kancha.contribute.github': 'View on GitHub',
     'kancha.contribute.back': '← Back to home',
+
+    // ── Xilo page ────────────────────────────────────────────────
+    'xilo.hero.ariaLabel': 'Xilo — Pilotariak Slack Bot',
+    'xilo.hero.back': 'Pilotariak',
+    'xilo.hero.eyebrow': 'Slack Bot · Open Source',
+    'xilo.hero.subtitle':
+      "The Pilotariak community Slack bot — slash commands and events delivered directly to your channels.",
+    'xilo.hero.github': 'View on GitHub',
+    'xilo.hero.howItWorks': 'How it works',
+
+    'xilo.setup.eyebrow': 'How it works',
+    'xilo.setup.title': 'Up and running in three steps',
+    'xilo.setup.subtitle':
+      'Xilo integrates with your Slack workspace in minutes.',
+    'xilo.step1.title': 'Create your Slack app',
+    'xilo.step1.desc':
+      'Go to api.slack.com, create a new app and configure the required bot permissions and event subscriptions.',
+    'xilo.step2.title': 'Invite Xilo to a channel',
+    'xilo.step2.desc':
+      'Install the app in your Slack workspace and invite @Xilo to your Basque pelota community channels.',
+    'xilo.step3.title': 'Use slash commands',
+    'xilo.step3.desc':
+      'Type <code>/xilo help</code> to discover all available commands. The bot responds instantly in the channel.',
+
+    'xilo.commands.eyebrow': 'Available commands',
+    'xilo.commands.title': 'Control Xilo from Slack',
+    'xilo.commands.subtitle':
+      "All commands are available via the <code>/xilo</code> prefix in any channel where the bot is invited.",
+    'xilo.commands.cmd.help.desc': 'Displays the list of available commands and their usage.',
+    'xilo.commands.cmd.ping.desc': 'Checks that the bot is operational — posts a response in the channel.',
+    'xilo.commands.cmd.hello.desc': 'Greets the channel with an optional custom message.',
+
+    'xilo.features.eyebrow': 'Features',
+    'xilo.features.title': 'What Xilo does',
+    'xilo.features.subtitle':
+      'A lightweight, secure bot deployed at the network edge for minimal latency.',
+    'xilo.features.f1.title': 'Slash commands',
+    'xilo.features.f1.desc':
+      'Trigger actions directly from Slack with intuitive <code>/xilo</code> commands.',
+    'xilo.features.f2.title': 'Real-time events',
+    'xilo.features.f2.desc':
+      'Responds to mentions and messages — automatic reactions in your channels.',
+    'xilo.features.f3.title': 'HMAC-SHA256 security',
+    'xilo.features.f3.desc':
+      'Every Slack request is cryptographically verified. Replay attack protection (5-min window).',
+    'xilo.features.f4.title': 'Always available',
+    'xilo.features.f4.desc':
+      'Hosted on distributed serverless infrastructure — zero maintenance, always available for your community.',
+    'xilo.features.f5.title': 'Async processing',
+    'xilo.features.f5.desc':
+      'Immediate acknowledgement to Slack, background processing for long-running operations.',
+    'xilo.features.f6.title': 'Open Source',
+    'xilo.features.f6.desc':
+      'Apache 2.0 source code on GitHub — fork it, adapt it, contribute.',
+
+    'xilo.contribute.eyebrow': 'Open Source · Apache 2.0',
+    'xilo.contribute.title': 'Build it with us',
+    'xilo.contribute.subtitle':
+      'Xilo is open source and welcomes all contributions — new commands, data integrations or bug fixes.',
+    'xilo.contribute.step1.title': 'Fork & install',
+    'xilo.contribute.step1.desc':
+      'Clone the repo and install dependencies. Configure your Slack secrets to run the bot locally.',
+    'xilo.contribute.step2.title': 'Open an issue',
+    'xilo.contribute.step2.desc':
+      'Have a command idea or found a bug? GitHub issues are the right place to discuss.',
+    'xilo.contribute.step3.title': 'Submit a pull request',
+    'xilo.contribute.step3.desc':
+      'All contributions are reviewed. Check the contributing guide in the repository for conventions.',
+    'xilo.contribute.github': 'View on GitHub',
+    'xilo.contribute.back': '← Back to home',
   },
 } as const;
 
