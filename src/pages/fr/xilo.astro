@@ -1,0 +1,851 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { useTranslations, useTranslatedPath } from "../../i18n/utils";
+import type { Lang } from "../../i18n/utils";
+
+const lang = (Astro.currentLocale ?? "fr") as Lang;
+const t = useTranslations(lang);
+const tp = useTranslatedPath(lang);
+---
+
+<Layout
+  title={t("xilo.meta.title")}
+  description={t("xilo.meta.description")}
+>
+  <Nav />
+  <main id="main" tabindex="-1">
+
+    <!-- ── Hero ───────────────────────────────────────────────── -->
+    <section class="hero" aria-label={t("xilo.hero.ariaLabel")}>
+      <div class="hero__gradient" aria-hidden="true">
+        <div class="hero__circle hero__circle--1"></div>
+        <div class="hero__circle hero__circle--2"></div>
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <a href={tp("/")} class="hero__back">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M10 3L6 8l4 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {t("xilo.hero.back")}
+          </a>
+          <p class="eyebrow eyebrow--light hero__eyebrow">{t("xilo.hero.eyebrow")}</p>
+          <h1 class="hero__title">Xilo</h1>
+          <p class="hero__subtitle">
+            {t("xilo.hero.subtitle")}
+          </p>
+          <div class="hero__actions">
+            <a href="https://github.com/Pilotariak/xilo" class="btn btn--white">
+              {t("xilo.hero.github")}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#how-it-works" class="btn btn--ghost-white">
+              {t("xilo.hero.howItWorks")}
+            </a>
+          </div>
+        </div>
+
+        <!-- Slack chat mockup -->
+        <div class="hero__mockup" aria-hidden="true">
+          <div class="slack">
+            <div class="slack__header">
+              <div class="slack__channel"># pelotariak-community</div>
+            </div>
+            <div class="slack__body">
+              <div class="slack__msg">
+                <div class="slack__avatar slack__avatar--user">U</div>
+                <div class="slack__bubble">
+                  <span class="slack__name">pelotari_fan</span>
+                  <span class="slack__text">/xilo help</span>
+                </div>
+              </div>
+              <div class="slack__msg slack__msg--bot">
+                <div class="slack__avatar slack__avatar--bot">X</div>
+                <div class="slack__bubble slack__bubble--bot">
+                  <span class="slack__name slack__name--bot">Xilo <span class="slack__badge">App</span></span>
+                  <div class="slack__commands">
+                    <div class="slack__cmd"><code>/xilo help</code><span>Afficher les commandes</span></div>
+                    <div class="slack__cmd"><code>/xilo ping</code><span>Vérification</span></div>
+                    <div class="slack__cmd"><code>/xilo hello</code><span>Saluer le canal</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="slack__msg">
+                <div class="slack__avatar slack__avatar--user">U</div>
+                <div class="slack__bubble">
+                  <span class="slack__name">pelotari_fan</span>
+                  <span class="slack__text">/xilo ping</span>
+                </div>
+              </div>
+              <div class="slack__msg slack__msg--bot">
+                <div class="slack__avatar slack__avatar--bot">X</div>
+                <div class="slack__bubble slack__bubble--bot">
+                  <span class="slack__name slack__name--bot">Xilo <span class="slack__badge">App</span></span>
+                  <span class="slack__text">🟢 Xilo est opérationnel !</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How it works ─────────────────────────────────────────── -->
+    <section class="section" id="how-it-works" aria-labelledby="setup-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">{t("xilo.setup.eyebrow")}</p>
+          <h2 class="section-header__title" id="setup-title">
+            {t("xilo.setup.title")}
+          </h2>
+          <p class="section-header__subtitle">
+            {t("xilo.setup.subtitle")}
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal reveal--delay-1">
+            <div class="step__num">1</div>
+            <div class="step__content">
+              <h3 class="step__title">{t("xilo.step1.title")}</h3>
+              <p class="step__desc">{t("xilo.step1.desc")}</p>
+            </div>
+          </div>
+
+          <div class="step reveal reveal--delay-2">
+            <div class="step__num">2</div>
+            <div class="step__content">
+              <h3 class="step__title">{t("xilo.step2.title")}</h3>
+              <p class="step__desc">{t("xilo.step2.desc")}</p>
+            </div>
+          </div>
+
+          <div class="step step--result reveal reveal--delay-3">
+            <div class="step__num step__num--amber">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="step__content">
+              <h3 class="step__title">{t("xilo.step3.title")}</h3>
+              <p class="step__desc" set:html={t("xilo.step3.desc")} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Commands ──────────────────────────────────────────────── -->
+    <section class="section section--alt" id="commands" aria-labelledby="commands-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">{t("xilo.commands.eyebrow")}</p>
+          <h2 class="section-header__title" id="commands-title">
+            {t("xilo.commands.title")}
+          </h2>
+          <p class="section-header__subtitle" set:html={t("xilo.commands.subtitle")} />
+        </div>
+
+        <div class="cmd-table reveal reveal--delay-1">
+          <div class="cmd-row">
+            <div class="cmd-row__name"><code>/xilo help</code></div>
+            <div class="cmd-row__desc">{t("xilo.commands.cmd.help.desc")}</div>
+          </div>
+          <div class="cmd-row">
+            <div class="cmd-row__name"><code>/xilo ping</code></div>
+            <div class="cmd-row__desc">{t("xilo.commands.cmd.ping.desc")}</div>
+          </div>
+          <div class="cmd-row">
+            <div class="cmd-row__name"><code>/xilo hello [msg]</code></div>
+            <div class="cmd-row__desc">{t("xilo.commands.cmd.hello.desc")}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Features ─────────────────────────────────────────────── -->
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">{t("xilo.features.eyebrow")}</p>
+          <h2 class="section-header__title" id="features-title">
+            {t("xilo.features.title")}
+          </h2>
+          <p class="section-header__subtitle">{t("xilo.features.subtitle")}</p>
+        </div>
+        <div class="feat-grid reveal reveal--delay-1">
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--amber" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feat-card__title" set:html={t("xilo.features.f1.title")} />
+            <p class="feat-card__desc" set:html={t("xilo.features.f1.desc")} />
+          </div>
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--red" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feat-card__title">{t("xilo.features.f2.title")}</h3>
+            <p class="feat-card__desc">{t("xilo.features.f2.desc")}</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--green" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feat-card__title">{t("xilo.features.f3.title")}</h3>
+            <p class="feat-card__desc">{t("xilo.features.f3.desc")}</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--amber" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M12 3c0 4.5-3 7.5-3 9s3 4.5 3 9M3.5 9.5h17M3.5 14.5h17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feat-card__title">{t("xilo.features.f4.title")}</h3>
+            <p class="feat-card__desc">{t("xilo.features.f4.desc")}</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--red" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="feat-card__title">{t("xilo.features.f5.title")}</h3>
+            <p class="feat-card__desc" set:html={t("xilo.features.f5.desc")} />
+          </div>
+          <div class="feat-card">
+            <div class="feat-card__icon feat-card__icon--green" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </div>
+            <h3 class="feat-card__title">{t("xilo.features.f6.title")}</h3>
+            <p class="feat-card__desc">{t("xilo.features.f6.desc")}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contribute ────────────────────────────────────────────── -->
+    <section class="section" id="contribute" aria-label={t("xilo.contribute.title")}>
+      <div class="container">
+        <div class="contrib-layout">
+          <div class="contrib-header reveal">
+            <p class="eyebrow">{t("xilo.contribute.eyebrow")}</p>
+            <h2 class="contrib-header__title">{t("xilo.contribute.title")}</h2>
+            <p class="contrib-header__subtitle">{t("xilo.contribute.subtitle")}</p>
+            <div class="contrib-header__actions">
+              <a href="https://github.com/Pilotariak/xilo" class="btn btn--primary">
+                {t("xilo.contribute.github")}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a href={tp("/")} class="btn btn--secondary">
+                {t("xilo.contribute.back")}
+              </a>
+            </div>
+          </div>
+          <div class="contrib-steps reveal reveal--delay-1">
+            <div class="contrib-step">
+              <div class="contrib-step__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                  <path d="M6 9l4 3-4 3M13 15h5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="contrib-step__title">{t("xilo.contribute.step1.title")}</h3>
+                <p class="contrib-step__desc" set:html={t("xilo.contribute.step1.desc")} />
+              </div>
+            </div>
+            <div class="contrib-step">
+              <div class="contrib-step__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/>
+                  <path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="contrib-step__title">{t("xilo.contribute.step2.title")}</h3>
+                <p class="contrib-step__desc">{t("xilo.contribute.step2.desc")}</p>
+              </div>
+            </div>
+            <div class="contrib-step">
+              <div class="contrib-step__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <circle cx="6" cy="6" r="3" stroke="currentColor" stroke-width="1.75"/>
+                  <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.75"/>
+                  <circle cx="18" cy="9" r="3" stroke="currentColor" stroke-width="1.75"/>
+                  <path d="M6 9v6M9 7.5l6-1.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="contrib-step__title">{t("xilo.contribute.step3.title")}</h3>
+                <p class="contrib-step__desc">{t("xilo.contribute.step3.desc")}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>
+
+<style>
+  /* ── Hero ───────────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
+
+  .hero__gradient {
+    position: absolute;
+    inset: 0;
+    bottom: 120px;
+    background: linear-gradient(
+      to bottom,
+      var(--red) 0%,
+      var(--red-dark) 55%,
+      var(--cream) 100%
+    );
+    z-index: 0;
+  }
+
+  .hero__circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+  }
+
+  .hero__circle--1 { width: 420px; height: 420px; top: -80px; right: -80px; }
+  .hero__circle--2 { width: 240px; height: 240px; top: 180px; left: -60px; }
+
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-3xl);
+    align-items: flex-end;
+    padding-bottom: 0;
+  }
+
+  .hero__content {
+    padding-bottom: 80px;
+  }
+
+  .hero__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: var(--space-xl);
+    transition: color 150ms ease;
+  }
+
+  .hero__back:hover { color: var(--white); }
+
+  .hero__eyebrow { margin-bottom: var(--space-md); }
+
+  .hero__title {
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero__subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .btn--white {
+    background-color: var(--white);
+    color: var(--red);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn--white:hover {
+    background-color: var(--cream);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ── Slack mockup ───────────────────────────────────────────── */
+  .hero__mockup {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 0;
+    align-self: flex-end;
+  }
+
+  .slack {
+    width: 320px;
+    border-radius: 16px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow:
+      0 24px 64px rgba(103, 18, 31, 0.18),
+      0 4px 16px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    flex-shrink: 0;
+    transform: translateY(32px);
+  }
+
+  .slack__header {
+    height: 44px;
+    background: #3f0e40;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+  }
+
+  .slack__channel {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+  }
+
+  .slack__body {
+    padding: 12px 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .slack__msg {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .slack__avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .slack__avatar--user {
+    background: #2196f3;
+    color: var(--white);
+  }
+
+  .slack__avatar--bot {
+    background: var(--red);
+    color: var(--white);
+  }
+
+  .slack__bubble {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+  }
+
+  .slack__bubble--bot {
+    background: var(--red-soft);
+    border: 1px solid var(--red-border);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+
+  .slack__name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .slack__name--bot { color: var(--red); }
+
+  .slack__badge {
+    font-size: 9px;
+    font-weight: 700;
+    background: var(--red);
+    color: var(--white);
+    padding: 1px 5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .slack__text {
+    font-size: 12px;
+    color: var(--ink);
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+  }
+
+  .slack__commands {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 2px;
+  }
+
+  .slack__cmd {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .slack__cmd code {
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    font-size: 10px;
+    background: var(--red-soft);
+    color: var(--red-dark);
+    padding: 1px 5px;
+    border-radius: 3px;
+    min-width: 90px;
+  }
+
+  .slack__cmd span {
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  /* ── Steps ──────────────────────────────────────────────────── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    max-width: 680px;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xl);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl) var(--space-2xl);
+    transition: border-color 200ms ease;
+  }
+
+  .step:hover { border-color: var(--red-border); }
+
+  .step--result { border-color: var(--red-border); }
+
+  .step__num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--red);
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .step__num--amber { background: var(--green); }
+
+  .step__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .step__desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .step__desc code {
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    font-size: 13px;
+    background: var(--red-soft);
+    color: var(--red-dark);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  /* ── Commands table ─────────────────────────────────────────── */
+  .cmd-table {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    max-width: 720px;
+  }
+
+  .cmd-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2xl);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg) var(--space-2xl);
+    transition: border-color 200ms ease;
+  }
+
+  .cmd-row:hover { border-color: var(--red-border); }
+
+  .cmd-row__name {
+    flex-shrink: 0;
+    min-width: 180px;
+  }
+
+  .cmd-row__name code {
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    background: var(--red-soft);
+    color: var(--red-dark);
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  .cmd-row__desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── Features ──────────────────────────────────────────────── */
+  .feat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .feat-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    transition:
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .feat-card:hover {
+    border-color: var(--red-border);
+    box-shadow: var(--shadow) 0 4px 16px;
+  }
+
+  .feat-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: var(--space-xs);
+  }
+
+  .feat-card__icon--amber { background: var(--amber-soft); color: var(--amber); }
+  .feat-card__icon--red   { background: var(--red-soft);   color: var(--red); }
+  .feat-card__icon--green { background: var(--green-soft); color: var(--green); }
+
+  .feat-card__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .feat-card__desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .feat-card__desc code {
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    font-size: 12px;
+    background: var(--red-soft);
+    color: var(--red-dark);
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+
+  /* ── Contribute ─────────────────────────────────────────────── */
+  .contrib-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .contrib-header .eyebrow { margin-bottom: var(--space-md); }
+
+  .contrib-header__title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: var(--space-md);
+  }
+
+  .contrib-header__subtitle {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+  }
+
+  .contrib-header__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .contrib-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .contrib-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  .contrib-step__icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: var(--red-soft);
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contrib-step__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .contrib-step__desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .contrib-step__desc code {
+    font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+    font-size: 12px;
+    background: var(--red-soft);
+    color: var(--red-dark);
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    .hero__gradient { bottom: 0; }
+    .hero__content { padding-bottom: var(--space-2xl); width: 100%; }
+
+    .hero__mockup {
+      justify-content: center;
+      padding-bottom: var(--space-2xl);
+      width: 100%;
+    }
+
+    .slack { transform: none; }
+
+    .contrib-layout { grid-template-columns: 1fr; gap: var(--space-2xl); }
+  }
+
+  @media (max-width: 900px) {
+    .feat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .hero__title { letter-spacing: -1px; }
+    .hero__actions { flex-direction: column; align-items: flex-start; }
+    .hero__actions .btn { width: 100%; justify-content: center; }
+
+    .slack { width: 100%; max-width: 320px; }
+
+    .feat-grid { grid-template-columns: 1fr; }
+    .cmd-row { flex-direction: column; gap: var(--space-sm); }
+    .cmd-row__name { min-width: unset; }
+
+    .step { padding: var(--space-lg); gap: var(--space-lg); }
+  }
+</style>
