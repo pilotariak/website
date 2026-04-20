@@ -115,6 +115,7 @@ export const ui = {
       "Frontis fédère cinq services indépendants en un seul point d'entrée GraphQL. Chaque domaine dispose de son propre schéma et de son propre cycle de déploiement.",
 
     'frontis.subgraph.echo': "Healthcheck et version de l'API.",
+    'frontis.subgraph.categories': "Catégories de compétition — propriétaire de l'entité <code>Category</code>.",
     'frontis.subgraph.clubs': "Clubs de pelote basque — propriétaire de l'entité <code>Club</code>.",
     'frontis.subgraph.competitions':
       "Championnats et tournois — propriétaire de l'entité <code>Competition</code>.",
@@ -419,6 +420,7 @@ export const ui = {
       'Frontis federates five independent services into a single GraphQL entry point. Each domain has its own schema and its own deployment cycle.',
 
     'frontis.subgraph.echo': 'API health check and version.',
+    'frontis.subgraph.categories': 'Competition categories — owns the <code>Category</code> entity.',
     'frontis.subgraph.clubs': 'Basque pelota clubs — owns the <code>Club</code> entity.',
     'frontis.subgraph.competitions': 'Championships and tournaments — owns the <code>Competition</code> entity.',
     'frontis.subgraph.results': 'Match results — owns the <code>Result</code> entity.',
