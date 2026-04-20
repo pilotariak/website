@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.2.0...pilotariak-website-v0.3.0) (2026-04-20)
+
+
+### 🚀 Features
+
+* **ui:** add categories subgraph to frontis page ([#9](https://github.com/pilotariak/website/issues/9)) ([3543149](https://github.com/pilotariak/website/commit/354314923092e0c727ba6eee25579fc21596a58e))
+* **ui:** add xilo slack bot page and project card ([#8](https://github.com/pilotariak/website/issues/8)) ([3c1e29f](https://github.com/pilotariak/website/commit/3c1e29fd52aed2c05937ee292df153b2db9361aa))
+
+
+### 🐛 Bug Fixes
+
+* **ui:** show language picker and phone mockups on iOS ([#6](https://github.com/pilotariak/website/issues/6)) ([03929ac](https://github.com/pilotariak/website/commit/03929ac8de2e630f935221fcb3a1ea89032083a3))
+
 ## [0.2.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.1.0...pilotariak-website-v0.2.0) (2026-04-16)
 
 
