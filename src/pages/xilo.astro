@@ -337,11 +337,11 @@ const tp = useTranslatedPath(lang);
   .hero__gradient {
     position: absolute;
     inset: 0;
-    bottom: 120px;
+    bottom: 0;
     background: linear-gradient(
       to bottom,
       var(--red) 0%,
-      var(--red-dark) 55%,
+      var(--red-dark) 45%,
       var(--cream) 100%
     );
     z-index: 0;
@@ -387,17 +387,17 @@ const tp = useTranslatedPath(lang);
   .hero__eyebrow { margin-bottom: var(--space-md); }
 
   .hero__title {
-    font-size: clamp(52px, 8vw, 88px);
+    font-size: clamp(36px, 6vw, 64px);
     font-weight: 900;
     color: var(--white);
     line-height: 1.0;
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
     margin-bottom: var(--space-lg);
   }
 
   .hero__subtitle {
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.88);
+    color: rgba(255, 255, 255, 0.82);
     line-height: 1.7;
     max-width: 480px;
     margin-bottom: var(--space-xl);
@@ -435,9 +435,7 @@ const tp = useTranslatedPath(lang);
     border-radius: 16px;
     background: var(--white);
     border: 1px solid var(--line);
-    box-shadow:
-      0 24px 64px rgba(103, 18, 31, 0.18),
-      0 4px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 24px 64px rgba(103, 18, 31, 0.18);
     overflow: hidden;
     flex-shrink: 0;
     transform: translateY(32px);
@@ -578,12 +576,12 @@ const tp = useTranslatedPath(lang);
     gap: var(--space-xl);
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: var(--space-xl) var(--space-2xl);
     transition: border-color 200ms ease;
   }
 
-  .step:hover { border-color: var(--red-border); }
+  .step:hover { border-color: var(--red); }
 
   .step--result { border-color: var(--red-border); }
 
@@ -602,7 +600,7 @@ const tp = useTranslatedPath(lang);
     margin-top: 2px;
   }
 
-  .step__num--amber { background: var(--green); }
+  .step__num--amber { background: var(--amber); }
 
   .step__title {
     font-size: 17px;
@@ -640,12 +638,12 @@ const tp = useTranslatedPath(lang);
     gap: var(--space-2xl);
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: var(--space-lg) var(--space-2xl);
     transition: border-color 200ms ease;
   }
 
-  .cmd-row:hover { border-color: var(--red-border); }
+  .cmd-row:hover { border-color: var(--red); }
 
   .cmd-row__name {
     flex-shrink: 0;
@@ -678,7 +676,7 @@ const tp = useTranslatedPath(lang);
   .feat-card {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
@@ -689,8 +687,8 @@ const tp = useTranslatedPath(lang);
   }
 
   .feat-card:hover {
-    border-color: var(--red-border);
-    box-shadow: var(--shadow) 0 4px 16px;
+    border-color: var(--red);
+    box-shadow: 0 4px 16px var(--shadow);
   }
 
   .feat-card__icon {
@@ -813,6 +811,7 @@ const tp = useTranslatedPath(lang);
 
   /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 1024px) {
+    .hero { min-height: 420px; }
     .hero__inner {
       grid-template-columns: 1fr;
       justify-items: center;
@@ -831,11 +830,12 @@ const tp = useTranslatedPath(lang);
     .contrib-layout { grid-template-columns: 1fr; gap: var(--space-2xl); }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     .feat-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 640px) {
+    .hero { min-height: 320px; }
     .hero__title { letter-spacing: -1px; }
     .hero__actions { flex-direction: column; align-items: flex-start; }
     .hero__actions .btn { width: 100%; justify-content: center; }

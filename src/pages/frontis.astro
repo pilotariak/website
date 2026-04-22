@@ -233,25 +233,65 @@ const tp = useTranslatedPath(lang);
       </div>
     </section>
 
-    <!-- ── CTA ────────────────────────────────────────────────── -->
-    <section class="section" aria-label={t("frontis.cta.title")}>
-      <div class="container cta-section">
-        <div class="cta-section__content reveal">
-          <p class="eyebrow">{t("frontis.cta.eyebrow")}</p>
-          <h2 class="cta-section__title">{t("frontis.cta.title")}</h2>
-          <p class="cta-section__body">
-            {t("frontis.cta.body")}
-          </p>
-          <div class="cta-section__actions">
-            <a href="https://github.com/Pilotariak/frontis" class="btn btn--primary">
-              {t("frontis.cta.github")}
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <a href={tp("/")} class="btn btn--secondary">
-              {t("frontis.cta.back")}
-            </a>
+    <!-- ── Contribute ────────────────────────────────────────────── -->
+    <section class="section section--alt" id="contribute" aria-label={t("frontis.contribute.title")}>
+      <div class="container">
+        <div class="contrib-layout">
+          <div class="contrib-header reveal">
+            <p class="eyebrow">{t("frontis.contribute.eyebrow")}</p>
+            <h2 class="contrib-header__title">{t("frontis.contribute.title")}</h2>
+            <p class="contrib-header__subtitle">{t("frontis.contribute.subtitle")}</p>
+            <div class="contrib-header__actions">
+              <a href="https://github.com/Pilotariak/frontis" class="btn btn--primary">
+                {t("frontis.contribute.github")}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a href={tp("/")} class="btn btn--secondary">
+                {t("frontis.contribute.back")}
+              </a>
+            </div>
+          </div>
+          <div class="contrib-steps reveal reveal--delay-1">
+            <div class="contrib-step">
+              <div class="contrib-step__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                  <path d="M6 9l4 3-4 3M13 15h5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="contrib-step__title">{t("frontis.contribute.step1.title")}</h3>
+                <p class="contrib-step__desc">{t("frontis.contribute.step1.desc")}</p>
+              </div>
+            </div>
+            <div class="contrib-step">
+              <div class="contrib-step__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/>
+                  <path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="contrib-step__title">{t("frontis.contribute.step2.title")}</h3>
+                <p class="contrib-step__desc">{t("frontis.contribute.step2.desc")}</p>
+              </div>
+            </div>
+            <div class="contrib-step">
+              <div class="contrib-step__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <circle cx="6" cy="6" r="3" stroke="currentColor" stroke-width="1.75"/>
+                  <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.75"/>
+                  <circle cx="18" cy="12" r="3" stroke="currentColor" stroke-width="1.75"/>
+                  <path d="M9 7.5l6 3M9 16.5l6-3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="contrib-step__title">{t("frontis.contribute.step3.title")}</h3>
+                <p class="contrib-step__desc">{t("frontis.contribute.step3.desc")}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -295,7 +335,7 @@ const tp = useTranslatedPath(lang);
     background: linear-gradient(
       to bottom,
       var(--red) 0%,
-      var(--red-dark) 55%,
+      var(--red-dark) 45%,
       var(--cream) 100%
     );
     z-index: 0;
@@ -325,7 +365,7 @@ const tp = useTranslatedPath(lang);
   .hero__content {
     position: relative;
     z-index: 1;
-    max-width: 680px;
+    max-width: 800px;
   }
 
   .hero__back {
@@ -348,11 +388,11 @@ const tp = useTranslatedPath(lang);
   }
 
   .hero__title {
-    font-size: clamp(52px, 8vw, 88px);
+    font-size: clamp(36px, 6vw, 64px);
     font-weight: 900;
     color: var(--white);
     line-height: 1.0;
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
     margin-bottom: var(--space-lg);
   }
 
@@ -393,7 +433,7 @@ const tp = useTranslatedPath(lang);
   .subgraph-card {
     background-color: var(--card);
     border: 1px solid var(--line);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
@@ -405,8 +445,8 @@ const tp = useTranslatedPath(lang);
   }
 
   .subgraph-card:hover {
-    border-color: var(--red-border);
-    box-shadow: var(--shadow) 0 6px 24px;
+    border-color: var(--red);
+    box-shadow: 0 6px 24px var(--shadow);
     transform: translateY(-2px);
   }
 
@@ -460,7 +500,7 @@ const tp = useTranslatedPath(lang);
   .arch-card {
     background-color: var(--card);
     border: 1px solid var(--line);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: var(--space-2xl);
     transition:
       border-color 200ms ease,
@@ -468,8 +508,8 @@ const tp = useTranslatedPath(lang);
   }
 
   .arch-card:hover {
-    border-color: var(--red-border);
-    box-shadow: var(--shadow) 0 4px 16px;
+    border-color: var(--red);
+    box-shadow: 0 4px 16px var(--shadow);
   }
 
   .arch-card__num {
@@ -596,22 +636,17 @@ const tp = useTranslatedPath(lang);
     white-space: pre;
   }
 
-  /* ── CTA ────────────────────────────────────────────────────── */
-  .cta-section {
-    display: flex;
-    justify-content: center;
+  /* ── Contribute ─────────────────────────────────────────────── */
+  .contrib-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
   }
 
-  .cta-section__content {
-    max-width: 560px;
-    text-align: center;
-  }
+  .contrib-header .eyebrow { margin-bottom: var(--space-md); }
 
-  .cta-section__content .eyebrow {
-    margin-bottom: var(--space-md);
-  }
-
-  .cta-section__title {
+  .contrib-header__title {
     font-size: clamp(28px, 4vw, 40px);
     font-weight: 800;
     color: var(--ink);
@@ -620,28 +655,72 @@ const tp = useTranslatedPath(lang);
     margin-bottom: var(--space-md);
   }
 
-  .cta-section__body {
+  .contrib-header__subtitle {
     font-size: 17px;
     color: var(--muted);
     line-height: 1.7;
     margin-bottom: var(--space-xl);
   }
 
-  .cta-section__actions {
+  .contrib-header__actions {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-md);
+  }
+
+  .contrib-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .contrib-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  .contrib-step__icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--red-soft);
+    border-radius: var(--radius-md);
+    color: var(--red);
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
 
+  .contrib-step__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .contrib-step__desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
   /* ── Responsive ─────────────────────────────────────────────── */
-  @media (max-width: 1100px) {
+  @media (max-width: 1024px) {
+    .hero {
+      min-height: 420px;
+    }
+
     .subgraphs {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     .subgraphs {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -653,6 +732,8 @@ const tp = useTranslatedPath(lang);
     .federation-layout {
       grid-template-columns: 1fr;
     }
+
+    .contrib-layout { grid-template-columns: 1fr; gap: var(--space-2xl); }
   }
 
   @media (max-width: 640px) {
@@ -661,7 +742,7 @@ const tp = useTranslatedPath(lang);
     }
 
     .hero {
-      min-height: 380px;
+      min-height: 320px;
       padding-top: 100px;
       padding-bottom: 56px;
     }

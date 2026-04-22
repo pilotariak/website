@@ -352,8 +352,38 @@ const tp = useTranslatedPath(lang);
       </div>
     </section>
 
+    <!-- ── Web app ───────────────────────────────────────────────── -->
+    <section class="section section--alt" id="web" aria-labelledby="web-title">
+      <div class="container">
+        <div class="web-callout reveal">
+          <div class="web-callout__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M12 3c0 0-3 3.5-3 9s3 9 3 9M12 3c0 0 3 3.5 3 9s-3 9-3 9M3 12h18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="web-callout__body">
+            <p class="eyebrow">{t("kancha.web.eyebrow")}</p>
+            <h2 class="web-callout__title" id="web-title">{t("kancha.web.title")}</h2>
+            <p class="web-callout__subtitle">{t("kancha.web.subtitle")}</p>
+          </div>
+          <a
+            href="https://kancha.pilotariak.com/"
+            class="btn btn--primary web-callout__btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t("kancha.web.cta")}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Contribute ────────────────────────────────────────────── -->
-    <section class="section section--alt" id="contribute" aria-label={t("kancha.contribute.title")}>
+    <section class="section" id="contribute" aria-label={t("kancha.contribute.title")}>
       <div class="container">
         <div class="contrib-layout">
           <div class="contrib-header reveal">
@@ -447,11 +477,11 @@ const tp = useTranslatedPath(lang);
   .hero__gradient {
     position: absolute;
     inset: 0;
-    bottom: 120px;
+    bottom: 0;
     background: linear-gradient(
       to bottom,
       var(--red) 0%,
-      var(--red-dark) 55%,
+      var(--red-dark) 45%,
       var(--cream) 100%
     );
     z-index: 0;
@@ -497,11 +527,11 @@ const tp = useTranslatedPath(lang);
   .hero__eyebrow { margin-bottom: var(--space-md); }
 
   .hero__title {
-    font-size: clamp(52px, 8vw, 88px);
+    font-size: clamp(36px, 6vw, 64px);
     font-weight: 900;
     color: var(--white);
     line-height: 1.0;
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
     margin-bottom: var(--space-lg);
   }
 
@@ -547,8 +577,7 @@ const tp = useTranslatedPath(lang);
     background: var(--white);
     border: 1px solid var(--line);
     box-shadow:
-      0 24px 64px rgba(103, 18, 31, 0.18),
-      0 4px 16px rgba(0, 0, 0, 0.06);
+      0 24px 64px rgba(103, 18, 31, 0.18);
     overflow: hidden;
     flex-shrink: 0;
   }
@@ -749,12 +778,12 @@ const tp = useTranslatedPath(lang);
     gap: var(--space-xl);
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: var(--space-xl) var(--space-2xl);
     transition: border-color 200ms ease;
   }
 
-  .step:hover { border-color: var(--red-border); }
+  .step:hover { border-color: var(--red); }
 
   .step--result { border-color: var(--red-border); }
 
@@ -798,7 +827,7 @@ const tp = useTranslatedPath(lang);
   .league-card {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
@@ -815,7 +844,7 @@ const tp = useTranslatedPath(lang);
 
   .league-card--planned { opacity: 0.65; }
 
-  .league-card:hover { border-color: var(--red-border); box-shadow: var(--shadow) 0 4px 16px; }
+  .league-card:hover { border-color: var(--red); box-shadow: 0 4px 16px var(--shadow); }
   .league-card--active:hover { border-color: var(--green); }
 
   .league-card__status { margin-bottom: var(--space-2xs); }
@@ -846,7 +875,7 @@ const tp = useTranslatedPath(lang);
   .feat-card {
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
@@ -857,8 +886,8 @@ const tp = useTranslatedPath(lang);
   }
 
   .feat-card:hover {
-    border-color: var(--red-border);
-    box-shadow: var(--shadow) 0 4px 16px;
+    border-color: var(--red);
+    box-shadow: 0 4px 16px var(--shadow);
   }
 
   .feat-card__icon {
@@ -955,6 +984,52 @@ const tp = useTranslatedPath(lang);
     margin-bottom: var(--space-xl);
   }
 
+  /* ── Web callout ────────────────────────────────────────────── */
+  .web-callout {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xl);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+  }
+
+  .web-callout__icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: var(--red-soft);
+    border-radius: var(--radius-lg);
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .web-callout__body {
+    flex: 1;
+  }
+
+  .web-callout__body .eyebrow { margin-bottom: var(--space-2xs); }
+
+  .web-callout__title {
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    margin-bottom: var(--space-xs);
+  }
+
+  .web-callout__subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .web-callout__btn { flex-shrink: 0; }
+
   /* ── Contribute ─────────────────────────────────────────────── */
   .contrib-layout {
     display: grid;
@@ -1030,6 +1105,9 @@ const tp = useTranslatedPath(lang);
 
   /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 1024px) {
+    .hero {
+      min-height: 420px;
+    }
     .hero__inner {
       grid-template-columns: 1fr;
       justify-items: center;
@@ -1048,12 +1126,15 @@ const tp = useTranslatedPath(lang);
     .contrib-layout { grid-template-columns: 1fr; gap: var(--space-2xl); }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     .leagues { grid-template-columns: repeat(2, 1fr); }
     .feat-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 640px) {
+    .hero {
+      min-height: 320px;
+    }
     .hero__title { letter-spacing: -1px; }
     .hero__actions { flex-direction: column; align-items: flex-start; }
     .hero__actions .btn { width: 100%; justify-content: center; }
@@ -1061,6 +1142,8 @@ const tp = useTranslatedPath(lang);
     .leagues { grid-template-columns: 1fr; }
     .feat-grid { grid-template-columns: 1fr; }
     .store-badges { flex-direction: column; align-items: center; }
+    .web-callout { flex-direction: column; align-items: flex-start; gap: var(--space-xl); }
+    .web-callout__btn { width: 100%; justify-content: center; }
 
     .step { padding: var(--space-lg); gap: var(--space-lg); }
   }

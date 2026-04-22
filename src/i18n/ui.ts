@@ -158,12 +158,21 @@ export const ui = {
 #    → service clubs
 # 3. Fusionne { name } dans la réponse`,
 
-    'frontis.cta.eyebrow': 'Open Source · Apache 2.0',
-    'frontis.cta.title': 'Contribuer à Frontis',
-    'frontis.cta.body':
-      "Le code source est ouvert sur GitHub. Issues, pull requests et questions sont les bienvenus.",
-    'frontis.cta.github': 'Voir sur GitHub',
-    'frontis.cta.back': "← Retour à l'accueil",
+    'frontis.contribute.eyebrow': 'Open Source · Apache 2.0',
+    'frontis.contribute.title': 'Construisez-le avec nous',
+    'frontis.contribute.subtitle':
+      "Frontis est open source et accueille toutes les contributions — nouveaux sous-graphes, corrections de bugs ou amélioration de la documentation.",
+    'frontis.contribute.step1.title': 'Forker & lancer en local',
+    'frontis.contribute.step1.desc':
+      "Clonez le dépôt, installez les dépendances et lancez le gateway Apollo localement.",
+    'frontis.contribute.step2.title': 'Ouvrir une issue',
+    'frontis.contribute.step2.desc':
+      "Un bug ou une idée ? Les issues GitHub sont le bon endroit pour en discuter et suivre l'avancement.",
+    'frontis.contribute.step3.title': 'Soumettre une pull request',
+    'frontis.contribute.step3.desc':
+      "Toutes les pull requests sont examinées. Consultez le guide de contribution dans le dépôt pour les conventions.",
+    'frontis.contribute.github': 'Voir sur GitHub',
+    'frontis.contribute.back': "← Retour à l'accueil",
 
     // ── Kancha page ──────────────────────────────────────────────
     'kancha.hero.ariaLabel': 'Kancha — Application mobile pelote basque',
@@ -227,6 +236,12 @@ export const ui = {
       "Kancha est en développement actif. Suivez le projet sur GitHub pour être notifié lors du lancement sur l'App Store et Google Play.",
     'kancha.download.comingSoon': 'Bientôt',
     'kancha.download.github': 'Suivre sur GitHub',
+
+    'kancha.web.eyebrow': 'Version web',
+    'kancha.web.title': 'Aussi disponible dans le navigateur',
+    'kancha.web.subtitle':
+      "Consultez les résultats et compétitions directement depuis votre navigateur, sans installation.",
+    'kancha.web.cta': 'Ouvrir l\'application web',
 
     'kancha.contribute.eyebrow': 'Open Source · Apache 2.0',
     'kancha.contribute.title': 'Construisez-le avec nous',
@@ -461,11 +476,21 @@ export const ui = {
 #    → clubs service
 # 3. Merges { name } into the response`,
 
-    'frontis.cta.eyebrow': 'Open Source · Apache 2.0',
-    'frontis.cta.title': 'Contribute to Frontis',
-    'frontis.cta.body': 'The source code is open on GitHub. Issues, pull requests and questions are welcome.',
-    'frontis.cta.github': 'View on GitHub',
-    'frontis.cta.back': '← Back to home',
+    'frontis.contribute.eyebrow': 'Open Source · Apache 2.0',
+    'frontis.contribute.title': 'Build it with us',
+    'frontis.contribute.subtitle':
+      'Frontis is open source and welcomes contributions of all kinds — new subgraphs, bug fixes or documentation improvements.',
+    'frontis.contribute.step1.title': 'Fork & run locally',
+    'frontis.contribute.step1.desc':
+      'Clone the repo, install dependencies and start the Apollo gateway locally.',
+    'frontis.contribute.step2.title': 'Open an issue',
+    'frontis.contribute.step2.desc':
+      'Found a bug or have an idea? GitHub issues are the right place to discuss and track work.',
+    'frontis.contribute.step3.title': 'Submit a pull request',
+    'frontis.contribute.step3.desc':
+      'All pull requests are reviewed. Check the contributing guide in the repository for conventions.',
+    'frontis.contribute.github': 'View on GitHub',
+    'frontis.contribute.back': '← Back to home',
 
     // ── Kancha page ──────────────────────────────────────────────
     'kancha.hero.ariaLabel': 'Kancha — Basque Pelota Mobile App',
@@ -525,6 +550,12 @@ export const ui = {
       "Kancha is in active development. Follow the project on GitHub to be notified when it launches on the App Store and Google Play.",
     'kancha.download.comingSoon': 'Coming soon',
     'kancha.download.github': 'Follow on GitHub',
+
+    'kancha.web.eyebrow': 'Web app',
+    'kancha.web.title': 'Also available in your browser',
+    'kancha.web.subtitle':
+      'Browse competition results and standings directly from your browser — no installation required.',
+    'kancha.web.cta': 'Open the web app',
 
     'kancha.contribute.eyebrow': 'Open Source · Apache 2.0',
     'kancha.contribute.title': 'Build it with us',

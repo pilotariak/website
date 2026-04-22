@@ -37,6 +37,9 @@
   /* Shadow */
   --shadow: rgba(103, 18, 31, 0.1);
   --shadow-subtle: rgba(0, 0, 0, 0.06);
+  --error: #c8102e;
+  --info: #1f7a5a;
+  --focus-ring: rgba(200, 16, 46, 0.12);
 
   /* Spacing */
   --space-2xs: 4px;
@@ -158,16 +161,29 @@ button {
 .btn--primary {
   background-color: var(--red);
   color: var(--white);
-  box-shadow: var(--shadow) 0 4px 16px;
+  box-shadow: 0 4px 16px var(--shadow);
 }
 
 .btn--primary:hover {
   background-color: var(--red-dark);
   transform: translateY(-1px);
-  box-shadow: var(--shadow) 0 8px 24px;
+  box-shadow: 0 8px 24px var(--shadow);
 }
 
 .btn--primary:active {
+  transform: scale(0.98);
+}
+
+.btn--destructive {
+  background-color: var(--red-dark);
+  color: var(--white);
+}
+.btn--destructive:hover {
+  background-color: #7a0b1e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(103, 18, 31, 0.18);
+}
+.btn--destructive:active {
   transform: scale(0.98);
 }
 
@@ -190,6 +206,15 @@ button {
 
 .btn--ghost-white:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn--ghost-ink {
+  background-color: transparent;
+  color: var(--text);
+  border: 2px solid transparent;
+}
+.btn--ghost-ink:hover {
+  background-color: var(--surface-alt);
 }
 
 /* ─── Badge ──────────────────────────────────────────────────────────────── */
@@ -239,7 +264,7 @@ button {
 }
 
 .section-header__title {
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: clamp(36px, 4vw, 48px);
   font-weight: 800;
   color: var(--ink);
   line-height: 1.15;
@@ -256,8 +281,11 @@ button {
 
 /* ─── Section spacing ────────────────────────────────────────────────────── */
 .section {
-  padding-block: var(--space-hero);
+  padding-block: 80px;
 }
+
+@media (max-width: 1024px) { .section { padding-block: 64px; } }
+@media (max-width: 640px)  { .section { padding-block: 48px; } }
 
 .section--alt {
   background-color: var(--surface-alt);
@@ -274,7 +302,7 @@ button {
 :focus-visible {
   outline: 2px solid var(--red);
   outline-offset: 3px;
-  box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.12);
+  box-shadow: 0 0 0 3px var(--focus-ring);
   border-radius: var(--radius-sm);
 }
 
