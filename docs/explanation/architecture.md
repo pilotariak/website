@@ -7,6 +7,8 @@ the Pilotariak open-source ecosystem (Frontis, Kancha, Xilo) to developers and c
 context explains most of the architectural choices: no backend, no CMS, no database, just HTML
 and CSS that deploys to an edge network in seconds.
 
+![Pilotariak ecosystem overview](../assets/pilotariak-ecosystem.svg)
+
 ---
 
 ## Why Astro
@@ -52,6 +54,8 @@ full content auditability in git history.
 ## Cloudflare Workers for static assets
 
 The build artifact is deployed to Cloudflare Workers using the assets binding in `wrangler.jsonc`.
+See [infrastructure reference](../reference/infrastructure.md) for the deployment topology diagram
+and full configuration table.
 This is Cloudflare's recommended pattern for serving static sites from their edge network.
 
 The choice of Cloudflare over Netlify, Vercel, or GitHub Pages is driven by:

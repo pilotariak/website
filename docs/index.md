@@ -36,6 +36,7 @@ Consult these while working, not for sequential reading.
 - [Design tokens reference](reference/design-tokens.md) — all CSS custom properties for color,
   spacing, radius, and typography
 - [Commands reference](reference/commands.md) — `make`, `bun run`, and `wrangler` commands
+- [Infrastructure reference](reference/infrastructure.md) — deployment topology, Cloudflare Workers config, URL structure
 
 ---
 
