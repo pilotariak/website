@@ -237,6 +237,12 @@ export const ui = {
     'kancha.download.comingSoon': 'Bientôt',
     'kancha.download.github': 'Suivre sur GitHub',
 
+    'kancha.web.eyebrow': 'Version web',
+    'kancha.web.title': 'Aussi disponible dans le navigateur',
+    'kancha.web.subtitle':
+      "Consultez les résultats et compétitions directement depuis votre navigateur, sans installation.",
+    'kancha.web.cta': 'Ouvrir l\'application web',
+
     'kancha.contribute.eyebrow': 'Open Source · Apache 2.0',
     'kancha.contribute.title': 'Construisez-le avec nous',
     'kancha.contribute.subtitle':
@@ -544,6 +550,12 @@ export const ui = {
       "Kancha is in active development. Follow the project on GitHub to be notified when it launches on the App Store and Google Play.",
     'kancha.download.comingSoon': 'Coming soon',
     'kancha.download.github': 'Follow on GitHub',
+
+    'kancha.web.eyebrow': 'Web app',
+    'kancha.web.title': 'Also available in your browser',
+    'kancha.web.subtitle':
+      'Browse competition results and standings directly from your browser — no installation required.',
+    'kancha.web.cta': 'Open the web app',
 
     'kancha.contribute.eyebrow': 'Open Source · Apache 2.0',
     'kancha.contribute.title': 'Build it with us',
