@@ -168,8 +168,8 @@ const specialtyColors: Record<string, string> = {
   }
 
   .comp-card:hover {
-    border-color: var(--red-border);
-    box-shadow: var(--shadow) 0 4px 20px;
+    border-color: var(--red);
+    box-shadow: 0 4px 20px var(--shadow);
     transform: translateY(-2px);
   }
 
@@ -184,7 +184,7 @@ const specialtyColors: Record<string, string> = {
   .comp-card__specialty {
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.8px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--specialty-color, var(--muted));
   }
@@ -253,7 +253,7 @@ const specialtyColors: Record<string, string> = {
     font-weight: 500;
     color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
   }
 
   .comp-card__stat-divider {
