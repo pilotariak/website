@@ -85,6 +85,9 @@ The overall mood is **disciplined yet welcoming**. The cream canvas absorbs visu
 | `--amber-soft`  | `#FFF8E7`              | Championship badge background             |
 | `--panel`       | `#1E1E1E`              | Dark inset surfaces                       |
 | `--shadow`      | `rgba(103,18,31,0.10)` | CTA and featured card elevation           |
+| `--error`       | `#C8102E`              | Form error state (alias of --red)         |
+| `--info`        | `#1F7A5A`              | Informational state (alias of --green)    |
+| `--focus-ring`  | `rgba(200,16,46,0.12)` | Focus outline glow (alias of --red-border)|
 
 ---
 
@@ -184,6 +187,22 @@ A night-mode counterpart to the cream page body. Fronton Night background (`#141
 ### Form Inputs
 
 Inputs use Pure White (`#FFFFFF`) backgrounds with a 1px Warm Greige Line border and moderately rounded corners (8px). Label text is Deep Ink at 14px weight-600 with 6px clearance above the input. Placeholder text uses Pale Stone Gray (`#A8A49E`). On focus, the border thickens to 2px Basque Crimson Red (`#C8102E`) and a warm glow ring appears (`rgba(200,16,46,0.12)` at 3px spread) — unmistakable, branded, accessible. Error states use a 1px Basque Crimson Red border with Fronton Dark Red (`#970D25`) error message text at 13px weight-500 below the field.
+
+### Buttons — Destructive
+
+For irreversible actions (delete, remove, withdraw). Fronton Dark Red (`#970D25`) background with pure white 16px weight-700 label — the darker shade signals severity; never use brand red (`#C8102E`) for destructive actions. Corners match primary at 8px. On hover, background darkens further to `#7A0B1E` and the warm shadow intensifies (`rgba(103,18,31,0.18)` at 4px 16px). Always requires a confirmation step (modal or inline confirm/cancel) before execution. Loading and disabled states identical to primary button.
+
+### Links
+
+**Inline links** (within body copy): Basque Crimson Red (`#C8102E`) text, no underline by default, underline appears on hover, 150ms ease transition. Never use raw blue — every link in this system is red or ink-colored.
+
+**Standalone links** (e.g., "View all results →"): Deep Ink (`#141414`) at current body size, weight 600, paired with a red right-arrow (`→`) or chevron icon. On hover, text shifts to Basque Crimson Red (`#C8102E`) with 150ms ease. Minimum 44px touch target height.
+
+**Footer links**: Pale Stone Gray (`#A8A49E`) at 14px weight-400, warming to Warm Limestone Cream (`#F7F4EF`) on hover — inherits from footer color rules.
+
+### Button Loading State
+
+Reduce label opacity to 0, overlay a 16px spinner (white stroke, 1.5px width, `border: 1.5px solid rgba(255,255,255,0.3); border-top-color: #fff`), maintain button dimensions unchanged. Pointer events disabled. Show for minimum 300ms to prevent flash. Background color unchanged from default state.
 
 ---
 
@@ -305,7 +324,17 @@ Shadows are always red-tinted for brand warmth. Standard list cards never use sh
 
 ---
 
-## 9. Design System Notes for Stitch Generation
+## 9. Agent Prompt Guide
+
+Use these quick references when instructing AI agents. Copy-paste the one-liners directly into prompts — they give agents the full system context without reading the entire file.
+
+**Colors:** background `#F7F4EF`, surface `#FFFDFC`, elevated `#FFFFFF`, text-primary `#141414`, text-secondary `#7A7A7A`, brand `#C8102E`, brand-dark `#970D25`, border `#E5DED6`, success `#1F7A5A`, error `#C8102E`, championship `#C8900A`
+
+**Typography:** Inter Variable, scale 12/14/15/16/18/22/28/36/48/64px, weights 400/500/600/700/800/900, negative tracking at 22px+ (−0.3px to −1.5px), eyebrows always uppercase +1.5px letter-spacing
+
+**Spacing:** base-8: 4/8/12/16/24/32/48/64/80/120px — named 2xs/xs/sm/md/lg/xl/2xl/3xl/hero
+
+**Components:** cards use `#FFFDFC` bg + 1px `#E5DED6` border + 12px radius, no shadow; hero = 480px gradient `#C8102E` → `#970D25` → `#F7F4EF`; buttons = 8px radius, 12px/24px padding; CTAs = red bg, white label, weight 700
 
 When creating new screens for this project, reference these specific instructions to keep output consistent with the Pilotariak visual language.
 
