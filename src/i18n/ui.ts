@@ -17,6 +17,7 @@ export const ui = {
     'nav.pelote': 'Pelote Basque',
     'nav.projets': 'Projets',
     'nav.openMenu': 'Ouvrir le menu',
+    'nav.cta': 'Voir les projets',
 
     // ── Footer ───────────────────────────────────────────────────
     'footer.ariaHome': 'Pilotariak — Accueil',
@@ -337,6 +338,7 @@ export const ui = {
     'nav.pelote': 'Basque Pelota',
     'nav.projets': 'Projects',
     'nav.openMenu': 'Open menu',
+    'nav.cta': 'View projects',
 
     // ── Footer ───────────────────────────────────────────────────
     'footer.ariaHome': 'Pilotariak — Home',
