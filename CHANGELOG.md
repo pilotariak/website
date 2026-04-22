@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.4.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.3.0...pilotariak-website-v0.4.0) (2026-04-22)
+
+
+### 🚀 Features
+
+* **ui:** add nav CTA and polish design tokens ([#13](https://github.com/pilotariak/website/issues/13)) ([0672854](https://github.com/pilotariak/website/commit/067285413fc97be00db49ebd9576b046364dfea0))
+
+
+### 🐛 Bug Fixes
+
+* **ui:** design system conformance, Frontis contribute section, Kancha web app ([#12](https://github.com/pilotariak/website/issues/12)) ([ecba373](https://github.com/pilotariak/website/commit/ecba373d4b1170e456c945b9869347423d78088c))
+
+
+### 📚 Documentation
+
+* **docs:** add diataxis documentation structure and design system preview ([#10](https://github.com/pilotariak/website/issues/10)) ([62c1a88](https://github.com/pilotariak/website/commit/62c1a88f148a2d535fd05fa124dfb205cc39e865))
+
 ## [0.3.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.2.0...pilotariak-website-v0.3.0) (2026-04-20)
 
 
