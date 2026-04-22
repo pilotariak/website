@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilotariak Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* Brand */
+      --red:         #C8102E;
+      --red-dark:    #970D25;
+      --red-soft:    #FDE8EC;
+      --red-border:  rgba(200,16,46,0.2);
+      /* Canvas */
+      --cream:       #F7F4EF;
+      --card:        #FFFDFC;
+      --white:       #FFFFFF;
+      --surface-alt: #F2EDE7;
+      --line:        #E5DED6;
+      /* Text */
+      --ink:         #141414;
+      --text:        #262626;
+      --muted:       #7A7A7A;
+      --subtle:      #A8A49E;
+      /* Status */
+      --green:       #1F7A5A;
+      --green-soft:  #E6F4EE;
+      --amber:       #C8900A;
+      --amber-soft:  #FFF8E7;
+      /* Dark */
+      --panel:       #1E1E1E;
+      --night:       #141414;
+      /* Shadows */
+      --shadow:      rgba(103,18,31,0.10);
+      --shadow-lg:   rgba(103,18,31,0.18);
+      /* Aliases */
+      --error:       #C8102E;
+      --info:        #1F7A5A;
+      --focus-ring:  rgba(200,16,46,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .section {
+      padding: 64px 80px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    h2.section-label { color: var(--muted); }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(180deg, var(--red) 0%, var(--red-dark) 45%, var(--cream) 100%);
+      padding: 80px 80px 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before,
+    header::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+    }
+    header::before { width: 400px; height: 400px; top: -100px; right: -80px; }
+    header::after  { width: 250px; height: 250px; bottom: 60px; right: 200px; }
+
+    .header-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 16px;
+    }
+
+    .header-title {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.0;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .header-sub {
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.82);
+    }
+
+    /* ── COLORS ── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 20px;
+    }
+
+    .color-swatch {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .swatch-block {
+      height: 72px;
+    }
+
+    .swatch-info {
+      background: var(--card);
+      padding: 10px 12px;
+    }
+
+    .swatch-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: ui-monospace, SF Mono, Menlo, monospace;
+    }
+
+    .swatch-role {
+      font-size: 10px;
+      color: var(--subtle);
+      margin-top: 2px;
+    }
+
+    .color-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin: 32px 0 12px;
+    }
+    .color-group-title:first-child { margin-top: 0; }
+
+    /* ── TYPOGRAPHY ── */
+    .type-row {
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--line);
+    }
+    .type-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .type-meta {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: ui-monospace, SF Mono, Menlo, monospace;
+      margin-bottom: 8px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 150ms ease, transform 200ms ease, box-shadow 150ms ease, border-color 150ms ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+    .btn-primary:active { transform: scale(0.98); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--red);
+      border: 2px solid var(--red);
+    }
+    .btn-secondary:hover {
+      background: var(--red-soft);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid transparent;
+    }
+    .btn-ghost:hover {
+      background: var(--surface-alt);
+    }
+
+    .btn-destructive {
+      background: var(--red-dark);
+      color: #fff;
+    }
+    .btn-destructive:hover {
+      background: #7A0B1E;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px var(--shadow-lg);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    .btn-loading {
+      background: var(--red);
+      color: transparent;
+      position: relative;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .btn-loading::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── INPUTS ── */
+    .input-group { margin-bottom: 20px; max-width: 360px; }
+
+    label.field-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    input::placeholder { color: var(--subtle); }
+
+    input:focus {
+      border: 2px solid var(--red);
+      box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+
+    input.error-state {
+      border: 1px solid var(--red);
+    }
+
+    .field-error {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--red-dark);
+      margin-top: 4px;
+    }
+
+    input:disabled {
+      background: var(--surface-alt);
+      color: var(--subtle);
+      cursor: not-allowed;
+    }
+
+    /* ── CARDS ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .card:hover {
+      border-color: var(--red);
+      box-shadow: 0 4px 12px rgba(103,18,31,0.07);
+    }
+
+    .card-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .card-meta {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .card-featured {
+      background: var(--red);
+      border: none;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 32px var(--shadow-lg);
+    }
+
+    .card-featured .card-eyebrow {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .card-featured .card-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .card-chip {
+      display: inline-block;
+      background: var(--panel);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* ── BADGES ── */
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 9999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .badge-red    { background: var(--red-soft);   color: var(--red-dark); }
+    .badge-green  { background: var(--green-soft);  color: var(--green); }
+    .badge-dark   { background: var(--text);        color: #fff; }
+    .badge-soft   { background: #EFE8DE;            color: #5D5145; }
+    .badge-amber  { background: var(--amber-soft);  color: #8A5E00; }
+
+    /* ── SPACING ── */
+    .spacing-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .spacing-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .spacing-bar {
+      background: var(--red);
+      width: 20px;
+      border-radius: 3px;
+      opacity: 0.7;
+    }
+
+    .spacing-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: ui-monospace, SF Mono, Menlo, monospace;
+      text-align: center;
+    }
+
+    /* ── ELEVATION ── */
+    .elevation-grid {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .elevation-card {
+      width: 200px;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .elev-0 { background: var(--cream); border: 2px dashed var(--line); }
+    .elev-1 { background: var(--card); border: 1px solid var(--line); }
+    .elev-2 { background: var(--card); border: 1px solid var(--red); box-shadow: 0 4px 12px rgba(103,18,31,0.07); }
+    .elev-3 { background: var(--red); border: none; box-shadow: 0 8px 32px var(--shadow-lg); }
+    .elev-4 { background: var(--white); border: none; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .elev-5 { background: var(--red); border: none; box-shadow: 0 4px 16px var(--shadow); }
+
+    .elev-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .elev-3 .elev-title, .elev-5 .elev-title { color: #fff; }
+    .elev-desc  { font-size: 11px; color: var(--muted); font-family: ui-monospace, SF Mono, Menlo, monospace; }
+    .elev-3 .elev-desc, .elev-5 .elev-desc { color: rgba(255,255,255,0.7); }
+
+    /* ── SCORE ── */
+    .score-display {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .score-team { font-size: 16px; font-weight: 600; color: var(--ink); }
+    .score-value { font-size: 32px; font-weight: 900; color: var(--red); font-variant-numeric: tabular-nums; }
+    .score-sep { font-size: 24px; font-weight: 300; color: var(--muted); }
+
+    /* ── DO / DON'T ── */
+    .dos-donts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .do-col h3 { color: var(--green); font-size: 14px; font-weight: 700; margin-bottom: 16px; letter-spacing: 0.5px; }
+    .dont-col h3 { color: var(--red-dark); font-size: 14px; font-weight: 700; margin-bottom: 16px; letter-spacing: 0.5px; }
+
+    .rule-item {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.5;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .rule-item::before { position: absolute; left: 0; font-weight: 700; }
+    .do-col   .rule-item::before { content: '✓'; color: var(--green); }
+    .dont-col .rule-item::before { content: '✗'; color: var(--red-dark); }
+
+    /* ── SECTION HEADER DEMO ── */
+    .section-header-demo { max-width: 640px; }
+    .demo-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .demo-heading {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .demo-sub {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── LINKS ── */
+    .link-inline {
+      color: var(--red);
+      text-decoration: none;
+      transition: text-decoration 150ms ease;
+    }
+    .link-inline:hover { text-decoration: underline; }
+
+    .link-standalone {
+      color: var(--ink);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 150ms ease;
+    }
+    .link-standalone:hover { color: var(--red); }
+
+    /* ── DATA TABLE ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .data-table thead tr {
+      background: var(--surface-alt);
+      border-bottom: 2px solid var(--line);
+    }
+    .data-table th {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 14px 16px;
+      text-align: left;
+    }
+    .data-table td {
+      font-size: 15px;
+      color: var(--text);
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .data-table tbody tr:hover { background: var(--card); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ── FOOTER DEMO ── */
+    .footer-demo {
+      background: var(--night);
+      padding: 64px 80px;
+      color: var(--subtle);
+    }
+    .footer-demo a {
+      color: var(--subtle);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 150ms ease;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .footer-demo a:hover { color: var(--cream); }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 48px 24px; }
+      header { padding: 60px 24px 80px; }
+      .header-title { font-size: 36px; }
+      .dos-donts { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-demo { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-eyebrow">Design System Preview</div>
+    <div class="header-title">Pilotariak</div>
+    <div class="header-sub">Pelota basque community hub — visual catalog generated from DESIGN.md</div>
+  </header>
+
+  <!-- COLORS -->
+  <section class="section">
+    <div class="section-label">Color Palette</div>
+
+    <div class="color-group-title">Brand & Primary</div>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#C8102E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Basque Crimson Red</div>
+          <div class="swatch-hex">--red · #C8102E</div>
+          <div class="swatch-role">Brand, CTAs, hero</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#970D25;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Fronton Dark Red</div>
+          <div class="swatch-hex">--red-dark · #970D25</div>
+          <div class="swatch-role">Gradient stop, pressed, error text</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#FDE8EC; border-bottom:1px solid #e5ded6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blush Soft Red</div>
+          <div class="swatch-hex">--red-soft · #FDE8EC</div>
+          <div class="swatch-role">Error bg, badge chips</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-group-title">Canvas & Surfaces</div>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#F7F4EF; border-bottom:1px solid #e5ded6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Warm Limestone Cream</div>
+          <div class="swatch-hex">--cream · #F7F4EF</div>
+          <div class="swatch-role">Page background</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#FFFDFC; border-bottom:1px solid #e5ded6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Pearl Card White</div>
+          <div class="swatch-hex">--card · #FFFDFC</div>
+          <div class="swatch-role">Content card background</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#F2EDE7; border-bottom:1px solid #e5ded6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Linen Tint</div>
+          <div class="swatch-hex">--surface-alt · #F2EDE7</div>
+          <div class="swatch-role">Alternating sections</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#E5DED6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Warm Greige Line</div>
+          <div class="swatch-hex">--line · #E5DED6</div>
+          <div class="swatch-role">Universal borders</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-group-title">Ink & Text</div>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#141414;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Deep Ink</div>
+          <div class="swatch-hex">--ink · #141414</div>
+          <div class="swatch-role">Headings, titles</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#262626;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Charcoal Text</div>
+          <div class="swatch-hex">--text · #262626</div>
+          <div class="swatch-role">Body copy</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#7A7A7A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Warm Muted Gray</div>
+          <div class="swatch-hex">--muted · #7A7A7A</div>
+          <div class="swatch-role">Secondary, metadata</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#A8A49E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Pale Stone Gray</div>
+          <div class="swatch-hex">--subtle · #A8A49E</div>
+          <div class="swatch-role">Disabled, decorative</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-group-title">Semantic & Status</div>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#1F7A5A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Tournament Green</div>
+          <div class="swatch-hex">--green · #1F7A5A</div>
+          <div class="swatch-role">Live, success, info</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#E6F4EE; border-bottom:1px solid #e5ded6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Green Soft</div>
+          <div class="swatch-hex">--green-soft · #E6F4EE</div>
+          <div class="swatch-role">Success badge bg</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#C8900A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Championship Amber</div>
+          <div class="swatch-hex">--amber · #C8900A</div>
+          <div class="swatch-role">Finals, championship</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#FFF8E7; border-bottom:1px solid #e5ded6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Amber Soft</div>
+          <div class="swatch-hex">--amber-soft · #FFF8E7</div>
+          <div class="swatch-role">Championship badge bg</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-group-title">Dark Surfaces</div>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#141414;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Fronton Night</div>
+          <div class="swatch-hex">--night · #141414</div>
+          <div class="swatch-role">Footer background</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#1E1E1E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Panel Dark</div>
+          <div class="swatch-hex">--panel · #1E1E1E</div>
+          <div class="swatch-role">Dark inset surfaces</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="section">
+    <div class="section-label">Typography Scale — Inter Variable</div>
+
+    <div class="type-row">
+      <div class="type-meta">Display — 64px / weight 900 / tracking −1.5px / lh 1.0 — hero only</div>
+      <div style="font-size:64px; font-weight:900; letter-spacing:-1.5px; line-height:1.0; color:var(--ink);">Pelota Basque</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Heading 1 — 48px / weight 800 / tracking −0.8px / lh 1.1</div>
+      <div style="font-size:48px; font-weight:800; letter-spacing:-0.8px; line-height:1.1; color:var(--ink);">Championnat de France</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Heading 2 — 36px / weight 800 / tracking −0.5px / lh 1.15</div>
+      <div style="font-size:36px; font-weight:800; letter-spacing:-0.5px; line-height:1.15; color:var(--ink);">Résultats du tournoi</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Heading 3 — 28px / weight 700 / tracking −0.3px / lh 1.2</div>
+      <div style="font-size:28px; font-weight:700; letter-spacing:-0.3px; line-height:1.2; color:var(--ink);">Finale Grand Chistera</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Heading 4 — 22px / weight 700 / tracking 0 / lh 1.25</div>
+      <div style="font-size:22px; font-weight:700; letter-spacing:0; line-height:1.25; color:var(--ink);">Calendrier des matches</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Body Large — 18px / weight 400 / lh 1.7</div>
+      <div style="font-size:18px; font-weight:400; line-height:1.7; color:var(--text);">La Fédération Française de Pelote Basque regroupe l'ensemble des disciplines et des pratiquants.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Body — 16px / weight 400 / lh 1.65</div>
+      <div style="font-size:16px; font-weight:400; line-height:1.65; color:var(--text);">Le chistera est une discipline traditionnelle pratiquée sur fronton mur à gauche. Les joueurs portent un panier en osier tressé fixé à la main droite.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Body Strong — 16px / weight 600 / lh 1.65</div>
+      <div style="font-size:16px; font-weight:600; line-height:1.65; color:var(--text);">Voir tous les résultats →</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Small — 14px / weight 400 / lh 1.5</div>
+      <div style="font-size:14px; font-weight:400; line-height:1.5; color:var(--muted);">Dimanche 20 avril 2026 · Fronton de Bayonne</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Eyebrow — 12px / weight 700 / tracking +1.5px / uppercase</div>
+      <div style="font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted);">Résultats du jour</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">Navigation Link — 15px / weight 500 / lh 1.0</div>
+      <div style="font-size:15px; font-weight:500; line-height:1.0; color:var(--text);">Résultats · Calendrier · Clubs · À propos</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">CTA Button — 16px / weight 700 / lh 1.0</div>
+      <div style="font-size:16px; font-weight:700; line-height:1.0; color:var(--red);">Voir le classement</div>
+    </div>
+  </section>
+
+  <!-- BUTTONS -->
+  <section class="section">
+    <div class="section-label">Buttons</div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-ghost">Ghost</button>
+      <button class="btn btn-destructive">Destructive</button>
+      <button class="btn btn-primary" disabled>Disabled</button>
+      <button class="btn btn-loading" style="min-width:120px;">Loading</button>
+    </div>
+
+    <p style="font-size:13px; color:var(--muted); margin-top:12px;">Hover primary/destructive to see lift + shadow. Primary: <code style="font-family:monospace;">#C8102E → #970D25</code>. Destructive: <code style="font-family:monospace;">#970D25 → #7A0B1E</code>.</p>
+  </section>
+
+  <!-- FORM INPUTS -->
+  <section class="section">
+    <div class="section-label">Form Inputs</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:24px;">
+      <div class="input-group">
+        <label class="field-label">Default</label>
+        <input type="text" placeholder="Nom du joueur" />
+      </div>
+      <div class="input-group">
+        <label class="field-label">Focus (click to see)</label>
+        <input type="text" placeholder="Cliquez ici..." />
+      </div>
+      <div class="input-group">
+        <label class="field-label">Error state</label>
+        <input type="text" class="error-state" value="Valeur incorrecte" />
+        <div class="field-error">Ce champ est obligatoire</div>
+      </div>
+      <div class="input-group">
+        <label class="field-label">Disabled</label>
+        <input type="text" disabled value="Non modifiable" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <section class="section">
+    <div class="section-label">Cards & Hero Card</div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-eyebrow">Résultats</div>
+        <div class="card-title">Finale Nationale 2026</div>
+        <div class="card-meta">20 avril 2026 · Fronton de Bayonne</div>
+      </div>
+      <div class="card">
+        <div class="card-eyebrow">Calendrier</div>
+        <div class="card-title">Tournoi du Pays Basque</div>
+        <div class="card-meta">Inscriptions ouvertes · 48 équipes</div>
+      </div>
+      <div class="card-featured">
+        <div class="card-eyebrow">À la une</div>
+        <div class="card-title">Championnat de France Grand Chistera</div>
+        <span class="card-chip">Final · Bayonne</span>
+      </div>
+    </div>
+    <p style="font-size:13px; color:var(--muted); margin-top:16px;">Hover white cards to see red border + warm shadow. Featured card = full red, no hover needed.</p>
+  </section>
+
+  <!-- SECTION HEADER -->
+  <section class="section">
+    <div class="section-label">Section Header</div>
+    <div class="section-header-demo">
+      <div class="demo-eyebrow">Résultats récents</div>
+      <div class="demo-heading">Derniers matches<br>de la saison</div>
+      <div class="demo-sub">Retrouvez tous les résultats des compétitions officielles de pelote basque, mis à jour après chaque journée.</div>
+    </div>
+  </section>
+
+  <!-- BADGES -->
+  <section class="section">
+    <div class="section-label">Status Badges</div>
+    <div class="badge-row">
+      <span class="badge badge-green">En direct</span>
+      <span class="badge badge-green">Aujourd'hui</span>
+      <span class="badge badge-red">Terminé</span>
+      <span class="badge badge-dark">Finale</span>
+      <span class="badge badge-soft">À venir</span>
+      <span class="badge badge-amber">Championnat</span>
+      <span class="badge badge-amber">Demi-finale</span>
+    </div>
+  </section>
+
+  <!-- SCORE DISPLAY -->
+  <section class="section">
+    <div class="section-label">Score Display</div>
+    <div class="score-display">
+      <span class="score-team">Équipe Etcheberry</span>
+      <span class="score-value">40</span>
+      <span class="score-sep">—</span>
+      <span class="score-value">35</span>
+      <span class="score-team">Équipe Haristoy</span>
+    </div>
+  </section>
+
+  <!-- LINKS -->
+  <section class="section">
+    <div class="section-label">Links</div>
+    <p style="font-size:16px; line-height:1.65; color:var(--text); max-width:560px; margin-bottom:16px;">
+      Les résultats du <a href="#" class="link-inline">Championnat de France 2026</a> sont désormais disponibles. Consultez le <a href="#" class="link-inline">calendrier complet</a> pour la prochaine saison.
+    </p>
+    <a href="#" class="link-standalone">Voir tous les résultats →</a>
+  </section>
+
+  <!-- DATA TABLE -->
+  <section class="section">
+    <div class="section-label">Data Table</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Joueur</th>
+          <th>Club</th>
+          <th>Score</th>
+          <th>Date</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jean Etcheberry</td>
+          <td>Biarritz Pelote</td>
+          <td style="color:var(--red); font-weight:700;">40</td>
+          <td>20 avr. 2026</td>
+          <td><span class="badge badge-green">Victoire</span></td>
+        </tr>
+        <tr>
+          <td>Pierre Haristoy</td>
+          <td>Bayonne EC</td>
+          <td style="color:var(--red); font-weight:700;">35</td>
+          <td>20 avr. 2026</td>
+          <td><span class="badge badge-red">Défaite</span></td>
+        </tr>
+        <tr>
+          <td>Michel Iturria</td>
+          <td>Saint-Jean-de-Luz</td>
+          <td style="color:var(--muted);">—</td>
+          <td>22 avr. 2026</td>
+          <td><span class="badge badge-soft">À venir</span></td>
+        </tr>
+        <tr>
+          <td>Luis Txilar</td>
+          <td>Hendaye Pelote</td>
+          <td style="color:var(--amber); font-weight:700;">42</td>
+          <td>19 avr. 2026</td>
+          <td><span class="badge badge-amber">Finale</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SPACING -->
+  <section class="section">
+    <div class="section-label">Spacing Scale — base 8px</div>
+    <div class="spacing-row">
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:4px;"></div>
+        <div class="spacing-label">4px<br>2xs</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:8px;"></div>
+        <div class="spacing-label">8px<br>xs</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:12px;"></div>
+        <div class="spacing-label">12px<br>sm</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:16px;"></div>
+        <div class="spacing-label">16px<br>md</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:24px;"></div>
+        <div class="spacing-label">24px<br>lg</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:32px;"></div>
+        <div class="spacing-label">32px<br>xl</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:48px;"></div>
+        <div class="spacing-label">48px<br>2xl</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:64px;"></div>
+        <div class="spacing-label">64px<br>3xl</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:80px;"></div>
+        <div class="spacing-label">80px<br>hero</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:120px;"></div>
+        <div class="spacing-label">120px<br>hero-top</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELEVATION -->
+  <section class="section">
+    <div class="section-label">Depth & Elevation</div>
+    <div class="elevation-grid">
+      <div class="elevation-card elev-0">
+        <div class="elev-title">Level 0 — Canvas</div>
+        <div class="elev-desc">--cream, no border/shadow</div>
+      </div>
+      <div class="elevation-card elev-1">
+        <div class="elev-title">Level 1 — Card</div>
+        <div class="elev-desc">--card bg + 1px --line</div>
+      </div>
+      <div class="elevation-card elev-2">
+        <div class="elev-title">Level 2 — Hover</div>
+        <div class="elev-desc">1px --red + warm shadow</div>
+      </div>
+      <div class="elevation-card elev-3">
+        <div class="elev-title">Level 3 — Hero Card</div>
+        <div class="elev-desc">Full --red bg</div>
+      </div>
+      <div class="elevation-card elev-4">
+        <div class="elev-title">Level 4 — Modal</div>
+        <div class="elev-desc">--white + neutral shadow</div>
+      </div>
+      <div class="elevation-card elev-5">
+        <div class="elev-title">Level 5 — CTA</div>
+        <div class="elev-desc">--red + warm shadow</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DO / DON'T -->
+  <section class="section">
+    <div class="section-label">Do's &amp; Don'ts</div>
+    <div class="dos-donts">
+      <div class="do-col">
+        <h3>DO</h3>
+        <div class="rule-item">Use <code>#F7F4EF</code> as page background — never pure white</div>
+        <div class="rule-item">Use Basque Crimson Red only for hero, CTAs, active nav, scores</div>
+        <div class="rule-item">Render eyebrow labels uppercase with +1.5px letter-spacing</div>
+        <div class="rule-item">Use <code>#E5DED6</code> as universal border on all light surfaces</div>
+        <div class="rule-item">Switch text to Deep Ink once below 300px hero gradient zone</div>
+        <div class="rule-item">Reserve weight 900 for Display hero title only</div>
+        <div class="rule-item">Give championship content amber treatment</div>
+        <div class="rule-item">Ensure 44×44px minimum touch targets</div>
+      </div>
+      <div class="dont-col">
+        <h3>DON'T</h3>
+        <div class="rule-item">Don't use <code>#FFFFFF</code> as page background</div>
+        <div class="rule-item">Don't use pure black <code>#000000</code> — use Deep Ink <code>#141414</code></div>
+        <div class="rule-item">Don't place dark ink text over the red hero gradient</div>
+        <div class="rule-item">Don't add box-shadows to standard list cards</div>
+        <div class="rule-item">Don't use corner-rounding below 6px on interactive elements</div>
+        <div class="rule-item">Don't compress section spacing below 80px</div>
+        <div class="rule-item">Don't use more than one accent color per page section</div>
+        <div class="rule-item">Don't render critical content client-side only</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-demo">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-col-title">Pilotariak</div>
+        <a href="#">Accueil</a>
+        <a href="#">À propos</a>
+        <a href="#">Contact</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Compétitions</div>
+        <a href="#">Calendrier</a>
+        <a href="#">Résultats</a>
+        <a href="#">Classements</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Disciplines</div>
+        <a href="#">Grand Chistera</a>
+        <a href="#">Main nue</a>
+        <a href="#">Paleta gomme</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Ressources</div>
+        <a href="#">Règlement</a>
+        <a href="#">Clubs affiliés</a>
+        <a href="#">Licences</a>
+      </div>
+    </div>
+    <div style="margin-top:48px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08); font-size:13px; color:var(--panel);">
+      © 2026 Pilotariak · Design system generated from DESIGN.md
+    </div>
+  </footer>
+
+</body>
+</html>
