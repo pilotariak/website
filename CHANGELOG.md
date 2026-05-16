@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/pilotariak/website/compare/pilotariak-website-v0.4.0...pilotariak-website-v0.4.1) (2026-05-16)
+
+
+### 🐛 Bug Fixes
+
+* **fr:** sync fr locale pages with en structure ([#14](https://github.com/pilotariak/website/issues/14)) ([beaa26b](https://github.com/pilotariak/website/commit/beaa26bebb5d44f9d7a168f6af23f435de9880e5))
+
 ## [0.4.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.3.0...pilotariak-website-v0.4.0) (2026-04-22)
 
 
