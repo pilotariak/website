@@ -1,0 +1,104 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "Pilotariak",
+  "description": "Public read-only agent interface for pilotariak.com, an open-source software organisation for the Basque pelota sport community. Exposes project information, competition data, player profiles and API documentation over HTTP+JSON. No authentication required. No write operations.",
+  "url": "https://pilotariak.com",
+  "preferredTransport": "HTTP+JSON",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "Pilotariak",
+    "url": "https://pilotariak.com"
+  },
+  "documentationUrl": "https://pilotariak.com/llms.txt",
+  "iconUrl": "https://pilotariak.com/favicon.svg",
+  "supportedInterfaces": [
+    {
+      "url": "https://pilotariak.com",
+      "transport": "HTTP+JSON"
+    },
+    {
+      "url": "https://pilotariak.com/azkena",
+      "transport": "MCP"
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "project-info",
+      "name": "Project information",
+      "description": "Get details about Pilotariak open-source projects: Frontis (GraphQL API gateway), Kancha (iOS & Android mobile app), Xilo (Slack bot), and Azkena (MCP server). Includes descriptions, GitHub links, and feature overviews.",
+      "tags": [
+        "projects",
+        "open-source",
+        "basque-pelota"
+      ],
+      "examples": [
+        "What projects does Pilotariak maintain?",
+        "Tell me about the Frontis GraphQL API",
+        "Is there a mobile app for Basque pelota?"
+      ]
+    },
+    {
+      "id": "mcp-server",
+      "name": "MCP server — Azkena",
+      "description": "Access Basque pelota data (competitions, results, players, frontons) through the Azkena Model Context Protocol server at https://pilotariak.com/azkena. Exposes MCP tools and resources so AI agents can query the platform directly.",
+      "tags": [
+        "mcp",
+        "api",
+        "basque-pelota",
+        "competitions",
+        "results",
+        "players"
+      ],
+      "examples": [
+        "What MCP tools does Pilotariak expose?",
+        "How do I connect to the Azkena MCP server?",
+        "List current Basque pelota competitions"
+      ]
+    },
+    {
+      "id": "graphql-api",
+      "name": "GraphQL API — Frontis",
+      "description": "Query the Frontis GraphQL gateway, which unifies five data domains (competitions, clubs, results, categories, disciplines) into a single federated API endpoint for Basque pelota data.",
+      "tags": [
+        "graphql",
+        "api",
+        "competitions",
+        "clubs",
+        "results"
+      ],
+      "examples": [
+        "What GraphQL queries are available?",
+        "How do I fetch competition results from Frontis?"
+      ]
+    },
+    {
+      "id": "sport-context",
+      "name": "Basque pelota sport context",
+      "description": "Get background information about Basque pelota (pelote basque): disciplines (Cesta Punta, Grand Chistera, Main Nue, Paleta, Xare, Rebot), statistics (240+ competitions/year, 1 800 players, 120 frontons), and community context.",
+      "tags": [
+        "basque-pelota",
+        "sport",
+        "disciplines",
+        "frontons"
+      ],
+      "examples": [
+        "What disciplines does Basque pelota have?",
+        "How many players are registered in the Pilotariak platform?",
+        "What is a fronton?"
+      ]
+    }
+  ]
+}
