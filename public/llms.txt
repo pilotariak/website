@@ -31,6 +31,14 @@ Language: English, Français
 - GitHub: https://github.com/Pilotariak/xilo
 - Page: https://pilotariak.com/xilo
 
+### Azkena — MCP Server
+- Description: Model Context Protocol server for the Pilotariak ecosystem.
+  Exposes Basque pelota data (competitions, results, players, frontons) as
+  MCP tools and resources so AI agents can query the platform directly.
+- GitHub: https://github.com/Pilotariak/azkena
+- Endpoint: https://pilotariak.com/azkena
+- Server card: https://pilotariak.com/.well-known/mcp.json
+
 ## Sport Context
 
 Basque pelota (pelote basque) is an ancient sport from the Basque Country played
