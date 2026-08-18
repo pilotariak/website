@@ -24,6 +24,7 @@ const API_CATALOG = {
         { href: 'https://pilotariak.com/azkena' },
         { href: 'https://pilotariak.com/.well-known/mcp.json' },
         { href: 'https://pilotariak.com/.well-known/agent-skills/index.json' },
+        { href: 'https://pilotariak.com/.well-known/security.txt' },
         { href: 'https://pilotariak.com/llms.txt' },
         { href: 'https://pilotariak.com/frontis' },
         { href: 'https://pilotariak.com/xilo' },
