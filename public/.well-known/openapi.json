@@ -1,0 +1,74 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Pilotariak Website Agent API",
+    "version": "1.0.0",
+    "description": "Metadata for Pilotariak website agents, MCP, and AI discoverability.",
+    "contact": {
+      "name": "Pilotariak",
+      "url": "https://pilotariak.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://pilotariak.com"
+    }
+  ],
+  "paths": {
+    "/.well-known/agent-card.json": {
+      "get": {
+        "summary": "A2A Agent Card",
+        "operationId": "getAgentCard",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/.well-known/agent-skills/index.json": {
+      "get": {
+        "summary": "Agent Skills index",
+        "operationId": "getSkillsIndex",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/.well-known/ai-catalog.json": {
+      "get": {
+        "summary": "AI catalog (ARD)",
+        "operationId": "getAiCatalog",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/.well-known/mcp/server-card.json": {
+      "get": {
+        "summary": "MCP Server Card",
+        "operationId": "getMcpCard",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/.well-known/security.txt": {
+      "get": {
+        "summary": "Security policy",
+        "operationId": "getSecurity",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    }
+  }
+}

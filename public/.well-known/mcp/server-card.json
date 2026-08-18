@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  "name": "pilotariak/azkena",
+  "version": "1.0.0",
+  "description": "Access Basque pelota data (competitions, results, players, frontons) via MCP. No auth required.",
+  "title": "Pilotariak Azkena",
+  "websiteUrl": "https://pilotariak.com",
+  "repository": {
+    "url": "https://github.com/Pilotariak/azkena",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://pilotariak.com/azkena",
+      "supportedProtocolVersions": ["2025-06-18", "2025-11-25"]
+    }
+  ]
+}
