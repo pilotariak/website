@@ -1,0 +1,21 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+
+import AzkenaPage from "../components/AzkenaPage.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import { useTranslations } from "../i18n/utils";
+import Layout from "../layouts/Layout.astro";
+
+const t = useTranslations("en");
+---
+
+<Layout
+  title={t("azkena.meta.title")}
+  description={t("azkena.meta.description")}
+>
+  <Nav />
+  <AzkenaPage />
+  <Footer />
+</Layout>
