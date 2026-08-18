@@ -1,0 +1,58 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://pilotariak.com/.well-known/api-catalog",
+      "item": [
+        { "href": "https://pilotariak.com/azkena" },
+        { "href": "https://pilotariak.com/.well-known/mcp.json" },
+        { "href": "https://pilotariak.com/.well-known/agent-skills/index.json" },
+        { "href": "https://pilotariak.com/.well-known/security.txt" },
+        { "href": "https://pilotariak.com/llms.txt" },
+        { "href": "https://pilotariak.com/frontis" },
+        { "href": "https://pilotariak.com/xilo" }
+      ]
+    },
+    {
+      "anchor": "https://pilotariak.com/azkena",
+      "service-desc": [
+        { "href": "https://pilotariak.com/.well-known/mcp.json", "type": "application/json" }
+      ],
+      "service-doc": [
+        { "href": "https://pilotariak.com/", "type": "text/html" },
+        { "href": "https://github.com/Pilotariak", "type": "text/html" }
+      ]
+    },
+    {
+      "anchor": "https://pilotariak.com/.well-known/mcp.json",
+      "service-desc": [
+        { "href": "https://pilotariak.com/.well-known/mcp.json", "type": "application/json" }
+      ],
+      "service-doc": [
+        { "href": "https://pilotariak.com/", "type": "text/html" }
+      ]
+    },
+    {
+      "anchor": "https://pilotariak.com/llms.txt",
+      "service-desc": [
+        { "href": "https://pilotariak.com/llms.txt", "type": "text/plain" }
+      ],
+      "service-doc": [
+        { "href": "https://pilotariak.com/", "type": "text/html" }
+      ]
+    },
+    {
+      "anchor": "https://pilotariak.com/frontis",
+      "service-doc": [
+        { "href": "https://pilotariak.com/frontis", "type": "text/html" },
+        { "href": "https://github.com/Pilotariak/frontis", "type": "text/html" }
+      ]
+    },
+    {
+      "anchor": "https://pilotariak.com/xilo",
+      "service-doc": [
+        { "href": "https://pilotariak.com/xilo", "type": "text/html" },
+        { "href": "https://github.com/Pilotariak/xilo", "type": "text/html" }
+      ]
+    }
+  ]
+}
