@@ -1,5 +1,5 @@
 /*
-  Link: <https://pilotariak.com/sitemap.xml>; rel="sitemap", <https://pilotariak.com/.well-known/agent-card.json>; rel="agent-card", <https://pilotariak.com/.well-known/mcp.json>; rel="mcp-server-card", <https://pilotariak.com/azkena>; rel="mcp", <https://pilotariak.com/llms.txt>; rel="describedby"; type="text/plain", <https://pilotariak.com/.well-known/api-catalog>; rel="api-catalog", <https://pilotariak.com/.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json", <https://pilotariak.com/.well-known/security.txt>; rel="security.txt"
+  Link: <https://pilotariak.com/sitemap.xml>; rel="sitemap", <https://pilotariak.com/.well-known/agent-card.json>; rel="agent-card", <https://pilotariak.com/.well-known/mcp.json>; rel="mcp-server-card", <https://pilotariak.com/azkena>; rel="mcp", <https://pilotariak.com/llms.txt>; rel="describedby"; type="text/plain", <https://pilotariak.com/.well-known/api-catalog>; rel="api-catalog", <https://pilotariak.com/.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json", <https://pilotariak.com/.well-known/security.txt>; rel="security.txt", <https://pilotariak.com/.well-known/ai.txt>; rel="ai-txt", <https://pilotariak.com/.well-known/ai.json>; rel="ai-json"
   Vary: Accept
   X-Robots-Tag: index, follow
 
@@ -29,4 +29,13 @@
 
 /llms.txt
   Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/.well-known/ai.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/.well-known/ai.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=3600

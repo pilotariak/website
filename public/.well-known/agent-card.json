@@ -9,6 +9,20 @@
     "url": "https://pilotariak.com"
   },
   "documentationUrl": "https://pilotariak.com/llms.txt",
+  "discoveryArtifacts": [
+    {
+      "type": "ai-policy-txt",
+      "url": "https://pilotariak.com/.well-known/ai.txt"
+    },
+    {
+      "type": "ai-policy-json",
+      "url": "https://pilotariak.com/.well-known/ai.json"
+    },
+    {
+      "type": "mcp-server-card",
+      "url": "https://pilotariak.com/.well-known/mcp.json"
+    }
+  ],
   "iconUrl": "https://pilotariak.com/favicon.svg",
   "capabilities": {
     "streaming": false,

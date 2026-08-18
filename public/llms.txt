@@ -66,6 +66,7 @@ Pilotariak exposes a Model Context Protocol (MCP) server at:
   https://pilotariak.com/azkena
 
 Discovery artifacts:
+- AI Policy: https://pilotariak.com/.well-known/ai.txt
 - AI Catalog: https://pilotariak.com/.well-known/ai-catalog.json
 - MCP server card: https://pilotariak.com/.well-known/mcp.json
 - Agent Skills: https://pilotariak.com/.well-known/agent-skills/index.json
