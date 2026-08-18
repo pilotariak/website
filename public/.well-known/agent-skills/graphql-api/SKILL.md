@@ -1,3 +1,8 @@
+---
+name: graphql-api
+description: Query the Frontis GraphQL gateway, which unifies five data domains (competitions, clubs, results, categories, disciplines) into a single federated API endpoint for Basque pelota data.
+license: Apache-2.0
+---
 # graphql-api
 
 Use this skill to query the Frontis GraphQL federation gateway for Basque pelota data.

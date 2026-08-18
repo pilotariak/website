@@ -1,3 +1,8 @@
+---
+name: sport-context
+description: Get background information about Basque pelota (pelote basque): disciplines, statistics (240+ competitions/year, 1,800 players, 120 frontons), and the Pilotariak open-source organisation.
+license: Apache-2.0
+---
 # sport-context
 
 Use this skill to get background information about Basque pelota (pelote basque) and the Pilotariak platform.

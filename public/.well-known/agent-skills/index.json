@@ -6,28 +6,28 @@
       "type": "skill-md",
       "description": "Get details about Pilotariak open-source projects: Frontis (GraphQL API gateway), Kancha (iOS & Android mobile app), Xilo (Slack bot), and Azkena (MCP server).",
       "url": "/.well-known/agent-skills/project-info/SKILL.md",
-      "digest": "sha256:cd2a4f6c17da55a6aa93b70167ca46bb368d1dec06672fecf4c3e62e101cb33d"
+      "digest": "sha256:1bf6154e2045567663e493449170a2159267c02081c704480661c0cb9a1e8b5f"
     },
     {
       "name": "mcp-server",
       "type": "skill-md",
       "description": "Access Basque pelota data (competitions, results, players, frontons) through the Azkena Model Context Protocol server at https://pilotariak.com/azkena. No authentication required.",
       "url": "/.well-known/agent-skills/mcp-server/SKILL.md",
-      "digest": "sha256:1399fa71f6d09caeb996c71861c63650508a2b46950325deca1e844bcd447bc8"
+      "digest": "sha256:ed869e08cadd01d7baccade678d7098d13a602271b58a698dfd327389d535d3a"
     },
     {
       "name": "graphql-api",
       "type": "skill-md",
       "description": "Query the Frontis GraphQL gateway, which unifies five data domains (competitions, clubs, results, categories, disciplines) into a single federated API endpoint for Basque pelota data.",
       "url": "/.well-known/agent-skills/graphql-api/SKILL.md",
-      "digest": "sha256:6611849129b732fe71237e90db94dcc9a2b5bbf01d8a829eaeab8be3423d8ee0"
+      "digest": "sha256:1a582a0fd8de8c247c35e7f20466b6acafdc190ff3a79a0768dbd32ed3e4493e"
     },
     {
       "name": "sport-context",
       "type": "skill-md",
       "description": "Get background information about Basque pelota (pelote basque): disciplines, statistics (240+ competitions/year, 1,800 players, 120 frontons), and the Pilotariak open-source organisation.",
       "url": "/.well-known/agent-skills/sport-context/SKILL.md",
-      "digest": "sha256:6c5ae8fcec0c5b9be10ac935f10e7d68fda0cf7dde62a2315af022b9f04cbce6"
+      "digest": "sha256:622c6700b7a536dd5798b2366dd4fa5f2cc437faaa8c32e5ab5121f62549a51d"
     }
   ]
 }
