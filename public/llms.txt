@@ -60,13 +60,15 @@ Key statistics:
 - /kancha — Kancha mobile app details
 - /xilo — Xilo Slack bot details
 
-## MCP Server
+## MCP Server & AI Discovery
 
 Pilotariak exposes a Model Context Protocol (MCP) server at:
   https://pilotariak.com/azkena
 
-The server card is at:
-  https://pilotariak.com/.well-known/mcp.json
+Discovery artifacts:
+- AI Catalog: https://pilotariak.com/.well-known/ai-catalog.json
+- MCP server card: https://pilotariak.com/.well-known/mcp.json
+- Agent Skills: https://pilotariak.com/.well-known/agent-skills/index.json
 
 ## Contact & Contribution
 
