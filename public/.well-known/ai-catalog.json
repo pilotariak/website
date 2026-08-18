@@ -1,0 +1,30 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Pilotariak",
+    "identifier": "pilotariak.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:ai:pilotariak.com:agent:main",
+      "displayName": "Pilotariak Agent",
+      "type": "application/a2a-agent-card+json",
+      "url": "https://pilotariak.com/.well-known/agent-card.json",
+      "description": "Public read-only agent interface for pilotariak.com, an open-source software organisation for the Basque pelota sport community."
+    },
+    {
+      "identifier": "urn:ai:pilotariak.com:mcp:azkena",
+      "displayName": "Azkena MCP Server",
+      "type": "application/mcp-server+json",
+      "url": "https://pilotariak.com/.well-known/mcp.json",
+      "description": "Access Basque pelota data (competitions, results, players, frontons) through the Azkena Model Context Protocol server."
+    },
+    {
+      "identifier": "urn:ai:pilotariak.com:skills:index",
+      "displayName": "Pilotariak Agent Skills",
+      "type": "application/agent-skills+json",
+      "url": "https://pilotariak.com/.well-known/agent-skills/index.json",
+      "description": "Index of agent skills published by Pilotariak."
+    }
+  ]
+}
