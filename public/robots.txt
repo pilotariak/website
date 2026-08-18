@@ -7,7 +7,6 @@
 #   use       — how AI systems may consume content (immediate | reference | full)
 
 User-agent: *
-Content-Signal: search=yes,ai-input=yes,ai-train=no,use=reference
 Allow: /
 Sitemap: https://pilotariak.com/sitemap.xml
 Sitemap: https://pilotariak.com/sitemap-index.xml

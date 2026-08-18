@@ -1,0 +1,28 @@
+Spec-Version: 1.0
+Site-Name: Pilotariak
+Site-URL: https://pilotariak.com
+Description: Open-source software organisation for the Basque pelota sport community.
+Contact: https://github.com/Pilotariak
+Policy-URL: https://pilotariak.com/llms.txt
+
+Training: deny
+Scraping: allow
+Indexing: allow
+Caching: allow
+Attribution: required
+AI-Disclosure: recommended
+Training-License: Apache-2.0
+
+Agent: ClaudeBot
+  Training: deny
+  Scraping: allow
+
+Agent: GPTBot
+  Training: deny
+  Scraping: allow
+
+Agent: CCBot
+  Scraping: deny
+
+Agent: Bytespider
+  Scraping: deny
