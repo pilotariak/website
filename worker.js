@@ -21,10 +21,22 @@ const API_CATALOG = {
       // Catalog root — enumerates the APIs
       anchor: 'https://pilotariak.com/.well-known/api-catalog',
       item: [
+        { href: 'https://pilotariak.com/azkena' },
         { href: 'https://pilotariak.com/.well-known/mcp.json' },
         { href: 'https://pilotariak.com/llms.txt' },
         { href: 'https://pilotariak.com/frontis' },
         { href: 'https://pilotariak.com/xilo' },
+      ],
+    },
+    {
+      // Azkena — Pilotariak MCP server (Model Context Protocol)
+      anchor: 'https://pilotariak.com/azkena',
+      'service-desc': [
+        { href: 'https://pilotariak.com/.well-known/mcp.json', type: 'application/json' },
+      ],
+      'service-doc': [
+        { href: 'https://pilotariak.com/', type: 'text/html' },
+        { href: 'https://github.com/Pilotariak', type: 'text/html' },
       ],
     },
     {

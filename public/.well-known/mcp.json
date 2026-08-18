@@ -2,6 +2,7 @@
   "name": "Pilotariak",
   "description": "Open-source tools for the Basque pelota sport community — data, APIs and mobile applications.",
   "url": "https://pilotariak.com",
+  "mcpServer": "https://pilotariak.com/azkena",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "source": "https://github.com/Pilotariak",
@@ -9,8 +10,8 @@
     "url": "https://github.com/Pilotariak"
   },
   "capabilities": {
-    "tools": false,
-    "resources": false,
+    "tools": true,
+    "resources": true,
     "prompts": false
   },
   "resources": [

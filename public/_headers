@@ -1,5 +1,5 @@
 /*
-  Link: <https://pilotariak.com/sitemap.xml>; rel="sitemap", <https://pilotariak.com/.well-known/mcp.json>; rel="mcp-server-card", <https://pilotariak.com/llms.txt>; rel="describedby"; type="text/plain", <https://pilotariak.com/.well-known/api-catalog>; rel="api-catalog"
+  Link: <https://pilotariak.com/sitemap.xml>; rel="sitemap", <https://pilotariak.com/.well-known/mcp.json>; rel="mcp-server-card", <https://pilotariak.com/azkena>; rel="mcp", <https://pilotariak.com/llms.txt>; rel="describedby"; type="text/plain", <https://pilotariak.com/.well-known/api-catalog>; rel="api-catalog"
   Vary: Accept
   X-Robots-Tag: index, follow
 

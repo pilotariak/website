@@ -52,6 +52,14 @@ Key statistics:
 - /kancha — Kancha mobile app details
 - /xilo — Xilo Slack bot details
 
+## MCP Server
+
+Pilotariak exposes a Model Context Protocol (MCP) server at:
+  https://pilotariak.com/azkena
+
+The server card is at:
+  https://pilotariak.com/.well-known/mcp.json
+
 ## Contact & Contribution
 
 All projects are open source (Apache 2.0). Contributions are welcome via GitHub.
