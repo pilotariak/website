@@ -1,5 +1,6 @@
 /*
   Link: <https://pilotariak.com/sitemap.xml>; rel="sitemap", <https://pilotariak.com/.well-known/mcp.json>; rel="mcp-server-card", <https://pilotariak.com/llms.txt>; rel="describedby"; type="text/plain"
+  Vary: Accept
   X-Robots-Tag: index, follow
 
 /.well-known/mcp.json
