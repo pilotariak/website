@@ -1,0 +1,73 @@
+# Pilotariak
+
+> Open-source software organisation for the Basque pelota sport community.
+
+Pilotariak builds data tools, APIs and mobile applications to make Basque pelota
+results, player profiles and competition data accessible to everyone.
+
+License: Apache 2.0
+Source: https://github.com/Pilotariak
+Language: English, Français
+
+## Projects
+
+### Frontis — GraphQL API Gateway
+- Description: Centralised GraphQL gateway for all Basque pelota data. Unifies
+  five data domains (competitions, clubs, results, categories, disciplines) into
+  a single federated API endpoint.
+- GitHub: https://github.com/Pilotariak/frontis
+- Page: https://pilotariak.com/frontis
+
+### Kancha — Mobile App (iOS & Android)
+- Description: Mobile application for the Basque pelota community. Provides live
+  results, competition calendars, player profiles and phase-by-phase tournament
+  brackets. Available on iPhone and Android (in development).
+- GitHub: https://github.com/Pilotariak/kancha
+- Page: https://pilotariak.com/kancha
+
+### Xilo — Slack Bot
+- Description: Slack bot for the Pilotariak community. Slash commands and
+  real-time events deliver Basque pelota data directly into Slack channels.
+- GitHub: https://github.com/Pilotariak/xilo
+- Page: https://pilotariak.com/xilo
+
+### Azkena — MCP Server
+- Description: Model Context Protocol server for the Pilotariak ecosystem.
+  Exposes Basque pelota data (competitions, results, players, frontons) as
+  MCP tools and resources so AI agents can query the platform directly.
+- GitHub: https://github.com/Pilotariak/azkena
+- Endpoint: https://pilotariak.com/azkena
+- Server card: https://pilotariak.com/.well-known/mcp.json
+
+## Sport Context
+
+Basque pelota (pelote basque) is an ancient sport from the Basque Country played
+across around ten disciplines: Cesta Punta, Grand Chistera, Main Nue, Paleta,
+Xare, Rebot, and more. It is played on both sides of the Pyrenees and involves
+thousands of players, clubs and frontons (courts).
+
+Key statistics:
+- 240+ competitions organised per year
+- 1,800 registered players
+- 7 disciplines covered
+- 120 listed frontons
+
+## Pages
+
+- / — Home (English)
+- /fr/ — Home (Français)
+- /frontis — Frontis GraphQL API details
+- /kancha — Kancha mobile app details
+- /xilo — Xilo Slack bot details
+
+## MCP Server
+
+Pilotariak exposes a Model Context Protocol (MCP) server at:
+  https://pilotariak.com/azkena
+
+The server card is at:
+  https://pilotariak.com/.well-known/mcp.json
+
+## Contact & Contribution
+
+All projects are open source (Apache 2.0). Contributions are welcome via GitHub.
