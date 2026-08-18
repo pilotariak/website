@@ -1,0 +1,12 @@
+/*
+  Link: <https://pilotariak.com/sitemap.xml>; rel="sitemap", <https://pilotariak.com/.well-known/mcp.json>; rel="mcp-server-card", <https://pilotariak.com/llms.txt>; rel="describedby"; type="text/plain"
+  X-Robots-Tag: index, follow
+
+/.well-known/mcp.json
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600

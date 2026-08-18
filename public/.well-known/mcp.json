@@ -1,0 +1,44 @@
+{
+  "name": "Pilotariak",
+  "description": "Open-source tools for the Basque pelota sport community — data, APIs and mobile applications.",
+  "url": "https://pilotariak.com",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "source": "https://github.com/Pilotariak",
+  "contact": {
+    "url": "https://github.com/Pilotariak"
+  },
+  "capabilities": {
+    "tools": false,
+    "resources": false,
+    "prompts": false
+  },
+  "resources": [
+    {
+      "name": "llms.txt",
+      "url": "https://pilotariak.com/llms.txt",
+      "description": "Plain-text description of this site and its projects for AI agents",
+      "mimeType": "text/plain"
+    },
+    {
+      "name": "sitemap",
+      "url": "https://pilotariak.com/sitemap.xml",
+      "description": "XML sitemap listing all pages",
+      "mimeType": "application/xml"
+    }
+  ],
+  "related": {
+    "frontis": {
+      "description": "GraphQL API gateway for Basque pelota data",
+      "url": "https://github.com/Pilotariak/frontis"
+    },
+    "kancha": {
+      "description": "iOS & Android mobile app for Basque pelota",
+      "url": "https://github.com/Pilotariak/kancha"
+    },
+    "xilo": {
+      "description": "Slack bot for Basque pelota data",
+      "url": "https://github.com/Pilotariak/xilo"
+    }
+  }
+}
