@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.5.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.4.0...pilotariak-website-v0.5.0) (2026-08-18)
+
+
+### 🚀 Features
+
+* **agent:** add A2A agent card at .well-known/agent-card.json ([#18](https://github.com/pilotariak/website/issues/18)) ([aa4361b](https://github.com/pilotariak/website/commit/aa4361bb218770ff6dc5b5cdc5439127b5f3b8a8))
+* **agent:** add agent-skills discovery endpoint ([#19](https://github.com/pilotariak/website/issues/19)) ([62a186d](https://github.com/pilotariak/website/commit/62a186d0d8e772cebfe8a02645ba72c7218ac6b2))
+* **agent:** add ai-agent discovery files and sitemap ([#17](https://github.com/pilotariak/website/issues/17)) ([f8b8e51](https://github.com/pilotariak/website/commit/f8b8e51474550440b3dee6ce3481458db008326e))
+* **agent:** align agent card with a2a spec ([#29](https://github.com/pilotariak/website/issues/29)) ([63d801b](https://github.com/pilotariak/website/commit/63d801b5eb802f3a8de7297c14bf92b1313cb42d)), closes [#22](https://github.com/pilotariak/website/issues/22)
+* **agent:** align agent-skills discovery with Cloudflare RFC ([#28](https://github.com/pilotariak/website/issues/28)) ([32b5068](https://github.com/pilotariak/website/commit/32b5068e15beb4eb74ad0d07bbd7f082d6515d95)), closes [#26](https://github.com/pilotariak/website/issues/26)
+* **ai:** add ai.txt and ai.json policies ([#33](https://github.com/pilotariak/website/issues/33)) ([927b56a](https://github.com/pilotariak/website/commit/927b56acbb11fee87df0a949e3cbb31781356552)), closes [#27](https://github.com/pilotariak/website/issues/27)
+* **api:** implement OpenAPI specification and agent metadata ([#32](https://github.com/pilotariak/website/issues/32)) ([555b987](https://github.com/pilotariak/website/commit/555b9876701c602668bc1e37dbc4d7ebcf47a108)), closes [#31](https://github.com/pilotariak/website/issues/31)
+* **config:** register with AI Catalog ([#30](https://github.com/pilotariak/website/issues/30)) ([68ec428](https://github.com/pilotariak/website/commit/68ec4281d40d109e678cfc92c06b3541ce4ac352))
+* **security:** add security.txt following RFC 9116 ([#21](https://github.com/pilotariak/website/issues/21)) ([055a3ee](https://github.com/pilotariak/website/commit/055a3eedf1220ce311c2e5567f43e3c19342654c)), closes [#20](https://github.com/pilotariak/website/issues/20)
+
+
+### 🐛 Bug Fixes
+
+* **fr:** sync fr locale pages with en structure ([#14](https://github.com/pilotariak/website/issues/14)) ([beaa26b](https://github.com/pilotariak/website/commit/beaa26bebb5d44f9d7a168f6af23f435de9880e5))
+
+
+### 📚 Documentation
+
+* add AGENTS.md for AI agent context ([#16](https://github.com/pilotariak/website/issues/16)) ([41672b5](https://github.com/pilotariak/website/commit/41672b5b3e69f43551c608042f10983fb67230cd))
+
 ## [0.4.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.3.0...pilotariak-website-v0.4.0) (2026-04-22)
 
 
