@@ -10,9 +10,80 @@
  * All other requests are forwarded directly to static assets.
  */
 
+/**
+ * RFC 9727 API Catalog (linkset+json).
+ * Anchored at /.well-known/api-catalog; lists the machine-readable
+ * endpoints this site and the Pilotariak organisation expose.
+ */
+const API_CATALOG = {
+  linkset: [
+    {
+      // Catalog root — enumerates the APIs
+      anchor: 'https://pilotariak.com/.well-known/api-catalog',
+      item: [
+        { href: 'https://pilotariak.com/.well-known/mcp.json' },
+        { href: 'https://pilotariak.com/llms.txt' },
+        { href: 'https://pilotariak.com/frontis' },
+        { href: 'https://pilotariak.com/xilo' },
+      ],
+    },
+    {
+      // MCP Server Card — machine-readable agent discovery endpoint
+      anchor: 'https://pilotariak.com/.well-known/mcp.json',
+      'service-desc': [
+        { href: 'https://pilotariak.com/.well-known/mcp.json', type: 'application/json' },
+      ],
+      'service-doc': [
+        { href: 'https://pilotariak.com/', type: 'text/html' },
+      ],
+    },
+    {
+      // LLMs.txt — plain-text site description for AI agents
+      anchor: 'https://pilotariak.com/llms.txt',
+      'service-desc': [
+        { href: 'https://pilotariak.com/llms.txt', type: 'text/plain' },
+      ],
+      'service-doc': [
+        { href: 'https://pilotariak.com/', type: 'text/html' },
+      ],
+    },
+    {
+      // Frontis — federated GraphQL API for Basque pelota data
+      anchor: 'https://pilotariak.com/frontis',
+      'service-doc': [
+        { href: 'https://pilotariak.com/frontis', type: 'text/html' },
+        { href: 'https://github.com/Pilotariak/frontis', type: 'text/html' },
+      ],
+    },
+    {
+      // Xilo — Slack bot API for Basque pelota data
+      anchor: 'https://pilotariak.com/xilo',
+      'service-doc': [
+        { href: 'https://pilotariak.com/xilo', type: 'text/html' },
+        { href: 'https://github.com/Pilotariak/xilo', type: 'text/html' },
+      ],
+    },
+  ],
+};
+
 export default {
   /** @param {Request} request @param {{ ASSETS: Fetcher }} env */
   async fetch(request, env) {
+    const { pathname } = new URL(request.url);
+
+    // RFC 9727 API Catalog
+    if (pathname === '/.well-known/api-catalog') {
+      return new Response(JSON.stringify(API_CATALOG, null, 2), {
+        status: 200,
+        headers: {
+          'Content-Type':
+            'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"',
+          'Access-Control-Allow-Origin': '*',
+          'Cache-Control': 'public, max-age=3600',
+        },
+      });
+    }
+
     const accept = request.headers.get('Accept') ?? '';
 
     // Not a markdown request — serve static asset as-is
