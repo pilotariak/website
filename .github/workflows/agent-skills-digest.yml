@@ -1,0 +1,64 @@
+# SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+---
+
+name: Agent Skills / Digest Check
+
+on:
+  pull_request:
+    paths:
+      - "public/.well-known/agent-skills/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "public/.well-known/agent-skills/**"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-digests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - name: Verify SKILL.md SHA-256 digests match index.json
+        run: |
+          set -euo pipefail
+          INDEX="public/.well-known/agent-skills/index.json"
+          FAILED=0
+
+          while IFS= read -r entry; do
+            name=$(echo "$entry" | python3 -c "import sys,json; e=json.load(sys.stdin); print(e['name'])")
+            url=$(echo "$entry"  | python3 -c "import sys,json; e=json.load(sys.stdin); print(e['url'])")
+            stored=$(echo "$entry" | python3 -c "import sys,json; e=json.load(sys.stdin); print(e['digest'].replace('sha256:',''))")
+
+            # url is relative: /.well-known/agent-skills/*/SKILL.md → public/…
+            path="public${url}"
+            if [ ! -f "$path" ]; then
+              echo "❌ $name: file not found at $path"
+              FAILED=1
+              continue
+            fi
+
+            computed=$(sha256sum "$path" | awk '{print $1}')
+            if [ "$computed" = "$stored" ]; then
+              echo "✅ $name: digest OK"
+            else
+              echo "❌ $name: digest MISMATCH"
+              echo "   stored:   sha256:$stored"
+              echo "   computed: sha256:$computed"
+              FAILED=1
+            fi
+          done < <(python3 -c "
+          import json, sys
+          data = json.load(open('$INDEX'))
+          for s in data['skills']:
+              print(json.dumps(s))
+          ")
+
+          exit $FAILED

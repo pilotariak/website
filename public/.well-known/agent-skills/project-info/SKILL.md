@@ -1,3 +1,8 @@
+---
+name: project-info
+description: Get details about Pilotariak open-source projects: Frontis (GraphQL API gateway), Kancha (iOS & Android mobile app), Xilo (Slack bot), and Azkena (MCP server).
+license: Apache-2.0
+---
 # project-info
 
 Use this skill to get details about Pilotariak's open-source projects for the Basque pelota sport community.

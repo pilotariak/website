@@ -1,3 +1,8 @@
+---
+name: mcp-server
+description: Access Basque pelota data (competitions, results, players, frontons) through the Azkena Model Context Protocol server at https://pilotariak.com/azkena. No authentication required.
+license: Apache-2.0
+---
 # mcp-server
 
 Use this skill to access Basque pelota data through the Azkena Model Context Protocol (MCP) server.
