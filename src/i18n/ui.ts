@@ -48,6 +48,9 @@ export const ui = {
     'projects.xilo.body':
       "Le bot Slack de la communauté Pilotariak. Xilo s'intègre dans vos espaces de travail Slack pour apporter les données et commandes de la pelote basque directement dans vos canaux.",
     'projects.xilo.ariaLabel': 'Technologies',
+    'projects.azkena.body':
+      "Un serveur MCP pour la communauté de la pelote basque. Azkena permet d'interagir avec les outils de Pilotariak via le protocole MCP.",
+    'projects.azkena.ariaLabel': 'Applications',
     'projects.learnMore': 'En savoir plus',
 
     // ── Features ─────────────────────────────────────────────────
@@ -100,6 +103,9 @@ export const ui = {
     'xilo.meta.title': 'Xilo — Bot Slack Pilotariak | Pilotariak',
     'xilo.meta.description':
       "Xilo est le bot Slack de Pilotariak. Commandes slash, événements et données de la pelote basque — directement dans votre espace de travail Slack.",
+    'azkena.meta.title': 'Azkena — Serveur MCP Pilotariak | Pilotariak',
+    'azkena.meta.description':
+      "Azkena est le serveur MCP de Pilotariak pour interagir avec les outils de la communauté pelote basque via le protocole MCP.",
 
     // ── Frontis page ─────────────────────────────────────────────
     'frontis.hero.ariaLabel': 'Frontis — API GraphQL pour la pelote basque',
@@ -269,6 +275,57 @@ export const ui = {
     'xilo.hero.github': 'Voir sur GitHub',
     'xilo.hero.howItWorks': 'Comment ça marche',
 
+    // ── Azkena page ──────────────────────────────────────────────
+    'azkena.hero.ariaLabel': 'Azkena — Serveur MCP Pilotariak',
+    'azkena.hero.back': 'Pilotariak',
+    'azkena.hero.eyebrow': 'MCP Server · Open Source',
+    'azkena.hero.subtitle':
+      "Le serveur MCP de la communauté Pilotariak — interagissez avec les outils Pilotariak via le protocole MCP.",
+    'azkena.hero.github': 'Voir sur GitHub',
+    'azkena.hero.explore': 'Découvrir le fonctionnement',
+    'azkena.overview.eyebrow': 'Une interface pour les agents',
+    'azkena.overview.title': 'Les données de la pelote, prêtes à être utilisées',
+    'azkena.overview.subtitle':
+      "Azkena rend les données Pilotariak accessibles aux assistants IA via le Model Context Protocol. Un client compatible MCP découvre les capacités du serveur, puis appelle les outils dont il a besoin.",
+    'azkena.overview.client.title': 'Votre client IA',
+    'azkena.overview.client.desc': 'Un assistant ou une application compatible MCP formule une demande en langage naturel.',
+    'azkena.overview.server.title': 'Azkena',
+    'azkena.overview.server.desc': 'Le serveur expose des outils et des ressources dans un protocole standard, lisible par les agents.',
+    'azkena.overview.data.title': 'Données Pilotariak',
+    'azkena.overview.data.desc': 'Les compétitions, résultats, joueurs et frontons sont retournés dans un format exploitable.',
+    'azkena.capabilities.eyebrow': 'Capacités',
+    'azkena.capabilities.title': 'Conçu pour la découverte et l’action',
+    'azkena.capabilities.subtitle':
+      "Un point d’accès ouvert qui donne aux agents le contexte nécessaire pour répondre avec les données de la communauté.",
+    'azkena.capabilities.tools.title': 'Outils MCP',
+    'azkena.capabilities.tools.desc': 'Interrogez les compétitions, résultats, joueurs et frontons depuis un client IA compatible.',
+    'azkena.capabilities.resources.title': 'Ressources publiées',
+    'azkena.capabilities.resources.desc': 'Le serveur met à disposition les ressources de référence utiles à la compréhension de l’écosystème.',
+    'azkena.capabilities.readonly.title': 'Lecture seule, sans authentification',
+    'azkena.capabilities.readonly.desc': 'Les données sont consultables sans compte et le serveur n’expose aucune opération d’écriture.',
+    'azkena.discovery.eyebrow': 'Découverte',
+    'azkena.discovery.title': 'Des métadonnées publiques pour bien démarrer',
+    'azkena.discovery.subtitle':
+      "La fiche serveur décrit les transports pris en charge et les capacités disponibles. Consultez-la avant de connecter votre client MCP.",
+    'azkena.discovery.card.title': 'Fiche serveur MCP',
+    'azkena.discovery.card.desc': 'Nom, version, dépôt source et protocoles pris en charge.',
+    'azkena.discovery.card.cta': 'Ouvrir la fiche serveur',
+    'azkena.contribute.eyebrow': 'Open Source · Apache 2.0',
+    'azkena.contribute.title': 'Construisez-le avec nous',
+    'azkena.contribute.subtitle':
+      "Azkena est open source et accueille toutes les contributions — nouveaux outils, ressources ou corrections de bugs.",
+    'azkena.contribute.step1.title': 'Forker & installer',
+    'azkena.contribute.step1.desc':
+      "Clonez le dépôt et installez les dépendances pour lancer le serveur MCP localement.",
+    'azkena.contribute.step2.title': 'Ouvrir une issue',
+    'azkena.contribute.step2.desc':
+      "Une idée d’outil ou un bug ? Les issues GitHub sont le bon endroit pour en discuter.",
+    'azkena.contribute.step3.title': 'Soumettre une pull request',
+    'azkena.contribute.step3.desc':
+      "Toutes les contributions sont examinées. Consultez le guide de contribution dans le dépôt pour les conventions.",
+    'azkena.contribute.github': 'Voir sur GitHub',
+    'azkena.contribute.back': "← Retour à l’accueil",
+
     'xilo.setup.eyebrow': 'Comment ça marche',
     'xilo.setup.title': 'Opérationnel en trois étapes',
     'xilo.setup.subtitle':
@@ -369,6 +426,9 @@ export const ui = {
     'projects.xilo.body':
       "The Slack bot for the Pilotariak community. Xilo integrates into your Slack workspaces to bring Basque pelota data and commands directly into your channels.",
     'projects.xilo.ariaLabel': 'Technologies',
+    'projects.azkena.body':
+      'An MCP server for the Basque pelota community. Azkena allows you to interact with Pilotariak tools via the MCP protocol.',
+    'projects.azkena.ariaLabel': 'Applications',
     'projects.learnMore': 'Learn more',
 
     // ── Features ─────────────────────────────────────────────────
@@ -421,6 +481,9 @@ export const ui = {
     'xilo.meta.title': 'Xilo — Pilotariak Slack Bot | Pilotariak',
     'xilo.meta.description':
       'Xilo is the Pilotariak Slack bot. Slash commands, events and Basque pelota data — directly in your Slack workspace.',
+    'azkena.meta.title': 'Azkena — Pilotariak MCP Server | Pilotariak',
+    'azkena.meta.description':
+      'Azkena is the Pilotariak MCP server to interact with Basque pelota community tools via the MCP protocol.',
 
     // ── Frontis page ─────────────────────────────────────────────
     'frontis.hero.ariaLabel': 'Frontis — GraphQL API for Basque pelota',
@@ -583,6 +646,57 @@ export const ui = {
       "The Pilotariak community Slack bot — slash commands and events delivered directly to your channels.",
     'xilo.hero.github': 'View on GitHub',
     'xilo.hero.howItWorks': 'How it works',
+
+    // ── Azkena page ──────────────────────────────────────────────
+    'azkena.hero.ariaLabel': 'Azkena — Pilotariak MCP Server',
+    'azkena.hero.back': 'Pilotariak',
+    'azkena.hero.eyebrow': 'MCP Server · Open Source',
+    'azkena.hero.subtitle':
+      "The Pilotariak community MCP server — interact with Pilotariak tools via the MCP protocol.",
+    'azkena.hero.github': 'View on GitHub',
+    'azkena.hero.explore': 'Explore how it works',
+    'azkena.overview.eyebrow': 'An interface for agents',
+    'azkena.overview.title': 'Pelota data, ready for agents to use',
+    'azkena.overview.subtitle':
+      'Azkena makes Pilotariak data available to AI assistants through the Model Context Protocol. An MCP-compatible client discovers the server capabilities, then calls the tools it needs.',
+    'azkena.overview.client.title': 'Your AI client',
+    'azkena.overview.client.desc': 'An MCP-compatible assistant or application makes a request in natural language.',
+    'azkena.overview.server.title': 'Azkena',
+    'azkena.overview.server.desc': 'The server exposes tools and resources through a standard protocol that agents can understand.',
+    'azkena.overview.data.title': 'Pilotariak data',
+    'azkena.overview.data.desc': 'Competitions, results, players and frontons are returned in an actionable format.',
+    'azkena.capabilities.eyebrow': 'Capabilities',
+    'azkena.capabilities.title': 'Built for discovery and action',
+    'azkena.capabilities.subtitle':
+      'An open entry point that gives agents the context they need to answer with community data.',
+    'azkena.capabilities.tools.title': 'MCP tools',
+    'azkena.capabilities.tools.desc': 'Query competitions, results, players and frontons from a compatible AI client.',
+    'azkena.capabilities.resources.title': 'Published resources',
+    'azkena.capabilities.resources.desc': 'The server provides the reference resources needed to understand the ecosystem.',
+    'azkena.capabilities.readonly.title': 'Read-only, no authentication',
+    'azkena.capabilities.readonly.desc': 'Data is available without an account, and the server exposes no write operations.',
+    'azkena.discovery.eyebrow': 'Discovery',
+    'azkena.discovery.title': 'Public metadata to get started',
+    'azkena.discovery.subtitle':
+      'The server card describes supported transports and available capabilities. Review it before connecting your MCP client.',
+    'azkena.discovery.card.title': 'MCP server card',
+    'azkena.discovery.card.desc': 'Name, version, source repository and supported protocols.',
+    'azkena.discovery.card.cta': 'Open server card',
+    'azkena.contribute.eyebrow': 'Open Source · Apache 2.0',
+    'azkena.contribute.title': 'Build it with us',
+    'azkena.contribute.subtitle':
+      'Azkena is open source and welcomes all contributions — new tools, resources or bug fixes.',
+    'azkena.contribute.step1.title': 'Fork & install',
+    'azkena.contribute.step1.desc':
+      'Clone the repository and install dependencies to run the MCP server locally.',
+    'azkena.contribute.step2.title': 'Open an issue',
+    'azkena.contribute.step2.desc':
+      'Have a tool idea or found a bug? GitHub issues are the right place to discuss.',
+    'azkena.contribute.step3.title': 'Submit a pull request',
+    'azkena.contribute.step3.desc':
+      'All contributions are reviewed. Check the contributing guide in the repository for conventions.',
+    'azkena.contribute.github': 'View on GitHub',
+    'azkena.contribute.back': '← Back to home',
 
     'xilo.setup.eyebrow': 'How it works',
     'xilo.setup.title': 'Up and running in three steps',
