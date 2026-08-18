@@ -7,95 +7,67 @@
  * When a request includes `Accept: text/markdown`, the Worker fetches the
  * underlying HTML page, strips non-content elements via HTMLRewriter, converts
  * the remainder to Markdown, and returns it with Content-Type: text/markdown.
- * All other requests are forwarded directly to static assets.
+ * Agent discovery documents under `/.well-known/` are served from static
+ * assets with consistent machine-readable response headers.
  */
 
+const WELL_KNOWN_PREFIX = '/.well-known/';
+const WELL_KNOWN_CACHE_CONTROL = 'public, max-age=3600';
+
 /**
- * RFC 9727 API Catalog (linkset+json).
- * Anchored at /.well-known/api-catalog; lists the machine-readable
- * endpoints this site and the Pilotariak organisation expose.
+ * @param {string} pathname
+ * @returns {Headers}
  */
-const API_CATALOG = {
-  linkset: [
-    {
-      // Catalog root — enumerates the APIs
-      anchor: 'https://pilotariak.com/.well-known/api-catalog',
-      item: [
-        { href: 'https://pilotariak.com/azkena' },
-        { href: 'https://pilotariak.com/.well-known/mcp.json' },
-        { href: 'https://pilotariak.com/.well-known/agent-skills/index.json' },
-        { href: 'https://pilotariak.com/.well-known/security.txt' },
-        { href: 'https://pilotariak.com/llms.txt' },
-        { href: 'https://pilotariak.com/frontis' },
-        { href: 'https://pilotariak.com/xilo' },
-      ],
-    },
-    {
-      // Azkena — Pilotariak MCP server (Model Context Protocol)
-      anchor: 'https://pilotariak.com/azkena',
-      'service-desc': [
-        { href: 'https://pilotariak.com/.well-known/mcp.json', type: 'application/json' },
-      ],
-      'service-doc': [
-        { href: 'https://pilotariak.com/', type: 'text/html' },
-        { href: 'https://github.com/Pilotariak', type: 'text/html' },
-      ],
-    },
-    {
-      // MCP Server Card — machine-readable agent discovery endpoint
-      anchor: 'https://pilotariak.com/.well-known/mcp.json',
-      'service-desc': [
-        { href: 'https://pilotariak.com/.well-known/mcp.json', type: 'application/json' },
-      ],
-      'service-doc': [
-        { href: 'https://pilotariak.com/', type: 'text/html' },
-      ],
-    },
-    {
-      // LLMs.txt — plain-text site description for AI agents
-      anchor: 'https://pilotariak.com/llms.txt',
-      'service-desc': [
-        { href: 'https://pilotariak.com/llms.txt', type: 'text/plain' },
-      ],
-      'service-doc': [
-        { href: 'https://pilotariak.com/', type: 'text/html' },
-      ],
-    },
-    {
-      // Frontis — federated GraphQL API for Basque pelota data
-      anchor: 'https://pilotariak.com/frontis',
-      'service-doc': [
-        { href: 'https://pilotariak.com/frontis', type: 'text/html' },
-        { href: 'https://github.com/Pilotariak/frontis', type: 'text/html' },
-      ],
-    },
-    {
-      // Xilo — Slack bot API for Basque pelota data
-      anchor: 'https://pilotariak.com/xilo',
-      'service-doc': [
-        { href: 'https://pilotariak.com/xilo', type: 'text/html' },
-        { href: 'https://github.com/Pilotariak/xilo', type: 'text/html' },
-      ],
-    },
-  ],
-};
+function wellKnownHeaders(pathname) {
+  const headers = new Headers({
+    'Access-Control-Allow-Origin': '*',
+    'Cache-Control': pathname === '/.well-known/security.txt'
+      ? 'public, max-age=86400'
+      : WELL_KNOWN_CACHE_CONTROL,
+    'X-Content-Type-Options': 'nosniff',
+  });
+
+  if (pathname === '/.well-known/api-catalog') {
+    headers.set(
+      'Content-Type',
+      'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"',
+    );
+  } else if (pathname.endsWith('/SKILL.md')) {
+    headers.set('Content-Type', 'text/markdown; charset=utf-8');
+  } else if (pathname.endsWith('.txt')) {
+    headers.set('Content-Type', 'text/plain; charset=utf-8');
+  } else if (pathname.endsWith('.json')) {
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+  }
+
+  return headers;
+}
+
+/**
+ * @param {Response} response
+ * @param {string} pathname
+ * @returns {Response}
+ */
+function withWellKnownHeaders(response, pathname) {
+  if (!response.ok) return response;
+
+  const headers = new Headers(response.headers);
+  for (const [name, value] of wellKnownHeaders(pathname)) headers.set(name, value);
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
 
 export default {
   /** @param {Request} request @param {{ ASSETS: Fetcher }} env */
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
 
-    // RFC 9727 API Catalog
-    if (pathname === '/.well-known/api-catalog') {
-      return new Response(JSON.stringify(API_CATALOG, null, 2), {
-        status: 200,
-        headers: {
-          'Content-Type':
-            'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"',
-          'Access-Control-Allow-Origin': '*',
-          'Cache-Control': 'public, max-age=3600',
-        },
-      });
+    if (pathname.startsWith(WELL_KNOWN_PREFIX)) {
+      return withWellKnownHeaders(await env.ASSETS.fetch(request), pathname);
     }
 
     const accept = request.headers.get('Accept') ?? '';
