@@ -3,9 +3,14 @@
 ## Overview
 
 The Pilotariak website is an organization landing page — a static brochure site that presents
-the Pilotariak open-source ecosystem (Frontis, Kancha, Xilo) to developers and contributors. This
-context explains most of the architectural choices: no backend, no CMS, no database, just HTML
-and CSS that deploys to an edge network in seconds.
+the Pilotariak open-source ecosystem (Frontis, Kancha, Xilo, Azkena) to developers and
+contributors. This context explains most of the architectural choices: no backend, no CMS, no
+database, just HTML and CSS that deploys to an edge network in seconds.
+
+The ecosystem the site documents is a hub-and-spoke platform: **Frontis** is the central GraphQL
+federation gateway; the **Kancha** mobile app queries it directly, the **Xilo** Slack bot reaches
+it through **Azkena**'s MCP tools, and Azkena also serves external AI clients. The website itself
+sits outside that runtime graph — it is presentation only.
 
 ![Pilotariak ecosystem overview](../assets/pilotariak-ecosystem.svg)
 
@@ -106,12 +111,17 @@ cost of some duplication.
 
 ---
 
-## Relationship to Frontis and Kancha
+## Relationship to the ecosystem
 
 The website is a presentation layer only. It does not consume the Frontis GraphQL API at build
-time or runtime. The Frontis page (`/frontis`) describes the API architecture in static HTML — it
-does not query live data. This is appropriate for a v0.3 state of the ecosystem where API
-stability is not yet guaranteed and documentation changes frequently.
+time or runtime, and it never touches Azkena, Xilo, or Kancha. The Frontis page (`/frontis`)
+describes the API architecture in static HTML — it does not query live data. This is appropriate
+for a v0.3 state of the ecosystem where API stability is not yet guaranteed and documentation
+changes frequently.
+
+The runtime consumers live elsewhere: Kancha and Azkena query Frontis over GraphQL, and Xilo
+calls Azkena over MCP rather than reaching Frontis directly. The website only links out to their
+project pages.
 
 When the Frontis API reaches a stable schema, one reasonable evolution would be to use Astro's
 `getStaticPaths` with a GraphQL client to render real competition data at build time. That change
