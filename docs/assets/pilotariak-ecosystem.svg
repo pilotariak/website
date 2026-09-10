@@ -1,88 +1,149 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="1200" height="540">
-  <style>
-    text { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-  </style>
-  <defs>
-    <marker id="arr-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
-    </marker>
-    <marker id="arr-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/>
-    </marker>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00000018"/>
-    </filter>
-  </defs>
-  <rect width="1200" height="540" fill="#ffffff"/>
-  <text x="600" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">Pilotariak Ecosystem</text>
-  <text x="600" y="54" text-anchor="middle" font-size="13" fill="#6b7280">Open Source Platform for the Basque Pelota Community</text>
-  <rect x="20" y="68" width="1160" height="118" rx="10" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" stroke-dasharray="6,3"/>
-  <text x="36" y="86" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1.5">CLIENTS</text>
-  <rect x="300" y="78" width="260" height="98" rx="10" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="430" y="116" text-anchor="middle" font-size="15" font-weight="700" fill="#15803d">Kancha</text>
-  <text x="430" y="134" text-anchor="middle" font-size="12" fill="#4b5563">Mobile App · iOS &amp; Android</text>
-  <text x="430" y="152" text-anchor="middle" font-size="11" fill="#16a34a">Expo · React Native</text>
-  <text x="430" y="166" text-anchor="middle" font-size="10" fill="#86efac">Results · Calendar · Profiles</text>
-  <rect x="640" y="78" width="260" height="98" rx="10" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="770" y="116" text-anchor="middle" font-size="15" font-weight="700" fill="#7c3aed">Xilo</text>
-  <text x="770" y="134" text-anchor="middle" font-size="12" fill="#4b5563">Slack Bot</text>
-  <text x="770" y="152" text-anchor="middle" font-size="11" fill="#9333ea">Serverless · Edge · HMAC-SHA256</text>
-  <text x="770" y="166" text-anchor="middle" font-size="10" fill="#c4b5fd">/xilo help · /xilo ping · /xilo hello</text>
-  <!-- Arrows: Clients to Frontis -->
-  <path d="M 430,176 C 430,205 500,205 500,228" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)"/>
-  <rect x="430" y="193" width="74" height="17" rx="3" fill="white" opacity="0.9"/>
-  <text x="467" y="205" text-anchor="middle" font-size="11" fill="#2563eb">GraphQL</text>
-  <path d="M 770,176 C 770,205 700,205 700,228" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)"/>
-  <rect x="696" y="193" width="74" height="17" rx="3" fill="white" opacity="0.9"/>
-  <text x="733" y="205" text-anchor="middle" font-size="11" fill="#2563eb">GraphQL</text>
-  <rect x="20" y="210" width="1160" height="124" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="1" stroke-dasharray="6,3"/>
-  <text x="36" y="228" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1.5">GRAPHQL FEDERATION GATEWAY</text>
-  <rect x="320" y="228" width="560" height="96" rx="12" fill="#fff7ed" stroke="#fed7aa" stroke-width="2" filter="url(#shadow)"/>
-  <text x="600" y="268" text-anchor="middle" font-size="20" font-weight="800" fill="#c2410c">Frontis</text>
-  <text x="600" y="288" text-anchor="middle" font-size="13" fill="#4b5563">GraphQL Federation Gateway · Single /graphql endpoint</text>
-  <text x="600" y="306" text-anchor="middle" font-size="11" fill="#92400e">Multi-league header routing · Query depth &amp; complexity limits · Schema composition</text>
-  <rect x="320" y="228" width="80" height="20" rx="6" fill="#ea580c"/>
-  <text x="360" y="242" text-anchor="middle" font-size="10" font-weight="700" fill="white">Federation</text>
-  <!-- Arrows: Frontis to Subgraphs (orange) -->
-  <path d="M 400,324 C 400,344 120,344 120,360" stroke="#ea580c" stroke-width="1.2" fill="none" marker-end="url(#arr-orange)"/>
-  <path d="M 460,324 C 460,344 303,344 303,360" stroke="#ea580c" stroke-width="1.2" fill="none" marker-end="url(#arr-orange)"/>
-  <path d="M 530,324 C 530,344 486,344 486,360" stroke="#ea580c" stroke-width="1.2" fill="none" marker-end="url(#arr-orange)"/>
-  <path d="M 670,324 C 670,344 669,344 669,360" stroke="#ea580c" stroke-width="1.2" fill="none" marker-end="url(#arr-orange)"/>
-  <path d="M 740,324 C 740,344 852,344 852,360" stroke="#ea580c" stroke-width="1.2" fill="none" marker-end="url(#arr-orange)"/>
-  <path d="M 800,324 C 800,344 1035,344 1035,360" stroke="#ea580c" stroke-width="1.2" fill="none" marker-end="url(#arr-orange)"/>
-  <rect x="20" y="344" width="1160" height="118" rx="10" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" stroke-dasharray="6,3"/>
-  <text x="36" y="362" font-size="10" font-weight="700" fill="#9ca3af" letter-spacing="1.5">SUBGRAPHS</text>
-  <rect x="40" y="357" width="155" height="82" rx="8" fill="#f9fafb" stroke="#9ca3af" stroke-width="1.5"/>
-  <text x="118" y="391" text-anchor="middle" font-size="13" font-weight="700" fill="#374151">echo</text>
-  <text x="118" y="407" text-anchor="middle" font-size="11" fill="#6b7280">Health &amp; version</text>
-  <text x="118" y="423" text-anchor="middle" font-size="10" fill="#9ca3af">health check</text>
-  <rect x="227" y="357" width="155" height="82" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
-  <text x="305" y="391" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">categories</text>
-  <text x="305" y="407" text-anchor="middle" font-size="11" fill="#6b7280">Category entity</text>
-  <text x="305" y="423" text-anchor="middle" font-size="10" fill="#93c5fd">@key: id</text>
-  <rect x="414" y="357" width="155" height="82" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
-  <text x="492" y="391" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">clubs</text>
-  <text x="492" y="407" text-anchor="middle" font-size="11" fill="#6b7280">Club entity</text>
-  <text x="492" y="423" text-anchor="middle" font-size="10" fill="#f87171">@key: id</text>
-  <rect x="601" y="357" width="155" height="82" rx="8" fill="#fefce8" stroke="#fde68a" stroke-width="1.5"/>
-  <text x="679" y="388" text-anchor="middle" font-size="12" font-weight="700" fill="#a16207">competitions</text>
-  <text x="679" y="406" text-anchor="middle" font-size="11" fill="#6b7280">Competition entity</text>
-  <text x="679" y="422" text-anchor="middle" font-size="10" fill="#fbbf24">@key: id</text>
-  <rect x="788" y="357" width="155" height="82" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
-  <text x="866" y="391" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">results</text>
-  <text x="866" y="407" text-anchor="middle" font-size="11" fill="#6b7280">Result entity</text>
-  <text x="866" y="423" text-anchor="middle" font-size="10" fill="#4ade80">@key: id</text>
-  <rect x="975" y="357" width="155" height="82" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5"/>
-  <text x="1053" y="388" text-anchor="middle" font-size="12" font-weight="700" fill="#7c3aed">specialties</text>
-  <text x="1053" y="406" text-anchor="middle" font-size="11" fill="#6b7280">Specialty entity</text>
-  <text x="1053" y="422" text-anchor="middle" font-size="10" fill="#a78bfa">@key: id</text>
-  <rect x="20" y="474" width="230" height="52" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
-  <text x="125" y="492" text-anchor="middle" font-size="11" font-weight="700" fill="#374151">Legend</text>
-  <line x1="36" y1="508" x2="76" y2="508" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arr-blue)"/>
-  <text x="84" y="512" font-size="11" fill="#6b7280">GraphQL query</text>
-  <line x1="155" y1="508" x2="195" y2="508" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arr-orange)"/>
-  <text x="203" y="512" font-size="11" fill="#6b7280">Federation routing</text>
-  <rect x="950" y="474" width="230" height="52" rx="8" fill="#1e1b4b" stroke="#3730a3" stroke-width="1"/>
-  <text x="1065" y="498" text-anchor="middle" font-size="14" font-weight="800" fill="white">Pilotariak</text>
-  <text x="1065" y="516" text-anchor="middle" font-size="11" fill="#a5b4fc">Open Source · Apache 2.0</text>
-</svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1000 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pilotariak-ecosystem-title pilotariak-ecosystem-desc">
+      <title id="pilotariak-ecosystem-title">Pilotariak Ecosystem Architecture</title>
+      <desc id="pilotariak-ecosystem-desc">Architecture map of the Pilotariak Basque-pelota platform: the Kancha mobile app and Azkena MCP server query the central Frontis GraphQL gateway, while the Xilo Slack bot reaches the platform through Azkena's MCP tools. Frontis fans out to six private subgraphs over a Cloudflare D1 and KV store; a scheduler scrapes results into the store and Plaza publishes to AT Protocol for planned firehose indexing.</desc>
+      <defs>
+        <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap');</style>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7a7a7a"/></marker>
+        <marker id="arrow-ink" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#141414"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#c8102e"/></marker>
+      </defs>
+
+      <rect width="100%" height="100%" fill="#f7f4ef"/>
+
+      <!-- ============ ZONES (bg → zones → arrows → nodes) ============ -->
+      <rect x="48" y="56" width="904" height="112" rx="8" fill="#141414" fill-opacity="0.02" stroke="#e5ded6" stroke-width="1"/>
+      <rect x="56" y="60" width="76" height="12" rx="2" fill="#f7f4ef"/>
+      <text x="60" y="69" fill="#7a7a7a" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em">CLIENTS</text>
+
+      <rect x="256" y="236" width="560" height="128" rx="8" fill="#141414" fill-opacity="0.02" stroke="#e5ded6" stroke-width="1"/>
+      <rect x="264" y="240" width="52" height="12" rx="2" fill="#f7f4ef"/>
+      <text x="268" y="249" fill="#7a7a7a" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em">CORE</text>
+
+      <rect x="48" y="452" width="904" height="128" rx="8" fill="#141414" fill-opacity="0.02" stroke="#e5ded6" stroke-width="1"/>
+      <rect x="56" y="456" width="128" height="12" rx="2" fill="#f7f4ef"/>
+      <text x="60" y="465" fill="#7a7a7a" font-size="7" font-family="'Geist Mono', monospace" letter-spacing="0.14em">SOURCES &amp; DATA</text>
+
+      <!-- ============ ARROWS (drawn before boxes) ============ -->
+      <!-- xilo → azkena (MCP request, ink) — horizontal within clients row -->
+      <path d="M488,124 H512" fill="none" stroke="#141414" stroke-width="1.2" marker-end="url(#arrow-ink)"/>
+      <rect x="488" y="104" width="24" height="12" rx="2" fill="#f7f4ef"/>
+      <text x="500" y="113" fill="#141414" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">MCP</text>
+
+      <!-- kancha → frontis (GraphQL query, ink) -->
+      <path d="M164,156 V204 Q164,212 172,212 H340 Q348,212 348,220 V268" fill="none" stroke="#141414" stroke-width="1.2" marker-end="url(#arrow-ink)"/>
+
+      <!-- azkena → frontis (GraphQL query, ink) -->
+      <path d="M612,156 V204 Q612,212 604,212 H476 Q468,212 468,220 V268" fill="none" stroke="#141414" stroke-width="1.2" marker-end="url(#arrow-ink)"/>
+      <rect x="510" y="192" width="60" height="12" rx="2" fill="#f7f4ef"/>
+      <text x="516" y="201" fill="#141414" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">GRAPHQL</text>
+
+      <!-- frontis → subgraphs (service bindings, muted) -->
+      <path d="M528,304 H592" fill="none" stroke="#7a7a7a" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="532" y="282" width="56" height="12" rx="2" fill="#f7f4ef"/>
+      <text x="536" y="291" fill="#7a7a7a" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">BINDINGS</text>
+
+      <!-- subgraphs → store (persist, muted) -->
+      <path d="M692,336 V484" fill="none" stroke="#7a7a7a" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="700" y="404" width="52" height="12" rx="2" fill="#f7f4ef"/>
+      <text x="704" y="413" fill="#7a7a7a" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">PERSIST</text>
+
+      <!-- scheduler → store (scrape, muted) -->
+      <path d="M508,516 H592" fill="none" stroke="#7a7a7a" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="512" y="494" width="52" height="12" rx="2" fill="#f7f4ef"/>
+      <text x="516" y="503" fill="#7a7a7a" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">SCRAPE</text>
+
+      <!-- plaza → frontis (firehose, planned, dashed) -->
+      <path d="M164,484 V312 Q164,304 172,304 H288" fill="none" stroke="#7a7a7a" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <rect x="112" y="392" width="60" height="12" rx="2" fill="#f7f4ef"/>
+      <text x="116" y="401" fill="#7a7a7a" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">FIREHOSE</text>
+
+      <!-- ============ NODES ============ -->
+      <!-- Kancha (client / app) -->
+      <rect x="64" y="92" width="200" height="64" rx="6" fill="#f7f4ef"/>
+      <rect x="64" y="92" width="200" height="64" rx="6" fill="#7a7a7a" fill-opacity="0.10" stroke="#a8a49e" stroke-width="1"/>
+      <rect x="72" y="98" width="34" height="12" rx="2" fill="none" stroke="#a8a49e" stroke-opacity="0.7" stroke-width="0.8"/>
+      <text x="89" y="107" fill="#7a7a7a" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">APP</text>
+      <text x="164" y="130" fill="#141414" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Kancha</text>
+      <text x="164" y="146" fill="#7a7a7a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">Expo · React Native</text>
+
+      <!-- Xilo (client / bot) -->
+      <rect x="288" y="92" width="200" height="64" rx="6" fill="#f7f4ef"/>
+      <rect x="288" y="92" width="200" height="64" rx="6" fill="#7a7a7a" fill-opacity="0.10" stroke="#a8a49e" stroke-width="1"/>
+      <rect x="296" y="98" width="34" height="12" rx="2" fill="none" stroke="#a8a49e" stroke-opacity="0.7" stroke-width="0.8"/>
+      <text x="313" y="107" fill="#7a7a7a" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">BOT</text>
+      <text x="388" y="130" fill="#141414" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Xilo</text>
+      <text x="388" y="146" fill="#7a7a7a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">Slack · Workers AI</text>
+
+      <!-- Azkena (client / MCP adapter) -->
+      <rect x="512" y="92" width="200" height="64" rx="6" fill="#f7f4ef"/>
+      <rect x="512" y="92" width="200" height="64" rx="6" fill="#fffdfc" stroke="#141414" stroke-width="1"/>
+      <rect x="520" y="98" width="34" height="12" rx="2" fill="none" stroke="#141414" stroke-opacity="0.4" stroke-width="0.8"/>
+      <text x="537" y="107" fill="#141414" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">MCP</text>
+      <text x="612" y="130" fill="#141414" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Azkena</text>
+      <text x="612" y="146" fill="#7a7a7a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">MCP server · AI clients</text>
+
+      <!-- Website (client / marketing, no runtime arrow) -->
+      <rect x="736" y="92" width="200" height="64" rx="6" fill="#f7f4ef"/>
+      <rect x="736" y="92" width="200" height="64" rx="6" fill="#7a7a7a" fill-opacity="0.06" stroke="#a8a49e" stroke-width="1"/>
+      <rect x="744" y="98" width="34" height="12" rx="2" fill="none" stroke="#a8a49e" stroke-opacity="0.7" stroke-width="0.8"/>
+      <text x="761" y="107" fill="#7a7a7a" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">WEB</text>
+      <text x="836" y="130" fill="#141414" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Website</text>
+      <text x="836" y="146" fill="#7a7a7a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">Marketing (Astro)</text>
+
+      <!-- Frontis (FOCAL — gateway) -->
+      <rect x="288" y="268" width="240" height="72" rx="6" fill="#f7f4ef"/>
+      <rect x="288" y="268" width="240" height="72" rx="6" fill="#c8102e" fill-opacity="0.08" stroke="#c8102e" stroke-width="1.2"/>
+      <rect x="296" y="276" width="60" height="12" rx="2" fill="none" stroke="#c8102e" stroke-opacity="0.5" stroke-width="0.8"/>
+      <text x="326" y="285" fill="#c8102e" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">GATEWAY</text>
+      <text x="408" y="310" fill="#141414" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Frontis</text>
+      <text x="408" y="326" fill="#7a7a7a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">GraphQL federation · CF Worker</text>
+
+      <!-- Subgraphs -->
+      <rect x="592" y="272" width="200" height="64" rx="6" fill="#f7f4ef"/>
+      <rect x="592" y="272" width="200" height="64" rx="6" fill="#fffdfc" stroke="#141414" stroke-width="1"/>
+      <rect x="600" y="278" width="26" height="12" rx="2" fill="none" stroke="#141414" stroke-opacity="0.4" stroke-width="0.8"/>
+      <text x="613" y="287" fill="#141414" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">×6</text>
+      <text x="692" y="308" fill="#141414" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Subgraphs</text>
+      <text x="692" y="324" fill="#7a7a7a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">clubs · results · categories …</text>
+
+      <!-- Plaza (source — planned) -->
+      <rect x="64" y="484" width="200" height="64" rx="6" fill="#f7f4ef"/>
+      <rect x="64" y="484" width="200" height="64" rx="6" fill="#141414" fill-opacity="0.02" stroke="#141414" stroke-opacity="0.20" stroke-width="1" stroke-dasharray="4,3"/>
+      <rect x="72" y="490" width="26" height="12" rx="2" fill="none" stroke="#141414" stroke-opacity="0.3" stroke-width="0.8"/>
+      <text x="85" y="499" fill="#141414" fill-opacity="0.6" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">AT</text>
+      <text x="164" y="522" fill="#141414" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Plaza</text>
+      <text x="164" y="538" fill="#7a7a7a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">AT Protocol (planned)</text>
+
+      <!-- Scheduler (source) -->
+      <rect x="308" y="484" width="200" height="64" rx="6" fill="#f7f4ef"/>
+      <rect x="308" y="484" width="200" height="64" rx="6" fill="#fffdfc" stroke="#141414" stroke-width="1"/>
+      <rect x="316" y="490" width="34" height="12" rx="2" fill="none" stroke="#141414" stroke-opacity="0.4" stroke-width="0.8"/>
+      <text x="333" y="499" fill="#141414" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CRON</text>
+      <text x="408" y="522" fill="#141414" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Scheduler</text>
+      <text x="408" y="538" fill="#7a7a7a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">scraper → D1</text>
+
+      <!-- Data store -->
+      <rect x="592" y="484" width="200" height="64" rx="6" fill="#f7f4ef"/>
+      <rect x="592" y="484" width="200" height="64" rx="6" fill="#141414" fill-opacity="0.05" stroke="#7a7a7a" stroke-width="1"/>
+      <rect x="600" y="490" width="34" height="12" rx="2" fill="none" stroke="#7a7a7a" stroke-opacity="0.7" stroke-width="0.8"/>
+      <text x="617" y="499" fill="#7a7a7a" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">DATA</text>
+      <text x="692" y="522" fill="#141414" font-size="12" font-weight="600" font-family="'Inter', sans-serif" text-anchor="middle">Data</text>
+      <text x="692" y="538" fill="#7a7a7a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">D1 (SQL) · KV cache</text>
+
+      <!-- ============ LEGEND (horizontal strip) ============ -->
+      <line x1="48" y1="604" x2="952" y2="604" stroke="#e5ded6" stroke-width="1"/>
+      <text x="48" y="624" fill="#7a7a7a" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">LEGEND</text>
+
+      <rect x="132" y="617" width="10" height="10" rx="2" fill="#c8102e" fill-opacity="0.08" stroke="#c8102e" stroke-width="1"/>
+      <text x="148" y="625" fill="#7a7a7a" font-size="8" font-family="'Geist Mono', monospace">Gateway (focal)</text>
+
+      <line x1="288" y1="622" x2="316" y2="622" stroke="#141414" stroke-width="1.2"/>
+      <text x="322" y="625" fill="#7a7a7a" font-size="8" font-family="'Geist Mono', monospace">Request (GraphQL · MCP)</text>
+
+      <line x1="536" y1="622" x2="564" y2="622" stroke="#7a7a7a" stroke-width="1.2"/>
+      <text x="570" y="625" fill="#7a7a7a" font-size="8" font-family="'Geist Mono', monospace">Internal (bindings · persist · scrape)</text>
+
+      <line x1="852" y1="622" x2="880" y2="622" stroke="#7a7a7a" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="886" y="625" fill="#7a7a7a" font-size="8" font-family="'Geist Mono', monospace">Planned</text>
+    </svg>
