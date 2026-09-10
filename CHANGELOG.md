@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.6.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.5.0...pilotariak-website-v0.6.0) (2026-09-10)
+
+
+### 🚀 Features
+
+* **azkena:** add MCP server project page ([#35](https://github.com/pilotariak/website/issues/35)) ([e56cd19](https://github.com/pilotariak/website/commit/e56cd1988c22809df7868e03ebf88baeb9298631))
+
+
+### 📚 Documentation
+
+* **architecture:** rebrand ecosystem and infrastructure diagrams ([#38](https://github.com/pilotariak/website/issues/38)) ([e62c9d3](https://github.com/pilotariak/website/commit/e62c9d3f6539fc4620fa92b70b5b09ccd139750a))
+
 ## [0.5.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.4.0...pilotariak-website-v0.5.0) (2026-08-18)
 
 
