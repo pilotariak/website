@@ -1,3 +1,224 @@
+---
+# ─────────────────────────────────────────────────────────────────────────────
+# Machine-readable design tokens. Source of truth mirrors src/styles/global.css.
+# Human-readable rationale lives in the markdown body below.
+# ─────────────────────────────────────────────────────────────────────────────
+
+meta:
+  name: "Pilotariak Website"
+  description: "Pelota basque community hub — warm cream canvas, Basque red identity, editorial precision."
+  platform: "web"
+  colorScheme: "light"
+  # cssExtras — non-schema CSS custom properties generated into src/styles/global.css.
+  # These are compound/structural values (rgba, shadows, container, font stack) that
+  # fall outside the design.md token schema but still need a single source of truth.
+  # Edit here, then run `make tokens`. (Ignored by the design.md linter.)
+  cssExtras:
+    red-border: "rgba(200, 16, 46, 0.2)"
+    shadow: "rgba(103, 18, 31, 0.1)"
+    shadow-subtle: "rgba(0, 0, 0, 0.06)"
+    focus-ring: "rgba(200, 16, 46, 0.12)"
+    container-max: "1200px"
+    container-pad: "clamp(24px, 5vw, 80px)"
+    font-sans: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont,\n    \"Segoe UI\", sans-serif"
+    # preview.html-only custom properties (visual catalog)
+    night: "#141414"
+    shadow-lg: "rgba(103, 18, 31, 0.18)"
+
+# The palette is intentionally broader than the component token set: borders,
+# muted/subtle text, alt surfaces and panel are consumed directly in CSS and the
+# body guidance, not via a resting component token. The design.md linter flags
+# these as "defined but never referenced by any component" — expected and accepted.
+colors:
+  primary: "#c8102e"          # Basque Crimson Red — primary/brand anchor
+  brand: "#c8102e"            # Basque Crimson Red — brand anchor, CTAs, hero
+  brandDark: "#970d25"        # Fronton Dark Red — gradient stop, pressed, destructive
+  brandSoft: "#fde8ec"        # Blush Soft Red — error backgrounds, chips
+  background: "#f7f4ef"       # Warm Limestone Cream — page canvas (never white)
+  surface: "#fffdfc"          # Pearl Card White — content cards
+  surfaceElevated: "#ffffff"  # Pure White — modals, high-contrast insets
+  surfaceAlt: "#f2ede7"       # Linen Tint — alternating section backgrounds
+  border: "#e5ded6"           # Warm Greige Line — universal border/divider
+  textPrimary: "#141414"      # Deep Ink — headings, titles, footer bg
+  text: "#262626"             # Charcoal Text — body copy
+  textMuted: "#7a7a7a"        # Warm Muted Gray — metadata, eyebrows, placeholders
+  textSubtle: "#a8a49e"       # Pale Stone Gray — disabled, decorative
+  success: "#1f7a5a"          # Tournament Green — live/success
+  successSoft: "#e6f4ee"      # Tournament Green Soft — success badge bg
+  championship: "#c8900a"     # Championship Amber — finals/trophy highlights
+  championshipSoft: "#fff8e7" # Championship Amber Soft — amber badge bg
+  championshipText: "#8a5e00" # Deep amber — AA-contrast text on championshipSoft
+  panel: "#1e1e1e"            # Panel Dark — dark inset surfaces
+  error: "#c8102e"            # alias of brand
+  info: "#1f7a5a"             # alias of success
+
+# Note: rgba effect/elevation values (focus ring, shadows, borders) and the full
+# layout/elevation systems live in the markdown body (§5, §6) — the token schema
+# below carries only colors, typography, spacing, rounding and resting components.
+
+typography:
+  display:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "64px"
+    fontWeight: 900
+    lineHeight: 1.0
+    letterSpacing: "-1.5px"
+  h1:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "48px"
+    fontWeight: 800
+    lineHeight: 1.1
+    letterSpacing: "-0.8px"
+  h2:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "36px"
+    fontWeight: 800
+    lineHeight: 1.15
+    letterSpacing: "-0.5px"
+  h3:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "28px"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.3px"
+  h4:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "22px"
+    fontWeight: 700
+    lineHeight: 1.25
+    letterSpacing: "0em"
+  bodyLarge:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "18px"
+    fontWeight: 400
+    lineHeight: 1.7
+    letterSpacing: "0em"
+  body:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.65
+    letterSpacing: "0em"
+  bodyStrong:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "16px"
+    fontWeight: 600
+    lineHeight: 1.65
+    letterSpacing: "0em"
+  small:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: "0em"
+  smallStrong:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "14px"
+    fontWeight: 600
+    lineHeight: 1.5
+    letterSpacing: "0em"
+  eyebrow:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "12px"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "1.5px"
+  caption:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "12px"
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: "0em"
+  nav:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "15px"
+    fontWeight: 500
+    lineHeight: 1.0
+    letterSpacing: "0em"
+  button:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "16px"
+    fontWeight: 700
+    lineHeight: 1.0
+    letterSpacing: "0em"
+
+spacing:
+  "2xs": "4px"
+  xs: "8px"
+  sm: "12px"
+  md: "16px"
+  lg: "24px"
+  xl: "32px"
+  "2xl": "48px"
+  "3xl": "64px"
+  hero: "96px"
+
+rounded:
+  sm: "6px"
+  md: "8px"
+  lg: "12px"
+  xl: "16px"
+  hero: "20px"
+  pill: "9999px"
+
+# Resting (default-state) component tokens. Interactive states — hover, active,
+# focus, disabled, error — plus borders, shadows and badge variants are
+# documented in §4 (Component Stylings) and §6 (Depth & Elevation) of the body.
+components:
+  buttonPrimary:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.surfaceElevated}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: "12px 24px"
+  buttonSecondary:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: "12px 24px"
+  buttonGhost:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.text}"
+    typography: "{typography.nav}"
+    rounded: "{rounded.md}"
+    padding: "12px 24px"
+  buttonDestructive:
+    backgroundColor: "{colors.brandDark}"
+    textColor: "{colors.surfaceElevated}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: "12px 24px"
+  card:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.textPrimary}"
+    rounded: "{rounded.lg}"
+    padding: "24px"
+  cardFeatured:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.surfaceElevated}"
+    rounded: "{rounded.xl}"
+    padding: "28px"
+  input:
+    backgroundColor: "{colors.surfaceElevated}"
+    textColor: "{colors.textPrimary}"
+    typography: "{typography.body}"
+    rounded: "{rounded.md}"
+    padding: "10px 14px"
+  badge:
+    backgroundColor: "{colors.successSoft}"
+    textColor: "{colors.success}"
+    typography: "{typography.eyebrow}"
+    rounded: "{rounded.pill}"
+    padding: "5px 12px"
+  badgeChampionship:
+    backgroundColor: "{colors.championshipSoft}"
+    textColor: "{colors.championshipText}"
+    typography: "{typography.eyebrow}"
+    rounded: "{rounded.pill}"
+    padding: "5px 12px"
+---
+
 # Design System — Pilotariak Website
 
 > Pelota basque community hub. Warm cream canvas, Basque red identity, editorial precision.
@@ -222,15 +443,6 @@ The spacing system is an 8px-based scale with named tokens for consistent rhythm
 - **3xl (64px):** Section vertical padding on desktop.
 - **hero (80–120px):** Hero section vertical padding — dramatic, uncompromising breathing room.
 
-### Corner Rounding Scale
-
-- **Pill (9999px):** Status badges and filter tags — fully circular ends.
-- **Small (6px):** Inline code chips and small utility buttons.
-- **Medium (8px):** Standard buttons and form inputs — decisive, not playful.
-- **Large (12px):** Content cards and data tables — soft but confident.
-- **Extra Large (16px):** Featured hero cards and modal dialogs — generous, editorial.
-- **Hero (20px):** Hero card inset elements — the most rounded surfaces in the system.
-
 ### Grid & Container
 
 The content container has a maximum width of 1200px, centered with auto margins. Horizontal padding scales with viewport: 80px at 1280px and above, 48px at 1024–1279px, 32px at 768–1023px, and 24px below 768px.
@@ -247,7 +459,30 @@ Section padding is never less than 80px top and bottom — the cream canvas is t
 
 ---
 
-## 6. Depth & Elevation
+## 6. Shapes
+
+The form language is **soft but decisive** — rounded enough to feel warm and editorial, never so rounded it reads as playful or consumer-toy. Corner rounding scales with the surface: small utility elements stay crisp, content surfaces soften, and the hero card is the most rounded object in the system. Pills are reserved exclusively for status labels. There are no circles, no sharp 0px corners on interactive elements, and no decorative shape motifs beyond the two translucent hero circles.
+
+### Corner Rounding Scale
+
+Maps to the `rounded` tokens in the frontmatter.
+
+- **Pill (`{rounded.pill}` — 9999px):** Status badges and filter tags — fully circular ends.
+- **Small (`{rounded.sm}` — 6px):** Inline code chips and small utility buttons.
+- **Medium (`{rounded.md}` — 8px):** Standard buttons and form inputs — decisive, not playful.
+- **Large (`{rounded.lg}` — 12px):** Content cards and data tables — soft but confident.
+- **Extra Large (`{rounded.xl}` — 16px):** Featured hero cards and modal dialogs — generous, editorial.
+- **Hero (`{rounded.hero}` — 20px):** Hero card inset elements — the most rounded surfaces in the system.
+
+### Form Principles
+
+- Never use corner-rounding below 6px on any interactive element.
+- The pill radius is for labels only — never apply it to buttons or cards.
+- Borders, not heavy shadows, define most edges (see §7 Depth & Elevation).
+
+---
+
+## 7. Depth & Elevation
 
 The elevation system uses border color, background warmth, and restrained shadow to communicate depth — never stacked heavy shadows.
 
@@ -262,7 +497,7 @@ Shadows are always red-tinted for brand warmth. Standard list cards never use sh
 
 ---
 
-## 7. Do's and Don'ts
+## 8. Do's and Don'ts
 
 ### Do
 
@@ -292,7 +527,7 @@ Shadows are always red-tinted for brand warmth. Standard list cards never use sh
 
 ---
 
-## 8. Responsive Behavior
+## 9. Responsive Behavior
 
 ### Breakpoints
 
@@ -324,7 +559,7 @@ Shadows are always red-tinted for brand warmth. Standard list cards never use sh
 
 ---
 
-## 9. Agent Prompt Guide
+## 10. Agent Prompt Guide
 
 Use these quick references when instructing AI agents. Copy-paste the one-liners directly into prompts — they give agents the full system context without reading the entire file.
 
