@@ -25,6 +25,10 @@ meta:
     night: "#141414"
     shadow-lg: "rgba(103, 18, 31, 0.18)"
 
+# The palette is intentionally broader than the component token set: borders,
+# muted/subtle text, alt surfaces and panel are consumed directly in CSS and the
+# body guidance, not via a resting component token. The design.md linter flags
+# these as "defined but never referenced by any component" — expected and accepted.
 colors:
   primary: "#c8102e"          # Basque Crimson Red — primary/brand anchor
   brand: "#c8102e"            # Basque Crimson Red — brand anchor, CTAs, hero
@@ -439,15 +443,6 @@ The spacing system is an 8px-based scale with named tokens for consistent rhythm
 - **3xl (64px):** Section vertical padding on desktop.
 - **hero (80–120px):** Hero section vertical padding — dramatic, uncompromising breathing room.
 
-### Corner Rounding Scale
-
-- **Pill (9999px):** Status badges and filter tags — fully circular ends.
-- **Small (6px):** Inline code chips and small utility buttons.
-- **Medium (8px):** Standard buttons and form inputs — decisive, not playful.
-- **Large (12px):** Content cards and data tables — soft but confident.
-- **Extra Large (16px):** Featured hero cards and modal dialogs — generous, editorial.
-- **Hero (20px):** Hero card inset elements — the most rounded surfaces in the system.
-
 ### Grid & Container
 
 The content container has a maximum width of 1200px, centered with auto margins. Horizontal padding scales with viewport: 80px at 1280px and above, 48px at 1024–1279px, 32px at 768–1023px, and 24px below 768px.
@@ -464,7 +459,30 @@ Section padding is never less than 80px top and bottom — the cream canvas is t
 
 ---
 
-## 6. Depth & Elevation
+## 6. Shapes
+
+The form language is **soft but decisive** — rounded enough to feel warm and editorial, never so rounded it reads as playful or consumer-toy. Corner rounding scales with the surface: small utility elements stay crisp, content surfaces soften, and the hero card is the most rounded object in the system. Pills are reserved exclusively for status labels. There are no circles, no sharp 0px corners on interactive elements, and no decorative shape motifs beyond the two translucent hero circles.
+
+### Corner Rounding Scale
+
+Maps to the `rounded` tokens in the frontmatter.
+
+- **Pill (`{rounded.pill}` — 9999px):** Status badges and filter tags — fully circular ends.
+- **Small (`{rounded.sm}` — 6px):** Inline code chips and small utility buttons.
+- **Medium (`{rounded.md}` — 8px):** Standard buttons and form inputs — decisive, not playful.
+- **Large (`{rounded.lg}` — 12px):** Content cards and data tables — soft but confident.
+- **Extra Large (`{rounded.xl}` — 16px):** Featured hero cards and modal dialogs — generous, editorial.
+- **Hero (`{rounded.hero}` — 20px):** Hero card inset elements — the most rounded surfaces in the system.
+
+### Form Principles
+
+- Never use corner-rounding below 6px on any interactive element.
+- The pill radius is for labels only — never apply it to buttons or cards.
+- Borders, not heavy shadows, define most edges (see §7 Depth & Elevation).
+
+---
+
+## 7. Depth & Elevation
 
 The elevation system uses border color, background warmth, and restrained shadow to communicate depth — never stacked heavy shadows.
 
@@ -479,7 +497,7 @@ Shadows are always red-tinted for brand warmth. Standard list cards never use sh
 
 ---
 
-## 7. Do's and Don'ts
+## 8. Do's and Don'ts
 
 ### Do
 
@@ -509,7 +527,7 @@ Shadows are always red-tinted for brand warmth. Standard list cards never use sh
 
 ---
 
-## 8. Responsive Behavior
+## 9. Responsive Behavior
 
 ### Breakpoints
 
@@ -541,7 +559,7 @@ Shadows are always red-tinted for brand warmth. Standard list cards never use sh
 
 ---
 
-## 9. Agent Prompt Guide
+## 10. Agent Prompt Guide
 
 Use these quick references when instructing AI agents. Copy-paste the one-liners directly into prompts — they give agents the full system context without reading the entire file.
 
