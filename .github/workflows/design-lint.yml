@@ -10,6 +10,7 @@ on:
     paths:
       - "DESIGN.md"
       - "src/styles/global.css"
+      - "preview.html"
       - "hack/gen-design-tokens.py"
       - ".github/workflows/design-lint.yml"
   push:
@@ -18,6 +19,7 @@ on:
     paths:
       - "DESIGN.md"
       - "src/styles/global.css"
+      - "preview.html"
       - "hack/gen-design-tokens.py"
       - ".github/workflows/design-lint.yml"
 

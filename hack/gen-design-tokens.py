@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 # SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 # SPDX-License-Identifier: Apache-2.0
-"""Generate the CSS :root design-token block from DESIGN.md.
+"""Generate CSS design tokens from DESIGN.md — the single source of truth.
 
-DESIGN.md frontmatter is the single source of truth. This script renders the
-`:root { ... }` block in src/styles/global.css from those tokens.
+DESIGN.md frontmatter owns every token value. This script renders the
+`:root { ... }` blocks of both src/styles/global.css and preview.html from
+those tokens, and audits preview.html swatch labels so the visual catalog
+cannot advertise a hex that disagrees with the source.
 
 Usage:
-    gen-design-tokens.py            # rewrite global.css in place
-    gen-design-tokens.py --check    # exit 1 if global.css is out of date (CI)
+    gen-design-tokens.py            # rewrite the generated files in place
+    gen-design-tokens.py --check    # exit 1 if any file is out of date (CI)
 """
 from __future__ import annotations
 
@@ -24,11 +26,16 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parent.parent
 DESIGN = ROOT / "DESIGN.md"
 CSS = ROOT / "src" / "styles" / "global.css"
+PREVIEW = ROOT / "preview.html"
 
-# Map a CSS custom property -> how to source its value from the frontmatter.
-# ("c", key)  -> colors[key]      ("s", key) -> spacing[key]
-# ("r", key)  -> rounded[key]     ("x", key) -> meta.cssExtras[key]
-LAYOUT: list[tuple[str, list[tuple[str, tuple[str, str]]]]] = [
+# Source of each CSS custom property in the frontmatter:
+#   ("c", key) -> colors[key]   ("s", key) -> spacing[key]
+#   ("r", key) -> rounded[key]  ("x", key) -> meta.cssExtras[key]
+Source = tuple[str, str]
+Group = tuple[str, list[tuple[str, Source]]]
+
+# Full token block rendered into src/styles/global.css.
+GLOBAL_LAYOUT: list[Group] = [
     ("Brand", [
         ("--red", ("c", "brand")),
         ("--red-dark", ("c", "brandDark")),
@@ -92,6 +99,51 @@ LAYOUT: list[tuple[str, list[tuple[str, tuple[str, str]]]]] = [
     ]),
 ]
 
+# Colour block rendered into preview.html (its catalog uses no spacing/radius,
+# but adds two preview-only helpers: --night and --shadow-lg).
+PREVIEW_LAYOUT: list[Group] = [
+    ("Brand", [
+        ("--red", ("c", "brand")),
+        ("--red-dark", ("c", "brandDark")),
+        ("--red-soft", ("c", "brandSoft")),
+        ("--red-border", ("x", "red-border")),
+    ]),
+    ("Canvas", [
+        ("--cream", ("c", "background")),
+        ("--card", ("c", "surface")),
+        ("--white", ("c", "surfaceElevated")),
+        ("--surface-alt", ("c", "surfaceAlt")),
+        ("--line", ("c", "border")),
+    ]),
+    ("Text", [
+        ("--ink", ("c", "textPrimary")),
+        ("--text", ("c", "text")),
+        ("--muted", ("c", "textMuted")),
+        ("--subtle", ("c", "textSubtle")),
+    ]),
+    ("Status", [
+        ("--green", ("c", "success")),
+        ("--green-soft", ("c", "successSoft")),
+        ("--amber", ("c", "championship")),
+        ("--amber-soft", ("c", "championshipSoft")),
+    ]),
+    ("Dark", [
+        ("--panel", ("c", "panel")),
+        ("--night", ("x", "night")),
+    ]),
+    ("Shadows", [
+        ("--shadow", ("x", "shadow")),
+        ("--shadow-lg", ("x", "shadow-lg")),
+    ]),
+    ("Aliases", [
+        ("--error", ("c", "error")),
+        ("--info", ("c", "info")),
+        ("--focus-ring", ("x", "focus-ring")),
+    ]),
+]
+
+ROOT_RE = re.compile(r":root\s*\{.*?\}", re.S)
+
 
 def load_tokens() -> dict:
     text = DESIGN.read_text()
@@ -101,7 +153,7 @@ def load_tokens() -> dict:
     return yaml.safe_load(m.group(1))
 
 
-def resolve(tokens: dict, source: tuple[str, str]) -> str:
+def resolve(tokens: dict, source: Source) -> str:
     kind, key = source
     groups = {"c": "colors", "s": "spacing", "r": "rounded"}
     if kind in groups:
@@ -115,44 +167,92 @@ def resolve(tokens: dict, source: tuple[str, str]) -> str:
     return str(value)
 
 
-def render_root(tokens: dict) -> str:
+def render_root(tokens: dict, layout: list[Group], var_indent: int, brace_indent: int) -> str:
+    vi, bi = " " * var_indent, " " * brace_indent
     lines = [":root {"]
-    for i, (group, entries) in enumerate(LAYOUT):
+    for i, (group, entries) in enumerate(layout):
         if i:
             lines.append("")
-        lines.append(f"  /* {group} */")
+        lines.append(f"{vi}/* {group} */")
         for prop, source in entries:
-            lines.append(f"  {prop}: {resolve(tokens, source)};")
-    lines.append("}")
+            lines.append(f"{vi}{prop}: {resolve(tokens, source)};")
+    lines.append(f"{bi}}}")
     return "\n".join(lines)
+
+
+def value_map(tokens: dict) -> dict[str, str]:
+    """var name -> resolved value (lowercased), across every layout."""
+    out: dict[str, str] = {}
+    for layout in (GLOBAL_LAYOUT, PREVIEW_LAYOUT):
+        for _, entries in layout:
+            for prop, source in entries:
+                out[prop[2:]] = resolve(tokens, source).lower()
+    return out
+
+
+def rewrite_root(path: Path, new_root: str) -> tuple[str, str]:
+    text = path.read_text()
+    if not ROOT_RE.search(text):
+        sys.exit(f"error: no :root block found in {path}")
+    return text, ROOT_RE.sub(lambda _: new_root, text, count=1)
+
+
+def audit_preview_labels(tokens: dict, text: str) -> list[str]:
+    """Every `--var · #hex` swatch label must match the token's value."""
+    values = value_map(tokens)
+    problems: list[str] = []
+    for var, hex_shown in re.findall(r"--([a-z0-9-]+)\s*·\s*(#[0-9A-Fa-f]{6})", text):
+        want = values.get(var)
+        if want is None:
+            problems.append(f"preview.html: swatch label --{var} has no matching token")
+        elif want != hex_shown.lower():
+            problems.append(
+                f"preview.html: swatch label --{var} shows {hex_shown} but token is {want}"
+            )
+    return problems
 
 
 def main() -> int:
     check = "--check" in sys.argv[1:]
     tokens = load_tokens()
-    new_root = render_root(tokens)
 
-    css = CSS.read_text()
-    if not re.search(r":root\s*\{.*?\n\}", css, re.S):
-        sys.exit(f"error: no :root block found in {CSS}")
-    updated = re.sub(r":root\s*\{.*?\n\}", lambda _: new_root, css, count=1, flags=re.S)
+    targets = [
+        (CSS, render_root(tokens, GLOBAL_LAYOUT, 2, 0)),
+        (PREVIEW, render_root(tokens, PREVIEW_LAYOUT, 6, 4)),
+    ]
+
+    stale: list[str] = []
+    for path, new_root in targets:
+        old, updated = rewrite_root(path, new_root)
+        rel = path.relative_to(ROOT)
+        if check:
+            if updated != old:
+                stale.append(str(rel))
+        elif updated != old:
+            path.write_text(updated)
+            print(f"✅ wrote {rel} from DESIGN.md")
+        else:
+            print(f"✅ {rel} already up to date")
+
+    problems = audit_preview_labels(tokens, PREVIEW.read_text())
 
     if check:
-        if updated != css:
+        if stale:
             sys.stderr.write(
-                "error: src/styles/global.css is out of date with DESIGN.md tokens.\n"
-                "       run `make tokens` and commit the result.\n"
+                "error: these files are out of date with DESIGN.md tokens:\n"
+                + "".join(f"  - {s}\n" for s in stale)
+                + "       run `make tokens` and commit the result.\n"
             )
+        for p in problems:
+            sys.stderr.write(f"error: {p}\n")
+        if stale or problems:
             return 1
-        print("✅ global.css tokens match DESIGN.md")
+        print("✅ global.css + preview.html tokens match DESIGN.md")
         return 0
 
-    if updated != css:
-        CSS.write_text(updated)
-        print(f"✅ wrote {CSS.relative_to(ROOT)} from DESIGN.md")
-    else:
-        print("✅ global.css already up to date")
-    return 0
+    for p in problems:
+        sys.stderr.write(f"warning: {p}\n")
+    return 1 if problems else 0
 
 
 if __name__ == "__main__":

@@ -21,6 +21,9 @@ meta:
     container-max: "1200px"
     container-pad: "clamp(24px, 5vw, 80px)"
     font-sans: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont,\n    \"Segoe UI\", sans-serif"
+    # preview.html-only custom properties (visual catalog)
+    night: "#141414"
+    shadow-lg: "rgba(103, 18, 31, 0.18)"
 
 colors:
   primary: "#c8102e"          # Basque Crimson Red — primary/brand anchor
