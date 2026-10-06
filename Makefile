@@ -76,9 +76,21 @@ lint: ## Run linters
 	bun run lint
 
 .PHONY: check
-check: ## Run Astro check
+check: tokens-check ## Run Astro check
 	@echo -e "$(INFO)$(INFO_COLOR)[Check] Running Astro type check$(NO_COLOR)"
 	bun run astro check
+
+##@ Design System
+
+.PHONY: tokens
+tokens: ## Generate CSS design tokens from DESIGN.md (single source of truth)
+	@echo -e "$(INFO)$(INFO_COLOR)[Tokens] Generating global.css tokens from DESIGN.md$(NO_COLOR)"
+	python3 hack/gen-design-tokens.py
+
+.PHONY: tokens-check
+tokens-check: ## Verify global.css tokens match DESIGN.md (no drift)
+	@echo -e "$(INFO)$(INFO_COLOR)[Tokens] Checking global.css is in sync with DESIGN.md$(NO_COLOR)"
+	python3 hack/gen-design-tokens.py --check
 
 ##@ Maintenance
 

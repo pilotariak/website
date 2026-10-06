@@ -1,3 +1,217 @@
+---
+# ─────────────────────────────────────────────────────────────────────────────
+# Machine-readable design tokens. Source of truth mirrors src/styles/global.css.
+# Human-readable rationale lives in the markdown body below.
+# ─────────────────────────────────────────────────────────────────────────────
+
+meta:
+  name: "Pilotariak Website"
+  description: "Pelota basque community hub — warm cream canvas, Basque red identity, editorial precision."
+  platform: "web"
+  colorScheme: "light"
+  # cssExtras — non-schema CSS custom properties generated into src/styles/global.css.
+  # These are compound/structural values (rgba, shadows, container, font stack) that
+  # fall outside the design.md token schema but still need a single source of truth.
+  # Edit here, then run `make tokens`. (Ignored by the design.md linter.)
+  cssExtras:
+    red-border: "rgba(200, 16, 46, 0.2)"
+    shadow: "rgba(103, 18, 31, 0.1)"
+    shadow-subtle: "rgba(0, 0, 0, 0.06)"
+    focus-ring: "rgba(200, 16, 46, 0.12)"
+    container-max: "1200px"
+    container-pad: "clamp(24px, 5vw, 80px)"
+    font-sans: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont,\n    \"Segoe UI\", sans-serif"
+
+colors:
+  primary: "#c8102e"          # Basque Crimson Red — primary/brand anchor
+  brand: "#c8102e"            # Basque Crimson Red — brand anchor, CTAs, hero
+  brandDark: "#970d25"        # Fronton Dark Red — gradient stop, pressed, destructive
+  brandSoft: "#fde8ec"        # Blush Soft Red — error backgrounds, chips
+  background: "#f7f4ef"       # Warm Limestone Cream — page canvas (never white)
+  surface: "#fffdfc"          # Pearl Card White — content cards
+  surfaceElevated: "#ffffff"  # Pure White — modals, high-contrast insets
+  surfaceAlt: "#f2ede7"       # Linen Tint — alternating section backgrounds
+  border: "#e5ded6"           # Warm Greige Line — universal border/divider
+  textPrimary: "#141414"      # Deep Ink — headings, titles, footer bg
+  text: "#262626"             # Charcoal Text — body copy
+  textMuted: "#7a7a7a"        # Warm Muted Gray — metadata, eyebrows, placeholders
+  textSubtle: "#a8a49e"       # Pale Stone Gray — disabled, decorative
+  success: "#1f7a5a"          # Tournament Green — live/success
+  successSoft: "#e6f4ee"      # Tournament Green Soft — success badge bg
+  championship: "#c8900a"     # Championship Amber — finals/trophy highlights
+  championshipSoft: "#fff8e7" # Championship Amber Soft — amber badge bg
+  championshipText: "#8a5e00" # Deep amber — AA-contrast text on championshipSoft
+  panel: "#1e1e1e"            # Panel Dark — dark inset surfaces
+  error: "#c8102e"            # alias of brand
+  info: "#1f7a5a"             # alias of success
+
+# Note: rgba effect/elevation values (focus ring, shadows, borders) and the full
+# layout/elevation systems live in the markdown body (§5, §6) — the token schema
+# below carries only colors, typography, spacing, rounding and resting components.
+
+typography:
+  display:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "64px"
+    fontWeight: 900
+    lineHeight: 1.0
+    letterSpacing: "-1.5px"
+  h1:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "48px"
+    fontWeight: 800
+    lineHeight: 1.1
+    letterSpacing: "-0.8px"
+  h2:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "36px"
+    fontWeight: 800
+    lineHeight: 1.15
+    letterSpacing: "-0.5px"
+  h3:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "28px"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.3px"
+  h4:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "22px"
+    fontWeight: 700
+    lineHeight: 1.25
+    letterSpacing: "0em"
+  bodyLarge:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "18px"
+    fontWeight: 400
+    lineHeight: 1.7
+    letterSpacing: "0em"
+  body:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.65
+    letterSpacing: "0em"
+  bodyStrong:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "16px"
+    fontWeight: 600
+    lineHeight: 1.65
+    letterSpacing: "0em"
+  small:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: "0em"
+  smallStrong:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "14px"
+    fontWeight: 600
+    lineHeight: 1.5
+    letterSpacing: "0em"
+  eyebrow:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "12px"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "1.5px"
+  caption:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "12px"
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: "0em"
+  nav:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "15px"
+    fontWeight: 500
+    lineHeight: 1.0
+    letterSpacing: "0em"
+  button:
+    fontFamily: "\"Inter Variable\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+    fontSize: "16px"
+    fontWeight: 700
+    lineHeight: 1.0
+    letterSpacing: "0em"
+
+spacing:
+  "2xs": "4px"
+  xs: "8px"
+  sm: "12px"
+  md: "16px"
+  lg: "24px"
+  xl: "32px"
+  "2xl": "48px"
+  "3xl": "64px"
+  hero: "96px"
+
+rounded:
+  sm: "6px"
+  md: "8px"
+  lg: "12px"
+  xl: "16px"
+  hero: "20px"
+  pill: "9999px"
+
+# Resting (default-state) component tokens. Interactive states — hover, active,
+# focus, disabled, error — plus borders, shadows and badge variants are
+# documented in §4 (Component Stylings) and §6 (Depth & Elevation) of the body.
+components:
+  buttonPrimary:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.surfaceElevated}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: "12px 24px"
+  buttonSecondary:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.primary}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: "12px 24px"
+  buttonGhost:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.text}"
+    typography: "{typography.nav}"
+    rounded: "{rounded.md}"
+    padding: "12px 24px"
+  buttonDestructive:
+    backgroundColor: "{colors.brandDark}"
+    textColor: "{colors.surfaceElevated}"
+    typography: "{typography.button}"
+    rounded: "{rounded.md}"
+    padding: "12px 24px"
+  card:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.textPrimary}"
+    rounded: "{rounded.lg}"
+    padding: "24px"
+  cardFeatured:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.surfaceElevated}"
+    rounded: "{rounded.xl}"
+    padding: "28px"
+  input:
+    backgroundColor: "{colors.surfaceElevated}"
+    textColor: "{colors.textPrimary}"
+    typography: "{typography.body}"
+    rounded: "{rounded.md}"
+    padding: "10px 14px"
+  badge:
+    backgroundColor: "{colors.successSoft}"
+    textColor: "{colors.success}"
+    typography: "{typography.eyebrow}"
+    rounded: "{rounded.pill}"
+    padding: "5px 12px"
+  badgeChampionship:
+    backgroundColor: "{colors.championshipSoft}"
+    textColor: "{colors.championshipText}"
+    typography: "{typography.eyebrow}"
+    rounded: "{rounded.pill}"
+    padding: "5px 12px"
+---
+
 # Design System — Pilotariak Website
 
 > Pelota basque community hub. Warm cream canvas, Basque red identity, editorial precision.
