@@ -32,6 +32,7 @@ make preview     # serve ./dist/ locally
 ## i18n
 
 Configured in `astro.config.mjs`:
+
 - Default locale: `en` (no prefix — `/about`)
 - French locale: `fr` prefix (`/fr/about`)
 - Translation strings live alongside their pages; follow the existing pattern when adding new content.
@@ -57,12 +58,12 @@ Config in `wrangler.jsonc`.
 
 Docs follow the [Diataxis](https://diataxis.fr/) framework — see `docs/index.md` for the full index:
 
-| Type | Content |
-|---|---|
-| Tutorials | Add a new component from scratch |
-| How-to guides | Add a project page, add a translation, deploy |
-| Reference | Components API, i18n helpers, design tokens, make commands |
-| Explanation | Architecture decisions, i18n rationale |
+| Type          | Content                                                    |
+| ------------- | ---------------------------------------------------------- |
+| Tutorials     | Add a new component from scratch                           |
+| How-to guides | Add a project page, add a translation, deploy              |
+| Reference     | Components API, i18n helpers, design tokens, make commands |
+| Explanation   | Architecture decisions, i18n rationale                     |
 
 Design system documented in `DESIGN.md`.
 
