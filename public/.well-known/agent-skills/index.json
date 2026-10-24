@@ -13,7 +13,7 @@
       "type": "skill-md",
       "description": "Access Basque pelota data (competitions, results, players, frontons) through the Azkena Model Context Protocol server at https://pilotariak.com/azkena. No authentication required.",
       "url": "/.well-known/agent-skills/mcp-server/SKILL.md",
-      "digest": "sha256:ed869e08cadd01d7baccade678d7098d13a602271b58a698dfd327389d535d3a"
+      "digest": "sha256:907301e8b1edcff05395249c71ed7ccf44472757de06795f5efdc9e5de270a54"
     },
     {
       "name": "graphql-api",
