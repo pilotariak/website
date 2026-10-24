@@ -7,29 +7,45 @@ interface Props {
   description?: string;
 }
 
-const lang = Astro.currentLocale ?? 'en';
+const lang = Astro.currentLocale ?? "en";
 
 const {
-  title = 'Pilotariak — Pelota Basque',
-  description =
-    lang === 'en'
-      ? 'The open source platform for Basque pelota. Results, competitions, and community.'
-      : 'La plateforme de référence pour la pelote basque. Résultats, compétitions, et communauté.',
+  title = "Pilotariak — Pelota Basque",
+  description = lang === "en"
+    ? "The open source platform for Basque pelota. Results, competitions, and community."
+    : "La plateforme de référence pour la pelote basque. Résultats, compétitions, et communauté.",
 } = Astro.props;
+
+const bodyHtml = await Astro.slots.render("default");
+const bodyText = bodyHtml.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")
+  .trim();
+const tokenCount = Math.round(bodyText.length / 4);
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <meta name="description" content={description} />
+    <meta name="ai:token-count" content={tokenCount.toString()} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" hreflang="en" href={Astro.url.pathname.replace(/^\/fr/, '') || '/'} />
-    <link rel="alternate" hreflang="fr" href={`/fr${Astro.url.pathname.replace(/^\/fr/, '') || '/'}`} />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={Astro.url.pathname.replace(/^\/fr/, "") || "/"}
+    />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href={`/fr${Astro.url.pathname.replace(/^\/fr/, "") || "/"}`}
+    />
     <title>{title}</title>
   </head>
   <body>
@@ -38,5 +54,5 @@ const {
 </html>
 
 <style is:global>
-  @import "../styles/global.css";
+@import "../styles/global.css";
 </style>
