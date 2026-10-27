@@ -2,7 +2,7 @@
   "name": "Pilotariak",
   "description": "Open-source tools for the Basque pelota sport community — data, APIs and mobile applications.",
   "url": "https://pilotariak.com",
-  "mcpServer": "https://mcp.pilotariak.com",
+  "mcpServer": "https://mcp.pilotariak.com/mcp",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "source": "https://github.com/Pilotariak",
@@ -22,8 +22,14 @@
       "mimeType": "text/plain"
     },
     {
+      "name": "developers",
+      "url": "https://pilotariak.com/developers/",
+      "description": "Developer portal: Frontis GraphQL API and Azkena MCP server",
+      "mimeType": "text/html"
+    },
+    {
       "name": "sitemap",
-      "url": "https://pilotariak.com/sitemap.xml",
+      "url": "https://pilotariak.com/sitemap-index.xml",
       "description": "XML sitemap listing all pages",
       "mimeType": "application/xml"
     }
@@ -31,7 +37,8 @@
   "related": {
     "frontis": {
       "description": "GraphQL API gateway for Basque pelota data",
-      "url": "https://github.com/Pilotariak/frontis"
+      "url": "https://github.com/Pilotariak/frontis",
+      "endpoint": "https://frontis-gateway.pilotariak.com/graphql"
     },
     "kancha": {
       "description": "iOS & Android mobile app for Basque pelota",
@@ -41,5 +48,18 @@
       "description": "Slack bot for Basque pelota data",
       "url": "https://github.com/Pilotariak/xilo"
     }
-  }
+  },
+  "servers": [
+    {
+      "name": "com.pilotariak/azkena",
+      "url": "https://mcp.pilotariak.com/mcp",
+      "transport": "streamable-http",
+      "card": "https://pilotariak.com/.well-known/mcp/server-card.json",
+      "authentication": {
+        "type": "oauth2",
+        "protectedResourceMetadata": "https://mcp.pilotariak.com/.well-known/oauth-protected-resource/mcp",
+        "guide": "https://pilotariak.com/auth.md"
+      }
+    }
+  ]
 }

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "pilotariak",
+  "version": "1.0.0",
+  "description": "Basque pelota data for AI agents: skills for the Frontis GraphQL API, the Azkena MCP server, Pilotariak projects and sport context.",
+  "author": {
+    "name": "Pilotariak",
+    "url": "https://pilotariak.com"
+  },
+  "homepage": "https://pilotariak.com/developers/",
+  "repository": "https://github.com/Pilotariak/website",
+  "license": "Apache-2.0",
+  "keywords": ["basque-pelota", "pelote-basque", "graphql", "mcp", "sports-data"]
+}

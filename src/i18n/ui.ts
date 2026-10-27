@@ -22,6 +22,10 @@ export const ui = {
     // ── Footer ───────────────────────────────────────────────────
     'footer.ariaHome': 'Pilotariak — Accueil',
     'footer.ariaNav': 'Liens du pied de page',
+    'footer.developers': 'Développeurs',
+    'footer.about': 'À propos',
+    'footer.contact': 'Contact',
+    'footer.privacy': 'Confidentialité',
 
     // ── Hero (index) ─────────────────────────────────────────────
     'hero.ariaLabel': 'Présentation de Pilotariak',
@@ -400,6 +404,10 @@ export const ui = {
     // ── Footer ───────────────────────────────────────────────────
     'footer.ariaHome': 'Pilotariak — Home',
     'footer.ariaNav': 'Footer links',
+    'footer.developers': 'Developers',
+    'footer.about': 'About',
+    'footer.contact': 'Contact',
+    'footer.privacy': 'Privacy',
 
     // ── Hero (index) ─────────────────────────────────────────────
     'hero.ariaLabel': 'About Pilotariak',

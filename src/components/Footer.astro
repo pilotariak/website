@@ -36,8 +36,11 @@ const year = new Date().getFullYear();
 
     <nav class="footer__links" aria-label={t('footer.ariaNav')}>
       <a href="https://github.com/Pilotariak" class="footer__link">GitHub</a>
-      <a href={tp('/frontis')} class="footer__link">Frontis</a>
-      <a href={tp('/kancha')} class="footer__link">Kancha</a>
+      <a href={tp('/developers/')} class="footer__link">{t('footer.developers')}</a>
+      <a href={tp('/about/')} class="footer__link">{t('footer.about')}</a>
+      <a href={tp('/contact/')} class="footer__link">{t('footer.contact')}</a>
+      <a href={tp('/privacy/')} class="footer__link">{t('footer.privacy')}</a>
+      <a href="https://github.com/Pilotariak/website" class="footer__link">Source</a>
     </nav>
   </div>
 </footer>
@@ -72,12 +75,13 @@ const year = new Date().getFullYear();
   .footer__copy {
     font-size: 14px;
     color: var(--subtle);
-    flex: 1;
+    flex: 1 1 auto;
   }
 
   .footer__links {
     display: flex;
-    gap: var(--space-lg);
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
   }
 
   .footer__link {

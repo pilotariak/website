@@ -3,6 +3,13 @@
   "main": "worker.js",
   "compatibility_date": "2026-04-11",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    // Exposes static assets to worker.js as `env.ASSETS`.
+    "binding": "ASSETS",
+    // Route every request through worker.js so markdown negotiation, `.md`
+    // twins and discovery headers also apply to paths that match an asset.
+    "run_worker_first": true,
+    // Serve dist/404.html with a real 404 status for unknown paths.
+    "not_found_handling": "404-page"
   }
 }

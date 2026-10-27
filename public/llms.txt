@@ -6,15 +6,33 @@ Pilotariak builds data tools, APIs and mobile applications to make Basque pelota
 results, player profiles and competition data accessible to everyone.
 
 License: Apache 2.0
-Source: https://github.com/Pilotariak
+Source: https://github.com/Pilotariak (this website: https://github.com/Pilotariak/website, agent instructions: https://github.com/Pilotariak/website/blob/main/AGENTS.md)
 Language: English, Français
+
+## When to use Pilotariak
+
+Use Pilotariak when a task involves Basque pelota (pelote basque) data from the French
+regional leagues — LCAPB (Côte d'Argent), LIDFPB (Île-de-France) and CTPB:
+
+- **Look up clubs, competitions, categories, specialties or match results** → call the public
+  Frontis GraphQL API at https://frontis-gateway.pilotariak.com/graphql (POST, no auth, header
+  `X-Pilotariak-League: lcapb|lidfpb|ctpb`). Best for scripts, apps and one-off lookups.
+- **Give an AI assistant ongoing tool access to that data** → connect the Azkena MCP server at
+  https://mcp.pilotariak.com/mcp (Streamable HTTP, OAuth 2.1 — see https://pilotariak.com/auth.md).
+- **Explain Basque pelota or the Pilotariak projects** → read this file, the agent skills, or any
+  page as markdown (append `.md`, e.g. https://pilotariak.com/index.md).
+
+Not a fit for: live betting odds, ticketing, or leagues outside the three listed above. All
+interfaces are read-only; nothing can be written or modified.
+
+Developer section index: [developers/llms.txt](https://pilotariak.com/developers/llms.txt)
 
 ## Projects
 
-- [Frontis — GraphQL API Gateway](https://pilotariak.com/frontis): Centralised GraphQL gateway for all Basque pelota data. Unifies five data domains (competitions, clubs, results, categories, disciplines) into a single federated API endpoint. Source: https://github.com/Pilotariak/frontis (~0.5K tokens)
-- [Kancha — Mobile App (iOS & Android)](https://pilotariak.com/kancha): Mobile application for the Basque pelota community. Provides live results, competition calendars, player profiles and phase-by-phase tournament brackets. Available on iPhone and Android (in development). Source: https://github.com/Pilotariak/kancha (~0.5K tokens)
-- [Xilo — Slack Bot](https://pilotariak.com/xilo): Slack bot for the Pilotariak community. Slash commands and real-time events deliver Basque pelota data directly into Slack channels. Source: https://github.com/Pilotariak/xilo (~0.5K tokens)
-- [Azkena — MCP Server](https://pilotariak.com/azkena): Model Context Protocol server for the Pilotariak ecosystem. Exposes Basque pelota data (competitions, results, players, frontons) as MCP tools and resources so AI agents can query the platform directly. Source: https://github.com/Pilotariak/azkena · Server card: https://pilotariak.com/.well-known/mcp.json (~0.5K tokens)
+- [Frontis — GraphQL API Gateway](https://pilotariak.com/frontis/): Centralised GraphQL gateway for all Basque pelota data. Unifies five data domains (competitions, clubs, results, categories, specialties) into a single federated endpoint: https://frontis-gateway.pilotariak.com/graphql. Source: https://github.com/Pilotariak/frontis (~0.5K tokens)
+- [Kancha — Mobile App (iOS & Android)](https://pilotariak.com/kancha/): Mobile application for the Basque pelota community. Provides live results, competition calendars, player profiles and phase-by-phase tournament brackets. Available on iPhone and Android (in development). Source: https://github.com/Pilotariak/kancha (~0.5K tokens)
+- [Xilo — Slack Bot](https://pilotariak.com/xilo/): Slack bot for the Pilotariak community. Slash commands and real-time events deliver Basque pelota data directly into Slack channels. Source: https://github.com/Pilotariak/xilo (~0.5K tokens)
+- [Azkena — MCP Server](https://pilotariak.com/azkena/): Model Context Protocol server for the Pilotariak ecosystem. Exposes Basque pelota data (competitions, clubs, categories, specialties, results) as MCP tools at https://mcp.pilotariak.com/mcp (OAuth 2.1). Source: https://github.com/Pilotariak/azkena · Server card: https://pilotariak.com/.well-known/mcp/server-card.json (~0.5K tokens)
 
 ## Sport Context
 
@@ -31,24 +49,35 @@ Key statistics:
 
 ## Pages
 
-- [Home (English)](https://pilotariak.com/): Organisation overview, project list and sport context. (~0.6K tokens)
-- [Home (Français)](https://pilotariak.com/fr/): French version of the home page. (~0.6K tokens)
-- [Frontis](https://pilotariak.com/frontis): GraphQL API Gateway details. (~0.5K tokens)
-- [Kancha](https://pilotariak.com/kancha): Mobile app details. (~0.5K tokens)
-- [Xilo](https://pilotariak.com/xilo): Slack bot details. (~0.5K tokens)
-- [Azkena](https://pilotariak.com/azkena): MCP server details. (~0.5K tokens)
+Every page is also available as markdown: append `.md` (`/index.md`, `/frontis.md`, `/fr/index.md`) or send `Accept: text/markdown`.
 
-## MCP Server & AI Discovery
+- [Home (English)](https://pilotariak.com/index.md): Organisation overview, project list and sport context. (~0.6K tokens)
+- [Home (Français)](https://pilotariak.com/fr/index.md): French version of the home page. (~0.6K tokens)
+- [Developers](https://pilotariak.com/developers.md): Developer portal — GraphQL API, MCP server, authentication, errors, limits. (~1.5K tokens)
+- [Frontis](https://pilotariak.com/frontis.md): GraphQL API Gateway details. (~0.5K tokens)
+- [Kancha](https://pilotariak.com/kancha.md): Mobile app details. (~0.5K tokens)
+- [Xilo](https://pilotariak.com/xilo.md): Slack bot details. (~0.5K tokens)
+- [Azkena](https://pilotariak.com/azkena.md): MCP server details. (~0.5K tokens)
+- [About](https://pilotariak.com/about.md): Who maintains Pilotariak and why. (~0.6K tokens)
+- [Contact](https://pilotariak.com/contact.md): Issues, security and privacy contacts. (~0.4K tokens)
+- [Privacy](https://pilotariak.com/privacy.md): What the site and services process. (~0.6K tokens)
 
-Pilotariak exposes a Model Context Protocol (MCP) server at:
-  https://pilotariak.com/azkena
+## APIs & AI Discovery
+
+- GraphQL API (public, no auth): https://frontis-gateway.pilotariak.com/graphql
+- MCP server (OAuth 2.1): https://mcp.pilotariak.com/mcp
+- Agent mode summary (JSON): https://pilotariak.com/?mode=agent
 
 Discovery artifacts:
+- [Agent authentication](https://pilotariak.com/auth.md): How agents obtain MCP credentials. (~1.2K tokens)
+- [ARD catalog](https://pilotariak.com/.well-known/ard.json): Agentic Resource Discovery catalog. (~0.4K tokens)
+- [API catalog](https://pilotariak.com/.well-known/api-catalog): RFC 9727 linkset of APIs and docs. (~0.4K tokens)
+- [MCP Server Card](https://pilotariak.com/.well-known/mcp/server-card.json): Azkena server card. (~0.1K tokens)
+- [Agent Skills Index](https://pilotariak.com/.well-known/agent-skills/index.json): Index of available agent skill files. (~0.2K tokens)
+- [A2A Agent Card](https://pilotariak.com/.well-known/agent-card.json): Agent card. (~0.5K tokens)
 - [AI Policy](https://pilotariak.com/.well-known/ai.txt): Usage policy for AI crawlers and agents. (~0.1K tokens)
-- [AI Catalog](https://pilotariak.com/.well-known/ai-catalog.json): Machine-readable catalog of AI-facing resources. (~0.1K tokens)
-- [MCP Server Card](https://pilotariak.com/.well-known/mcp.json): MCP server descriptor for Azkena. (~0.1K tokens)
-- [Agent Skills Index](https://pilotariak.com/.well-known/agent-skills/index.json): Index of available agent skill files. (~0.1K tokens)
 
 ## Contact & Contribution
 
 All projects are open source (Apache 2.0). Contributions are welcome via GitHub.
+Contact: https://pilotariak.com/contact/ · Security: https://pilotariak.com/.well-known/security.txt

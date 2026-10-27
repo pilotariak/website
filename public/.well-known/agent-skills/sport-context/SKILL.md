@@ -1,16 +1,24 @@
 ---
 name: sport-context
-description: Get background information about Basque pelota (pelote basque): disciplines, statistics (240+ competitions/year, 1,800 players, 120 frontons), and the Pilotariak open-source organisation.
+description: Get background information about Basque pelota (pelote basque) — disciplines, key statistics (240+ competitions/year, 1,800 players, 120 frontons) and the Pilotariak organisation. Use when explaining the sport, its disciplines or vocabulary before or alongside querying Pilotariak data.
 license: Apache-2.0
 ---
+
 # sport-context
 
 Use this skill to get background information about Basque pelota (pelote basque) and the Pilotariak platform.
 
+## When to use
+
+- The user asks what Basque pelota is, how its disciplines differ, or what a fronton or trinquet is.
+- You need sport vocabulary to interpret Pilotariak data (specialties such as "Trinquet / P.G. Creuse", categories such as "1ère Série").
+
 ## About Basque Pelota
+
 Basque pelota is an ancient sport from the Basque Country, played on both sides of the Pyrenees. It encompasses around ten disciplines played in a fronton (court) or outdoors.
 
 ## Disciplines
+
 - Cesta Punta
 - Grand Chistera
 - Main Nue
@@ -20,12 +28,14 @@ Basque pelota is an ancient sport from the Basque Country, played on both sides 
 - And more
 
 ## Key Statistics
+
 - 240+ competitions organised per year
 - 1,800 registered players
 - 7 disciplines covered
 - 120 listed frontons
 
 ## About Pilotariak
+
 Pilotariak is an open-source software organisation that builds data tools, APIs and mobile applications to make Basque pelota results, player profiles and competition data accessible to everyone.
 
 - License: Apache 2.0
@@ -33,5 +43,6 @@ Pilotariak is an open-source software organisation that builds data tools, APIs 
 - Source: https://github.com/Pilotariak
 
 ## Source
+
 - https://pilotariak.com
 - https://pilotariak.com/llms.txt

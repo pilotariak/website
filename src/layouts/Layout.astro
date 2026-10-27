@@ -2,24 +2,75 @@
 // SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
 
+import {
+  breadcrumbs,
+  graph,
+  organization,
+  projectList,
+  projectSlugs,
+  SITE,
+  softwareApplication,
+  webPage,
+  website,
+  type ProjectSlug,
+} from "../lib/schema";
+import type { Lang } from "../i18n/utils";
+
 interface Props {
   title?: string;
   description?: string;
+  /** schema.org page type, e.g. AboutPage, ContactPage. */
+  schemaType?: string;
+  /** Error pages: no canonical/markdown twin, excluded from indexing. */
+  noindex?: boolean;
 }
 
-const lang = Astro.currentLocale ?? "en";
+const lang = (Astro.currentLocale ?? "en") as Lang;
 
 const {
   title = "Pilotariak — Pelota Basque",
   description = lang === "en"
     ? "The open source platform for Basque pelota. Results, competitions, and community."
     : "La plateforme de référence pour la pelote basque. Résultats, compétitions, et communauté.",
+  schemaType = "WebPage",
+  noindex = false,
 } = Astro.props;
 
 const bodyHtml = await Astro.slots.render("default");
 const bodyText = bodyHtml.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")
   .trim();
 const tokenCount = Math.round(bodyText.length / 4);
+
+// Canonical paths always carry a trailing slash, matching the sitemap.
+const basePath = Astro.url.pathname.replace(/^\/fr(?=\/|$)/, "").replace(
+  /\/?$/,
+  "/",
+);
+const pagePath = lang === "fr" ? `/fr${basePath}` : basePath;
+const canonical = new URL(pagePath, SITE).href;
+// Markdown twin served by worker.js: `/` → `/index.md`, `/frontis/` → `/frontis.md`.
+const markdownPath = basePath === "/"
+  ? `${pagePath}index.md`
+  : `${pagePath.slice(0, -1)}.md`;
+
+const slug = basePath.replaceAll("/", "") as ProjectSlug;
+const nodes = [
+  organization(),
+  website(lang),
+  webPage({ url: canonical, name: title, description, lang, type: schemaType }),
+];
+if (basePath === "/") {
+  nodes.push(projectList(lang));
+} else {
+  if (projectSlugs.includes(slug)) nodes.push(softwareApplication(slug, lang));
+  nodes.push(
+    breadcrumbs([
+      { name: "Pilotariak", url: new URL(lang === "fr" ? "/fr/" : "/", SITE).href },
+      { name: title.split(" — ")[0], url: canonical },
+    ]),
+  );
+}
+const jsonLd = JSON.stringify(graph(nodes)).replace(/</g, "\\u003c");
 ---
 
 <!DOCTYPE html>
@@ -32,24 +83,45 @@ const tokenCount = Math.round(bodyText.length / 4);
     />
     <meta name="description" content={description} />
     <meta name="ai:token-count" content={tokenCount.toString()} />
+    {noindex
+      ? <meta name="robots" content="noindex" />
+      : <link rel="canonical" href={canonical} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Pilotariak" />
+    <meta property="og:locale" content={lang === "fr" ? "fr_FR" : "en_GB"} />
+    <meta property="og:image" content={`${SITE}/og-image.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content={lang === "fr"
+        ? "Pilotariak — Outils open source pour la pelote basque"
+        : "Pilotariak — Open-source tools for Basque pelota"}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href={Astro.url.pathname.replace(/^\/fr/, "") || "/"}
-    />
-    <link
-      rel="alternate"
-      hreflang="fr"
-      href={`/fr${Astro.url.pathname.replace(/^\/fr/, "") || "/"}`}
-    />
+    <link rel="apple-touch-icon" href="/icon-512.png" />
+    {
+      !noindex && (
+        <>
+          <link rel="alternate" hreflang="en" href={new URL(basePath, SITE).href} />
+          <link rel="alternate" hreflang="fr" href={new URL(`/fr${basePath}`, SITE).href} />
+          <link rel="alternate" hreflang="x-default" href={new URL(basePath, SITE).href} />
+          <link rel="alternate" type="text/markdown" href={markdownPath} />
+        </>
+      )
+    }
+    <link rel="describedby" type="text/plain" href="/llms.txt" />
+    <link rel="service-doc" href={lang === "fr" ? "/fr/developers/" : "/developers/"} />
     <title>{title}</title>
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
   </head>
   <body>
     <slot />
+    <script src="../scripts/webmcp.ts"></script>
   </body>
 </html>
 

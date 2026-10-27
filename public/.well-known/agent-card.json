@@ -1,14 +1,14 @@
 {
   "protocolVersion": "1.0.0",
   "name": "Pilotariak",
-  "description": "Public read-only agent interface for pilotariak.com, an open-source software organisation for the Basque pelota sport community. Exposes project information, competition data, player profiles and API documentation over HTTP+JSON. No authentication required. No write operations.",
+  "description": "Public read-only agent interface for pilotariak.com, an open-source software organisation for the Basque pelota sport community. Points agents to project information, the public Frontis GraphQL API and the Azkena MCP server. The discovery documents need no authentication; the MCP server uses OAuth 2.1. No write operations.",
   "url": "https://pilotariak.com",
   "version": "1.0.0",
   "provider": {
     "organization": "Pilotariak",
     "url": "https://pilotariak.com"
   },
-  "documentationUrl": "https://pilotariak.com/llms.txt",
+  "documentationUrl": "https://pilotariak.com/developers/",
   "discoveryArtifacts": [
     {
       "type": "ai-policy-txt",
@@ -20,7 +20,15 @@
     },
     {
       "type": "mcp-server-card",
-      "url": "https://pilotariak.com/.well-known/mcp.json"
+      "url": "https://pilotariak.com/.well-known/mcp/server-card.json"
+    },
+    {
+      "type": "ard",
+      "url": "https://pilotariak.com/.well-known/ard.json"
+    },
+    {
+      "type": "llms-txt",
+      "url": "https://pilotariak.com/llms.txt"
     }
   ],
   "iconUrl": "https://pilotariak.com/favicon.svg",
@@ -61,14 +69,14 @@
     {
       "id": "mcp-server",
       "name": "MCP server — Azkena",
-      "description": "Access Basque pelota data (competitions, results, players, frontons) through the Azkena Model Context Protocol server at https://pilotariak.com/azkena. Exposes MCP tools and resources so AI agents can query the platform directly.",
+      "description": "Query Basque pelota data (competitions, clubs, categories, specialties, results) through the Azkena Model Context Protocol server at https://mcp.pilotariak.com/mcp. Read-only tools; OAuth 2.1 (dynamic client registration + PKCE).",
       "tags": [
         "mcp",
         "api",
         "basque-pelota",
         "competitions",
         "results",
-        "players"
+        "clubs"
       ],
       "examples": [
         "What MCP tools does Pilotariak expose?",
@@ -79,7 +87,7 @@
     {
       "id": "graphql-api",
       "name": "GraphQL API — Frontis",
-      "description": "Query the Frontis GraphQL gateway, which unifies five data domains (competitions, clubs, results, categories, disciplines) into a single federated API endpoint for Basque pelota data.",
+      "description": "Query the public Frontis GraphQL gateway at https://frontis-gateway.pilotariak.com/graphql, which unifies clubs, competitions, categories, specialties and results for Basque pelota. No authentication; select a league with the X-Pilotariak-League header.",
       "tags": [
         "graphql",
         "api",

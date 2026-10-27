@@ -3,7 +3,7 @@
   "info": {
     "title": "Pilotariak Website Agent API",
     "version": "1.0.0",
-    "description": "Metadata for Pilotariak website agents, MCP, and AI discoverability.",
+    "description": "Read-only discovery documents published by pilotariak.com for AI agents. Basque pelota data itself is served by the Frontis GraphQL API (https://frontis-gateway.pilotariak.com/graphql) and the Azkena MCP server (https://mcp.pilotariak.com/mcp); see https://pilotariak.com/developers/.",
     "contact": {
       "name": "Pilotariak",
       "url": "https://pilotariak.com"
@@ -19,9 +19,20 @@
       "get": {
         "summary": "A2A Agent Card",
         "operationId": "getAgentCard",
+        "description": "Returns A2A Agent Card. Public, cacheable, no authentication.",
         "responses": {
           "200": {
-            "description": "ok"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentCard"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -30,20 +41,42 @@
       "get": {
         "summary": "Agent Skills index",
         "operationId": "getSkillsIndex",
+        "description": "Returns Agent Skills index. Public, cacheable, no authentication.",
         "responses": {
           "200": {
-            "description": "ok"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SkillsIndex"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
     },
     "/.well-known/ai-catalog.json": {
       "get": {
-        "summary": "AI catalog (ARD)",
+        "summary": "AI catalog (ARD, legacy path)",
         "operationId": "getAiCatalog",
+        "description": "Returns AI catalog (ARD, legacy path). Public, cacheable, no authentication.",
         "responses": {
           "200": {
-            "description": "ok"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArdCatalog"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -52,20 +85,280 @@
       "get": {
         "summary": "MCP Server Card",
         "operationId": "getMcpCard",
+        "description": "Returns MCP Server Card. Public, cacheable, no authentication.",
         "responses": {
           "200": {
-            "description": "ok"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/McpServerCard"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
     },
     "/.well-known/security.txt": {
       "get": {
-        "summary": "Security policy",
+        "summary": "Security policy (RFC 9116)",
         "operationId": "getSecurity",
+        "description": "Returns Security policy (RFC 9116). Public, cacheable, no authentication.",
         "responses": {
           "200": {
-            "description": "ok"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/.well-known/ard.json": {
+      "get": {
+        "summary": "Agentic Resource Discovery catalog",
+        "operationId": "getArdCatalog",
+        "description": "Returns the ARD catalog (canonical path). Public, cacheable, no authentication.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArdCatalog"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Pilotariak developer portal",
+    "url": "https://pilotariak.com/developers/"
+  },
+  "components": {
+    "schemas": {
+      "AgentCard": {
+        "type": "object",
+        "required": [
+          "name",
+          "url",
+          "skills"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "version": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "SkillsIndex": {
+        "type": "object",
+        "required": [
+          "skills"
+        ],
+        "properties": {
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "type",
+                "url",
+                "digest"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "digest": {
+                  "type": "string",
+                  "pattern": "^sha256:[0-9a-f]{64}$"
+                }
+              }
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "ArdCatalog": {
+        "type": "object",
+        "required": [
+          "entries"
+        ],
+        "properties": {
+          "entries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "identifier",
+                "displayName",
+                "type",
+                "url"
+              ],
+              "properties": {
+                "identifier": {
+                  "type": "string",
+                  "pattern": "^urn:air:"
+                },
+                "displayName": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "representativeQueries": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "McpServerCard": {
+        "type": "object",
+        "required": [
+          "name",
+          "version",
+          "description"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "version": {
+            "type": "string"
+          },
+          "remotes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "type",
+                "url"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          }
+        },
+        "additionalProperties": true
+      },
+      "Problem": {
+        "type": "object",
+        "description": "RFC 9457 problem details returned for missing discovery documents.",
+        "required": [
+          "status",
+          "title"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {
+      "NotFound": {
+        "description": "Document not found",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
           }
         }
       }

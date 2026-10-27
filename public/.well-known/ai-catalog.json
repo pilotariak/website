@@ -2,29 +2,91 @@
   "specVersion": "1.0",
   "host": {
     "displayName": "Pilotariak",
-    "identifier": "pilotariak.com"
+    "identifier": "https://pilotariak.com",
+    "documentationUrl": "https://pilotariak.com/developers/",
+    "logoUrl": "https://pilotariak.com/icon-512.png"
   },
   "entries": [
     {
-      "identifier": "urn:ai:pilotariak.com:agent:main",
+      "identifier": "urn:air:pilotariak.com:agent:main",
       "displayName": "Pilotariak Agent",
       "type": "application/a2a-agent-card+json",
       "url": "https://pilotariak.com/.well-known/agent-card.json",
-      "description": "Public read-only agent interface for pilotariak.com, an open-source software organisation for the Basque pelota sport community."
+      "description": "Public read-only agent interface for pilotariak.com, an open-source software organisation for the Basque pelota sport community.",
+      "representativeQueries": [
+        "What open-source projects does Pilotariak maintain?",
+        "Where can I find Basque pelota competition data?",
+        "How do AI agents connect to Pilotariak?"
+      ],
+      "tags": [
+        "basque-pelota",
+        "open-source"
+      ],
+      "trustManifest": {
+        "identity": "https://pilotariak.com",
+        "identityType": "https"
+      }
     },
     {
-      "identifier": "urn:ai:pilotariak.com:mcp:azkena",
+      "identifier": "urn:air:pilotariak.com:mcp:azkena",
       "displayName": "Azkena MCP Server",
-      "type": "application/mcp-server+json",
-      "url": "https://pilotariak.com/.well-known/mcp.json",
-      "description": "Access Basque pelota data (competitions, results, players, frontons) through the Azkena Model Context Protocol server."
+      "type": "application/mcp-server-card+json",
+      "url": "https://pilotariak.com/.well-known/mcp/server-card.json",
+      "description": "Query Basque pelota competitions, clubs, categories, specialties and results through the Azkena MCP server (OAuth 2.1).",
+      "representativeQueries": [
+        "List Basque pelota competitions in the LCAPB league",
+        "Show match results for a trinquet competition",
+        "Which clubs play in the Île-de-France league?"
+      ],
+      "tags": [
+        "mcp",
+        "basque-pelota",
+        "competitions",
+        "results"
+      ],
+      "trustManifest": {
+        "identity": "https://pilotariak.com",
+        "identityType": "https"
+      }
     },
     {
-      "identifier": "urn:ai:pilotariak.com:skills:index",
+      "identifier": "urn:air:pilotariak.com:api:catalog",
+      "displayName": "Pilotariak API catalog",
+      "type": "application/linkset+json",
+      "url": "https://pilotariak.com/.well-known/api-catalog",
+      "description": "RFC 9727 catalog of Pilotariak APIs: the public Frontis GraphQL API (no auth) and the Azkena MCP server, with their documentation.",
+      "representativeQueries": [
+        "Query Basque pelota clubs with GraphQL",
+        "Get competition results by phase",
+        "What GraphQL endpoint serves Basque pelota data?"
+      ],
+      "tags": [
+        "graphql",
+        "api",
+        "basque-pelota"
+      ],
+      "trustManifest": {
+        "identity": "https://pilotariak.com",
+        "identityType": "https"
+      }
+    },
+    {
+      "identifier": "urn:air:pilotariak.com:skills:index",
       "displayName": "Pilotariak Agent Skills",
       "type": "application/agent-skills+json",
       "url": "https://pilotariak.com/.well-known/agent-skills/index.json",
-      "description": "Index of agent skills published by Pilotariak."
+      "description": "Index of agent skills published by Pilotariak.",
+      "representativeQueries": [
+        "Which agent skills does Pilotariak publish?",
+        "How do I use the Frontis GraphQL skill?"
+      ],
+      "tags": [
+        "agent-skills"
+      ],
+      "trustManifest": {
+        "identity": "https://pilotariak.com",
+        "identityType": "https"
+      }
     }
   ]
 }
