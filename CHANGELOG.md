@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.6.0...pilotariak-website-v0.7.0) (2026-10-27)
+
+
+### 🚀 Features
+
+* **aeo:** improve agent readiness for orank scan ([#42](https://github.com/pilotariak/website/issues/42)) ([09ffc13](https://github.com/pilotariak/website/commit/09ffc13c6a27c5653e2672cc37b7a8e1bc962528))
+
 ## [0.6.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.5.0...pilotariak-website-v0.6.0) (2026-10-24)
 
 
