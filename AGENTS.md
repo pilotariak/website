@@ -1,7 +1,7 @@
 # AGENTS.md — Pilotariak Website
 
 Organization landing page for [Pilotariak](https://github.com/Pilotariak), built with [Astro](https://astro.build).
-Deployed to Cloudflare Pages. Supports English and French (i18n).
+Deployed to Cloudflare Workers (static assets + `worker.js`). Supports English and French (i18n).
 
 ## Architecture
 
@@ -44,15 +44,31 @@ make check       # astro check (TypeScript + template types)
 make lint        # eslint / dprint linting
 ```
 
-## Deployment (Cloudflare Pages)
+## Deployment (Cloudflare Workers)
 
 The site deploys automatically via CI on merge to `main`. Manual deploy:
 
 ```bash
-bunx wrangler pages deploy dist --project-name=pilotariak-website
+bunx wrangler deploy
 ```
 
 Config in `wrangler.jsonc`.
+
+## Agent discovery surface
+
+`worker.js` runs before static assets (`run_worker_first` in `wrangler.jsonc`) and adds:
+
+- Markdown for every page: `Accept: text/markdown`, AI-agent User-Agents, or a `.md` twin
+  (`/index.md`, `/frontis.md`, `/fr/index.md`); unknown paths return `404` (markdown body on request)
+- `/?mode=agent` JSON summary and RFC 8288 `Link` discovery headers on HTML pages
+
+Static discovery files live in `public/` (`llms.txt`, `auth.md`, `developers/llms.txt`,
+`.well-known/{ard.json,ai-catalog.json,api-catalog,mcp/server-card.json,agent-card.json,...}`).
+JSON-LD comes from `src/lib/schema.ts` (also feeds `/schema-feed.jsonl`); WebMCP tools are in
+`src/scripts/webmcp.ts`. After editing any `SKILL.md`, update its `sha256` digest in
+`public/.well-known/agent-skills/index.json` (CI verifies it). Real endpoints: Frontis GraphQL
+`https://frontis-gateway.pilotariak.com/graphql` (no auth), Azkena MCP
+`https://mcp.pilotariak.com/mcp` (OAuth 2.1).
 
 ## Documentation
 

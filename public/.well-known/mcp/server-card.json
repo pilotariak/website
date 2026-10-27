@@ -1,10 +1,26 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
-  "name": "pilotariak/azkena",
-  "version": "1.0.0",
-  "description": "Access Basque pelota data (competitions, results, players, frontons) via MCP. No auth required.",
+  "name": "com.pilotariak/azkena",
   "title": "Pilotariak Azkena",
-  "websiteUrl": "https://pilotariak.com",
+  "description": "Basque pelota competitions, clubs and results as MCP tools. Read-only, OAuth 2.1.",
+  "version": "1.0.0",
+  "websiteUrl": "https://pilotariak.com/azkena/",
+  "icons": [
+    {
+      "src": "https://pilotariak.com/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    },
+    {
+      "src": "https://pilotariak.com/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
   "repository": {
     "url": "https://github.com/Pilotariak/azkena",
     "source": "github"
@@ -12,8 +28,10 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://pilotariak.com/azkena",
-      "supportedProtocolVersions": ["2025-06-18", "2025-11-25"]
+      "url": "https://mcp.pilotariak.com/mcp",
+      "supportedProtocolVersions": [
+        "2026-07-28"
+      ]
     }
   ]
 }

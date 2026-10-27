@@ -4,30 +4,30 @@
     {
       "name": "project-info",
       "type": "skill-md",
-      "description": "Get details about Pilotariak open-source projects: Frontis (GraphQL API gateway), Kancha (iOS & Android mobile app), Xilo (Slack bot), and Azkena (MCP server).",
+      "description": "Get details about Pilotariak open-source projects — Frontis (GraphQL API gateway), Kancha (iOS & Android mobile app), Xilo (Slack bot) and Azkena (MCP server). Use when someone asks what Pilotariak builds, which project fits their need, or where its source code lives.",
       "url": "/.well-known/agent-skills/project-info/SKILL.md",
-      "digest": "sha256:1bf6154e2045567663e493449170a2159267c02081c704480661c0cb9a1e8b5f"
+      "digest": "sha256:6d658da0e3b22f40415b3a2f5fe256ed93bc9f6e0d9fe276bb063fb4af0e733c"
     },
     {
       "name": "mcp-server",
       "type": "skill-md",
-      "description": "Access Basque pelota data (competitions, results, players, frontons) through the Azkena Model Context Protocol server at https://pilotariak.com/azkena. No authentication required.",
+      "description": "Query Basque pelota competitions, clubs, categories, specialties and match results through the Azkena MCP server at https://mcp.pilotariak.com/mcp (OAuth 2.1). Use when an AI assistant needs ongoing tool access to Basque pelota league data instead of hand-written GraphQL queries.",
       "url": "/.well-known/agent-skills/mcp-server/SKILL.md",
-      "digest": "sha256:907301e8b1edcff05395249c71ed7ccf44472757de06795f5efdc9e5de270a54"
+      "digest": "sha256:5021929fb9b53fadeb49cdc1381167ef924ff351dcaffd0ba21b0524460d192e"
     },
     {
       "name": "graphql-api",
       "type": "skill-md",
-      "description": "Query the Frontis GraphQL gateway, which unifies five data domains (competitions, clubs, results, categories, disciplines) into a single federated API endpoint for Basque pelota data.",
+      "description": "Query the public Frontis GraphQL API (https://frontis-gateway.pilotariak.com/graphql) for Basque pelota clubs, competitions, categories, specialties and match results. Use when you need Basque pelota league data in a script, app or one-off lookup without authentication.",
       "url": "/.well-known/agent-skills/graphql-api/SKILL.md",
-      "digest": "sha256:1a582a0fd8de8c247c35e7f20466b6acafdc190ff3a79a0768dbd32ed3e4493e"
+      "digest": "sha256:28922ba761c77bc53c2e6baf231c422dd07d75bfb3b16e78b488d0ff1ae5290a"
     },
     {
       "name": "sport-context",
       "type": "skill-md",
-      "description": "Get background information about Basque pelota (pelote basque): disciplines, statistics (240+ competitions/year, 1,800 players, 120 frontons), and the Pilotariak open-source organisation.",
+      "description": "Get background information about Basque pelota (pelote basque) — disciplines, key statistics (240+ competitions/year, 1,800 players, 120 frontons) and the Pilotariak organisation. Use when explaining the sport, its disciplines or vocabulary before or alongside querying Pilotariak data.",
       "url": "/.well-known/agent-skills/sport-context/SKILL.md",
-      "digest": "sha256:622c6700b7a536dd5798b2366dd4fa5f2cc437faaa8c32e5ab5121f62549a51d"
+      "digest": "sha256:d11e44bca6346b573c586ec0f3a27203623ba3ce820c4bfc3867533327a63d87"
     }
   ]
 }

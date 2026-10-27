@@ -8,8 +8,10 @@
 
 User-agent: *
 Allow: /
-Sitemap: https://pilotariak.com/sitemap.xml
 Sitemap: https://pilotariak.com/sitemap-index.xml
+
+# NLWeb Schema Feeds — structured data (schema.org JSONL) for AI agents
+schemamap: https://pilotariak.com/schemamap.xml
 
 # AI crawlers — welcome for content reading; training is not permitted
 User-agent: ClaudeBot

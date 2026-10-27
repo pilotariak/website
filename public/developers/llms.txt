@@ -1,0 +1,31 @@
+# Pilotariak — Developers
+
+> Developer index for Pilotariak: the public Frontis GraphQL API and the Azkena MCP server for Basque pelota data. Parent index: https://pilotariak.com/llms.txt
+
+## When to use
+
+- Query clubs, competitions, categories, specialties or match results for the LCAPB, LIDFPB or CTPB leagues → Frontis GraphQL.
+- Give an AI assistant tool access to the same data → Azkena MCP.
+
+## Frontis GraphQL API
+
+- Endpoint: https://frontis-gateway.pilotariak.com/graphql (POST, JSON, no authentication, read-only)
+- Required header: `X-Pilotariak-League: lcapb | lidfpb | ctpb`
+- Queries: clubs, club(id), competitions, competition(id), categories, category(id), specialties, specialty(id), results(competitionId, specialtyId, categoryId, phase), result(id), version
+- Errors: GraphQL `errors[]` with `message` and `extensions.code` (BAD_REQUEST, GRAPHQL_VALIDATION_FAILED)
+- [graphql-api skill](https://pilotariak.com/.well-known/agent-skills/graphql-api/SKILL.md): full reference with examples (~0.8K tokens)
+
+## Azkena MCP server
+
+- Endpoint: https://mcp.pilotariak.com/mcp (Streamable HTTP, MCP 2026-07-28, OAuth 2.1 + PKCE)
+- Tools: list_competitions, list_clubs, list_categories, list_specialties, list_results (all take `league`)
+- Rate limit: 60 requests/minute per IP
+- [auth.md](https://pilotariak.com/auth.md): credential walkthrough (~1.2K tokens)
+- [mcp-server skill](https://pilotariak.com/.well-known/agent-skills/mcp-server/SKILL.md) (~0.5K tokens)
+- [Server card](https://pilotariak.com/.well-known/mcp/server-card.json) (~0.1K tokens)
+
+## Docs
+
+- [Developer portal](https://pilotariak.com/developers.md): quickstart, auth, errors, limits (~1.5K tokens)
+- [API catalog](https://pilotariak.com/.well-known/api-catalog) · [OpenAPI](https://pilotariak.com/.well-known/openapi.json) · [ARD](https://pilotariak.com/.well-known/ard.json)
+- Source: https://github.com/Pilotariak

@@ -1,0 +1,172 @@
+---
+// SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+// SPDX-License-Identifier: Apache-2.0
+
+import Footer from "./Footer.astro";
+import Nav from "./Nav.astro";
+import Layout from "../layouts/Layout.astro";
+import { prose, type ProsePageKey } from "../i18n/pages";
+import type { Lang } from "../i18n/utils";
+
+interface Props {
+  page: ProsePageKey;
+}
+
+const lang = (Astro.currentLocale ?? "en") as Lang;
+const content = prose[lang][Astro.props.page];
+const updatedLabel = lang === "fr" ? "Dernière mise à jour :" : "Last updated:";
+---
+
+<Layout
+  title={content.meta.title}
+  description={content.meta.description}
+  schemaType={content.schemaType}
+  noindex={Astro.props.page === "notFound"}
+>
+  <Nav />
+  <main id="main" tabindex="-1">
+    <section class="prose-hero">
+      <div class="container prose-hero__inner">
+        <p class="eyebrow eyebrow--light">{content.eyebrow}</p>
+        <h1 class="prose-hero__title">{content.title}</h1>
+        <p class="prose-hero__intro" set:html={content.intro} />
+        {
+          content.updated && (
+            <p class="prose-hero__updated">
+              {updatedLabel} <time datetime={content.updated}>{content.updated}</time>
+            </p>
+          )
+        }
+      </div>
+    </section>
+
+    <div class="section">
+      <div class="container prose">
+        {
+          content.sections.map((section) => (
+            <section id={section.id} aria-labelledby={`${section.id}-title`}>
+              <h2 id={`${section.id}-title`}>{section.heading}</h2>
+              {section.paragraphs?.map((p) => <p set:html={p} />)}
+              {section.items && (
+                <ul>
+                  {section.items.map((item) => <li set:html={item} />)}
+                </ul>
+              )}
+              {section.code && (
+                <figure class="prose__code">
+                  <figcaption>{section.code.label}</figcaption>
+                  <pre><code>{section.code.content}</code></pre>
+                </figure>
+              )}
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .prose-hero {
+    background-color: var(--ink);
+    color: var(--white);
+    padding-block: var(--space-hero) var(--space-3xl);
+  }
+
+  .prose-hero__inner {
+    max-width: 800px;
+  }
+
+  .prose-hero__title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-block: var(--space-sm) var(--space-md);
+  }
+
+  .prose-hero__intro {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .prose-hero__updated {
+    margin-top: var(--space-md);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .prose {
+    max-width: 800px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .prose section + section {
+    margin-top: var(--space-2xl);
+  }
+
+  .prose h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+  }
+
+  .prose p + p,
+  .prose p + ul,
+  .prose ul + figure,
+  .prose p + figure {
+    margin-top: var(--space-md);
+  }
+
+  .prose ul {
+    padding-left: var(--space-lg);
+    list-style: disc;
+  }
+
+  .prose li + li {
+    margin-top: var(--space-xs);
+  }
+
+  .prose :global(a) {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .prose :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    background-color: var(--surface-alt);
+    border-radius: var(--radius-sm);
+    padding: 1px 6px;
+    overflow-wrap: anywhere;
+  }
+
+  .prose__code figcaption {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: var(--space-xs);
+  }
+
+  .prose__code pre {
+    background-color: var(--panel);
+    color: var(--cream);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .prose__code pre code {
+    background: none;
+    padding: 0;
+    overflow-wrap: normal;
+  }
+</style>
