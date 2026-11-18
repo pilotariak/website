@@ -100,7 +100,7 @@ export const ui = {
       "Une suite d'outils open source pour la communauté de la pelote basque : Frontis la passerelle GraphQL et Kancha l'application mobile iOS & Android.",
     'frontis.meta.title': 'Frontis — API GraphQL | Pilotariak',
     'frontis.meta.description':
-      "Frontis est la passerelle GraphQL de Pilotariak. Elle unifie cinq domaines de données en une seule API — compétitions, clubs, résultats et spécialités.",
+      "Frontis est la passerelle GraphQL de Pilotariak. Elle unifie six domaines de données en une seule API — compétitions, clubs, résultats, classements et spécialités.",
     'kancha.meta.title': 'Kancha — Application mobile pelote basque | Pilotariak',
     'kancha.meta.description':
       "Kancha est l'application mobile iOS et Android de Pilotariak. Résultats en direct, compétitions, spécialités et phases de tournoi — disponible sur iPhone et Android.",
@@ -116,20 +116,22 @@ export const ui = {
     'frontis.hero.back': 'Pilotariak',
     'frontis.hero.eyebrow': 'GraphQL · Open Source · Fédération',
     'frontis.hero.subtitle':
-      "L'API GraphQL de Pilotariak — cinq domaines de données, un seul point d'entrée. Conçue pour les développeurs qui veulent accéder aux données de la pelote basque.",
+      "L'API GraphQL de Pilotariak — six domaines de données, un seul point d'entrée. Conçue pour les développeurs qui veulent accéder aux données de la pelote basque.",
     'frontis.hero.github': 'Voir sur GitHub',
     'frontis.hero.architecture': 'Comment ça marche',
 
     'frontis.overview.eyebrow': "Vue d'ensemble",
     'frontis.overview.title': 'Une API unifiée pour toutes les données',
     'frontis.overview.subtitle':
-      "Frontis fédère cinq services indépendants en un seul point d'entrée GraphQL. Chaque domaine dispose de son propre schéma et de son propre cycle de déploiement.",
+      "Frontis fédère six services indépendants en un seul point d'entrée GraphQL. Chaque domaine dispose de son propre schéma et de son propre cycle de déploiement.",
 
     'frontis.subgraph.echo': "Healthcheck et version de l'API.",
     'frontis.subgraph.categories': "Catégories de compétition — propriétaire de l'entité <code>Category</code>.",
     'frontis.subgraph.clubs': "Clubs de pelote basque — propriétaire de l'entité <code>Club</code>.",
     'frontis.subgraph.competitions':
       "Championnats et tournois — propriétaire de l'entité <code>Competition</code>.",
+    'frontis.subgraph.rankings':
+      "Classements de fin de championnat — propriétaire de l'entité <code>TeamRanking</code>.",
     'frontis.subgraph.results': "Résultats de matchs — propriétaire de l'entité <code>Result</code>.",
     'frontis.subgraph.specialties':
       "Spécialités de pelote — propriétaire de l'entité <code>Specialty</code>.",
@@ -482,7 +484,7 @@ export const ui = {
       'An open source toolkit for the Basque pelota community: Frontis the GraphQL gateway and Kancha the iOS & Android mobile app.',
     'frontis.meta.title': 'Frontis — GraphQL API | Pilotariak',
     'frontis.meta.description':
-      'Frontis is the GraphQL gateway of Pilotariak. It unifies five data domains into a single API — competitions, clubs, results and disciplines.',
+      'Frontis is the GraphQL gateway of Pilotariak. It unifies six data domains into a single API — competitions, clubs, results, rankings and disciplines.',
     'kancha.meta.title': 'Kancha — Basque Pelota Mobile App | Pilotariak',
     'kancha.meta.description':
       'Kancha is the iOS and Android mobile app from Pilotariak. Live results, competitions, disciplines and tournament brackets — available on iPhone and Android.',
@@ -498,19 +500,20 @@ export const ui = {
     'frontis.hero.back': 'Pilotariak',
     'frontis.hero.eyebrow': 'GraphQL · Open Source · Federation',
     'frontis.hero.subtitle':
-      "Pilotariak's GraphQL API — five data domains, one entry point. Built for developers who want to access Basque pelota data.",
+      "Pilotariak's GraphQL API — six data domains, one entry point. Built for developers who want to access Basque pelota data.",
     'frontis.hero.github': 'View on GitHub',
     'frontis.hero.architecture': 'How it works',
 
     'frontis.overview.eyebrow': 'Overview',
     'frontis.overview.title': 'A unified API for all data',
     'frontis.overview.subtitle':
-      'Frontis federates five independent services into a single GraphQL entry point. Each domain has its own schema and its own deployment cycle.',
+      'Frontis federates six independent services into a single GraphQL entry point. Each domain has its own schema and its own deployment cycle.',
 
     'frontis.subgraph.echo': 'API health check and version.',
     'frontis.subgraph.categories': 'Competition categories — owns the <code>Category</code> entity.',
     'frontis.subgraph.clubs': 'Basque pelota clubs — owns the <code>Club</code> entity.',
     'frontis.subgraph.competitions': 'Championships and tournaments — owns the <code>Competition</code> entity.',
+    'frontis.subgraph.rankings': 'End-of-championship rankings — owns the <code>TeamRanking</code> entity.',
     'frontis.subgraph.results': 'Match results — owns the <code>Result</code> entity.',
     'frontis.subgraph.specialties': 'Pelota disciplines — owns the <code>Specialty</code> entity.',
 

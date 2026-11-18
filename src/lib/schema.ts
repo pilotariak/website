@@ -29,7 +29,7 @@ const projects: Record<
       operatingSystem: 'Any',
       featureList: [
         'Public GraphQL endpoint: https://frontis-gateway.pilotariak.com/graphql',
-        'Clubs, competitions, categories, specialties and results',
+        'Clubs, competitions, categories, specialties, results and rankings',
         'No authentication; league selected with the X-Pilotariak-League header',
       ],
     },
