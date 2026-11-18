@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.6.0...pilotariak-website-v0.7.0) (2026-11-18)
+
+
+### 🚀 Features
+
+* **aeo:** improve agent readiness for orank scan ([#42](https://github.com/pilotariak/website/issues/42)) ([09ffc13](https://github.com/pilotariak/website/commit/09ffc13c6a27c5653e2672cc37b7a8e1bc962528))
+* **frontis:** add rankings subgraph to the Frontis page ([#44](https://github.com/pilotariak/website/issues/44)) ([09e5550](https://github.com/pilotariak/website/commit/09e5550c2ae8d475d4a15812826c0e7fbb87a4e6))
+
 ## [0.6.0](https://github.com/pilotariak/website/compare/pilotariak-website-v0.5.0...pilotariak-website-v0.6.0) (2026-10-24)
 
 
